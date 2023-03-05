@@ -22,4 +22,4 @@ A landing page/institucional site template for a fastened development.
 > Agilely develop pages with it's utility CSS on classes making things faster and lighter.
 
 **Astro**
-> Less javascript, island and the possibility to use other librarys and frameworks makes it the most flexible and performance rewarding choice.
+> Less javascript, island and the possibility to use other libraries and frameworks makes it the most flexible and performance rewarding choice.
