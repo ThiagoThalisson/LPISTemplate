@@ -15,11 +15,11 @@ A landing page/institucional site template for a fastened development.
 ---
 
 # Technologies, Techniques And Lessons Learned 
-- Yarn
+**Yarn**
 > Used yarn berry for it's speeed and global offline cache. 
 
-- TailWind
+**TailWind**
 > Agilely develop pages with it's utility CSS on classes making things faster and lighter.
 
-- Astro
+**Astro**
 > Less javascript, island and the possibility to use other librarys and frameworks makes it the most flexible and performance rewarding choice.
