@@ -8,7 +8,7 @@ A landing page/institucional site template for fast development.
 | [Insightful Docs - Notion]()  | 
 | ----------------------------- |
 
-![Project Cover Template](./assets/ProjectCoverTemplate1080P.png)
+![Project Cover Template](./assets/ProjectCoverTemplate.png)
 
 </div>
 
