@@ -1,0 +1,7 @@
+{
+  "name": "LPISTemplate",
+  "packageManager": "yarn@3.4.1",
+  "dependencies": {
+    "astro": "latest"
+  }
+}

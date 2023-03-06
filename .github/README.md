@@ -5,8 +5,8 @@ A landing page/institucional site template for a fastened development.
 
 <div align="center">
 
-| [Insightful Docs - Notion]()  | 
-| ----------------------------- |
+| [Insightful Docs - Notion](google.com)  | 
+| --------------------------------------- |
 
 ![Project Cover Template](./assets/ProjectCoverTemplate.png)
 
