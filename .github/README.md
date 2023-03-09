@@ -36,4 +36,4 @@ A landing page/institucional site template for a fastened development.
 - Smart Loading;
 - SEO Optimized.
 
-[🔝️ Return To Top](#LPIS-Template)
+[⬆️ Return To Top](#LPIS-Template)
