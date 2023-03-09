@@ -8,7 +8,7 @@ A landing page/institucional site template for a fastened development.
 | [Insightful Docs - Notion](google.com)  | 
 | --------------------------------------- |
 
-![Project Cover Template](./assets/ProjectCoverTemplate.svg)
+<!-- ![Project Cover Template](./assets/ProjectCoverTemplate.svg) -->
 
 </div>
 
@@ -18,7 +18,7 @@ A landing page/institucional site template for a fastened development.
 
 <div align="center">
 
-![Logo, Colors And Typography](./assets/Logo%2C%20Colors%20And%20Typography.svg)
+<!-- ![Logo, Colors And Typography](./assets/Logo%2C%20Colors%20And%20Typography.svg) -->
 
 </div>
 
