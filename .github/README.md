@@ -13,8 +13,13 @@ A landing page/institucional site template for a fastened development.
 </div>
 
 ---
+**Table Of Contents**
+- [🎨 Visual Identity](#🎨-Visual-Identity)
+- [⚙️ Technologies, Techniques And Lessons Learned](#⚙-Technologies,-Techniques-And-Lessons-Learned)
+- [💻 Contributors](#💻-Contributors)
+- [📝 License](#📝-License)
 
-# `Visual Identity`
+# `🎨 Visual Identity`
 
 <div align="center">
 
@@ -22,7 +27,7 @@ A landing page/institucional site template for a fastened development.
 
 </div>
 
-# `Technologies, Techniques And Lessons Learned`
+# `⚙️ Technologies, Techniques And Lessons Learned`
 **Yarn**
 > Yarn Berry, better, faster and stronger.
 - Plug'N Play;
@@ -35,5 +40,30 @@ A landing page/institucional site template for a fastened development.
 > Less javascript, island and the possibility to use other libraries and frameworks makes it the most flexible and performance rewarding choice.
 - Smart Loading;
 - SEO Optimized.
+
+# `💻 Contributors`
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/ThiagoThalisson">
+        <img src="https://avatars.githubusercontent.com/ThiagoThalisson" width="100px;" alt="Foto do Thiago Thalisson no GitHub"/><br>
+        <span>
+            <p>
+                <b>Thiago Thalisson</b>
+            </p>
+        </span>
+        <span>
+            <a href="https://www.linkedin.com/in/thiago-thalisson-lisboa/">
+                <img src="https://img.shields.io/badge/LinkedIn-FFFFFF?style=for-the-badge&logo=linkedin&logoColor=0A66C2" />
+            </a>
+        </span>
+      </a>
+    </td>
+  </tr>
+</table>
+
+# `📝 License`
+This project is under the Apache license. See the [license](LICENSE) file for mode details.
 
 [⬆️ Return To Top](#LPIS-Template)
