@@ -35,3 +35,5 @@ A landing page/institucional site template for a fastened development.
 > Less javascript, island and the possibility to use other libraries and frameworks makes it the most flexible and performance rewarding choice.
 - Smart Loading;
 - SEO Optimized.
+
+[🔝️ Return To Top](#LPIS-Template)
