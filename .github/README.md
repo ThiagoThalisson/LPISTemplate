@@ -18,7 +18,7 @@ A landing page/institucional site template for a fastened development.
 
 <div align="center">
 
-![Logo, Colors And Typography](./assets/Logo-Colors-And-Typography)
+![Logo, Colors And Typography](./assets/Logo-Colors-And-Typography.svg)
 
 </div>
 
