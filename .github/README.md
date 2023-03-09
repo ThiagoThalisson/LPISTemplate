@@ -27,7 +27,7 @@ A landing page/institucional site template for a fastened development.
 
 </div>
 
-# `⚙️ Technologies, Techniques And Lessons Learned`
+# `⚙️ Technologies And Techniques`
 **Yarn**
 > Yarn Berry, better, faster and stronger.
 - Plug'N Play;
