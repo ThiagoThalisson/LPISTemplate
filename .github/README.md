@@ -8,18 +8,26 @@ A landing page/institucional site template for a fastened development.
 | [Insightful Docs - Notion](google.com)  | 
 | --------------------------------------- |
 
-![Project Cover Template](./assets/ProjectCoverTemplate.png)
+![Project Cover Template](./assets/ProjectCoverTemplate.svg)
 
 </div>
 
 ---
 
-# Technologies, Techniques And Lessons Learned 
+# `Visual Identity`
+
+![Logo, Color And Typography](./assets/LogoColorsAndTypography.svg)
+
+# `Technologies, Techniques And Lessons Learned`
 **Yarn**
-> Used yarn berry for it's speeed and global offline cache. 
+> Yarn Berry, better, faster and stronger.
+- Plug'N Play;
+- Workspaces.
 
 **TailWind**
 > Agilely develop pages with it's utility CSS on classes making things faster and lighter.
 
 **Astro**
 > Less javascript, island and the possibility to use other libraries and frameworks makes it the most flexible and performance rewarding choice.
+- Smart Loading;
+- SEO Optimized.
