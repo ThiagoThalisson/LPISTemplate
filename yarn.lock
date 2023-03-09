@@ -1520,9 +1520,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.284":
-  version: 1.4.325
-  resolution: "electron-to-chromium@npm:1.4.325"
-  checksum: 25c05fd7c9cde12fcc620504edb252413658081f0b0d2598751f5d84573414781688c9793515d58398d96581538982010a97210cd816b65e1db57036315234e8
+  version: 1.4.326
+  resolution: "electron-to-chromium@npm:1.4.326"
+  checksum: 66e22009619f8b83e6f8435cc71b52fb0e12ea1fa992f89b0907e49a1937b5a00821b86433c2d639dfff757bf88dfb1f43a97aa1e110d8fb3003729fb5b7a371
   languageName: node
   linkType: hard
 
@@ -2481,14 +2481,6 @@ __metadata:
   checksum: d7f952ed004cbdb5c8bcfc4f7f5c3d65449e6c5a9e9be4505a656e3df5a57ee125f284286b4bf8ecea0c21a7b3bf2b8f9001ad506c319b9815ad6a63a47d0fd0
   languageName: node
   linkType: hard
-
-"lpis-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "lpis-template@workspace:."
-  dependencies:
-    astro: ^2.0.18
-  languageName: unknown
-  linkType: soft
 
 "lru-cache@npm:^5.1.1":
   version: 5.1.1
@@ -3832,8 +3824,8 @@ __metadata:
   linkType: hard
 
 "rollup@npm:^3.10.0":
-  version: 3.18.0
-  resolution: "rollup@npm:3.18.0"
+  version: 3.19.0
+  resolution: "rollup@npm:3.19.0"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -3841,7 +3833,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 0bcd1abb1cc383abdd09b5594de862ecb2f946e950954bb472a370289bdc4499aea8d04477be55ce205450d973d38ad255f0dc6926162500a251d73bf0e60e6f
+  checksum: 720810cc0fb6daf785c45a5d19a480fcc2eddbc37e8272c7fdca4dd45b3ce20230953915b4934e117624e2e803501637283ede7fca4e780486bf8b9e4ef364a3
   languageName: node
   linkType: hard
 
@@ -4210,6 +4202,14 @@ __metadata:
   checksum: 8a278bed123aa9f53549b256a36b719e317c8b96fe86a63406f3c62887f78267cea9b22dc6f7007009738509800d4a4dccc444abd71d762287c90f35b002eb1c
   languageName: node
   linkType: hard
+
+"technological-trappist@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "technological-trappist@workspace:."
+  dependencies:
+    astro: ^2.0.18
+  languageName: unknown
+  linkType: soft
 
 "tiny-glob@npm:^0.2.9":
   version: 0.2.9
