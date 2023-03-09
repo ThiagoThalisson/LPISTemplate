@@ -16,7 +16,13 @@ A landing page/institucional site template for a fastened development.
 
 # `Visual Identity`
 
-![Logo, Color And Typography](./assets/LogoColorsAndTypography.svg)
+<div align="center">
+
+![LogoWhiteBackground](./assets/LogoWhiteBackground.svg) ![Logo Black Background](./assets/LogoBlackBackground.svg)
+![Typography](./assets/Typography.svg)
+![Colors](./assets/Colors.svg)
+
+</div>
 
 # `Technologies, Techniques And Lessons Learned`
 **Yarn**
