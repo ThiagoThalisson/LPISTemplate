@@ -18,7 +18,7 @@ A landing page/institucional site template for a fastened development.
 
 <div align="center">
 
-<img src="./assets/LogoWhiteBackground.svg/" width="470"/> <img src="./assets/LogoBlackBackground.svg" width="470"/> 
+<img src="./assets/LogoWhiteBackground.svg/" width="400"/> <img src="./assets/LogoBlackBackground.svg" width="400"/> 
 
 <!-- ![LogoWhiteBackground](./assets/LogoWhiteBackground.svg) ![Logo Black Background](./assets/LogoBlackBackground.svg) -->
 
