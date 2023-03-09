@@ -15,7 +15,7 @@ A landing page/institucional site template for a fastened development.
 ---
 **Table Of Contents**
 - [🎨 Visual Identity](#-visual-identity)
-- [⚙️ Technologies, Techniques And Lessons Learned](#%EF%B8%8F-technologies-techniques-and-lessons-learned)
+- [⚙️ Technologies And Techniques](#%EF%B8%8F-technologies-and-techniques)
 - [💻 Contributors](#-contributors)
 - [📝 License](#-license)
 
