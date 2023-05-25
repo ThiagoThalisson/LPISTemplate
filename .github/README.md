@@ -22,7 +22,7 @@
 
 </div>
 
-## `Table Of Contents` <!-- omit in toc -->
+## 📖 `Table Of Contents` <!-- omit in toc -->
 
 - [🏷️ `Features`](#️-features)
 - [📜 `Purpose`](#-purpose)
