@@ -22,7 +22,7 @@ pnpm-debug.log*
 
 # yarn stuff
 .pnp.*
-./.yarn/*
+.yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
