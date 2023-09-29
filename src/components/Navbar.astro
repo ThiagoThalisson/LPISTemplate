@@ -1,0 +1,43 @@
+---
+import { Image } from "@astrojs/image/components"
+import { proseWrap } from "../../prettier.config.cjs"
+
+export type Page = {
+  name: string
+  slug: string
+  image: string
+}
+
+const pages: Page[] = [
+  {
+    name: "Home",
+    slug: "/",
+    image: "/Icons/house.svg",
+  },
+  {
+    name: "Sobre Nós",
+    slug: "/about",
+    image: "/Icons/info.svg",
+  },
+  {
+    name: "Contato",
+    slug: "/contact",
+    image: "/Icons/phone.svg",
+  },
+]
+
+export interface Props {
+  variant: string | string
+}
+
+const { variant } = Astro.props
+---
+
+<nav>
+  {
+    [
+      variant == "first-one" && <div>Primeiro</div>,
+      variant == "second-one" && <div>Segundo</div>
+    ]
+  }
+</nav>
