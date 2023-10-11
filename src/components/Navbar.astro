@@ -1,6 +1,5 @@
 ---
 import { Image } from "@astrojs/image/components"
-import { proseWrap } from "../../prettier.config.cjs"
 
 export type Page = {
   name: string
@@ -26,18 +25,66 @@ const pages: Page[] = [
   },
 ]
 
-export interface Props {
-  variant: string | string
-}
-
 const { variant } = Astro.props
 ---
 
-<nav>
+<nav class="flex justify-center items-center">
   {
     [
-      variant == "first-one" && <div>Primeiro</div>,
-      variant == "second-one" && <div>Segundo</div>
+      variant == "mobile" && (
+        <div class="flex w-full justify-around fixed bottom-0 md:hidden">
+          {pages.map((page) => (
+            <div class="flex flex-col items-center">
+              <Image
+                width={32}
+                height={32}
+                src={page.image}
+                quality={100}
+                format="svg"
+                alt="Ícone da navegação."
+                class="h-8"
+              />
+              <a data-nav href={page.slug} class:list={""}>
+                {page.name}
+              </a>
+            </div>
+          ))}
+        </div>
+      ),
+      variant == "desktop" && (
+        <div class="flex max-w-screen-lg gap-3">
+          {pages.map((page) => (
+            <a
+              data-nav
+              href={page.slug}
+              class:list={"hidden md:block px-4 py-2"}
+            >
+              {page.name}
+            </a>
+          ))}
+        </div>
+      ),
     ]
   }
 </nav>
+
+<style>
+  .selected-link {
+    @apply !text-primary-base;
+  }
+</style>
+
+<script defer>
+  function main() {
+    const pathname = location.pathname
+    const links = document.querySelectorAll("nav a[data-nav]")
+
+    links.forEach((link) => {
+      if (link.pathname === pathname) {
+        link.classList.add("selected-link")
+      }
+    })
+  }
+
+  document.addEventListener("DOMContentLoaded", main)
+</script>
