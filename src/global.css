@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;600;700&display=swap");
+@import "./reset.css";
 
 @tailwind base;
 @tailwind components;
@@ -9,40 +10,54 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  height: 1900px;
+}
+
 @layer base {
   h1,
   h2,
   h3,
   h4 {
     font-family: "Poppins", sans-serif;
+    @apply !font-bold text-slate-800;
   }
 
   h1 {
-    @apply text-3xl font-bold text-slate-100 md:text-5xl;
+    @apply !text-3xl md:!text-5xl;
   }
 
   h2 {
-    @apply text-2xl font-bold text-slate-100 md:text-4xl;
+    @apply !text-2xl md:!text-4xl;
   }
 
   h3 {
-    @apply text-xl font-bold text-slate-100 md:text-2xl;
+    @apply !text-xl md:!text-2xl;
+  }
+
+  p,
+  label,
+  input,
+  select,
+  a,
+  button {
+    @apply text-base md:text-xl;
+    font-family: "Montserrat", sans-serif;
   }
 
   p,
   label,
   input,
   select {
-    @apply text-base text-slate-300 md:text-xl;
-    font-family: "Montserrat", sans-serif;
+    @apply text-slate-600;
   }
 
   a,
   button {
-    @apply text-base font-semibold text-slate-100 md:text-xl;
+    @apply font-bold text-slate-800;
   }
 
   a {
-    @apply transition-colors hover:text-red-500;
+    @apply transition-colors hover:text-primary-base;
   }
 }
