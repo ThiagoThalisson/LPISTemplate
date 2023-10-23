@@ -20,7 +20,7 @@ body {
   h3,
   h4 {
     font-family: "Poppins", sans-serif;
-    @apply !font-bold text-slate-800;
+    @apply !font-bold !text-light-title;
   }
 
   h1 {
@@ -41,7 +41,7 @@ body {
   select,
   a,
   button {
-    @apply text-base md:text-xl;
+    @apply !text-base md:!text-xl;
     font-family: "Montserrat", sans-serif;
   }
 
@@ -49,15 +49,14 @@ body {
   label,
   input,
   select {
-    @apply text-slate-600;
+    @apply !text-light-paragraph;
   }
 
-  a,
   button {
-    @apply font-bold text-slate-800;
+    @apply !font-bold;
   }
 
   a {
-    @apply transition-colors hover:text-primary-base;
+    @apply !font-bold text-light-title transition-colors hover:text-primary-base;
   }
 }

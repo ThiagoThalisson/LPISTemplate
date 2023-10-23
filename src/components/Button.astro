@@ -1,0 +1,26 @@
+---
+const { variant, classVariant, content } = Astro.props
+
+export interface Props {
+  variant?: string
+  classVariant?: string
+  content?: string
+}
+---
+
+<button
+  class="px-6 py-3 md:px-8 text-dark-title bg-primary-base hover:bg-primary-darkest transition-colors group"
+  class:list={{
+    "rounded-lg": classVariant === "filledLgRounded",
+  }}
+  ,
+>
+  {
+    variant == "call-to-action" && (
+      <a class="text-dark-title group-hover:text-primary-base" href="#">
+        Link
+      </a>
+    )
+  }
+  {content}
+</button>

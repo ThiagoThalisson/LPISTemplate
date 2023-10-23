@@ -4,9 +4,9 @@ import { Image } from "@astrojs/image/components"
 ---
 
 <header
-  class="header-scroll fixed w-full flex justify-center bg-slate-50 py-2 transition-transform duration-100 h-[60px]"
+  class="header-scroll fixed w-full flex justify-center bg-slate-50 py-2 transition-transform duration-100 h-[72px]"
 >
-  <div class="flex justify-between w-full max-w-screen-lg">
+  <div class="flex justify-between w-full max-w-screen-lg px-6">
     <Image
       width={32}
       height={32}
@@ -24,7 +24,7 @@ import { Image } from "@astrojs/image/components"
 
 <style>
   .header-hidden {
-    transform: translateY(calc(-1 * 60px));
+    transform: translateY(calc(-1 * 72px));
   }
 </style>
 
