@@ -5,22 +5,46 @@ export interface Props {
   variant?: string
   classVariant?: string
   content?: string
+  link?: string
 }
 ---
 
 <button
-  class="px-6 py-3 md:px-8 text-dark-title bg-primary-base hover:bg-primary-darkest transition-colors group"
+  class="flex text-dark-title bg-primary-base hover:!bg-primary-darkest focus:border-primary-dark focus:border-4 focus:border-solid focus:outline-none transition-colors group"
   class:list={{
-    "rounded-lg": classVariant === "filledLgRounded",
+    "rounded-lg": classVariant?.includes("filledLgRounded"),
+    "rounded-full": classVariant?.includes("filledFullRounded"),
+    "!bg-transparent border-primary-dark border-2 border-solid":
+      classVariant?.includes("noFill"),
   }}
   ,
 >
   {
-    variant == "call-to-action" && (
-      <a class="text-dark-title group-hover:text-primary-base" href="#">
-        Link
-      </a>
-    )
+    (() => {
+      switch (variant) {
+        case "call-to-action":
+          if (classVariant?.includes("noFill")) {
+            return (
+              <a
+                class="px-6 py-3 md:px-8 text-primary-dark group-hover:text-primary-base"
+                href={Astro.props.link}
+              >
+                Link
+              </a>
+            )
+          } else {
+            return (
+              <a
+                class="px-6 py-3 md:px-8 group-hover:text-primary-base"
+                href={Astro.props.link}
+              >
+                Link
+              </a>
+            )
+          }
+        default:
+          return <p class="px-6 py-3 md:px-8">{content}</p>
+      }
+    })()
   }
-  {content}
 </button>
