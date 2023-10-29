@@ -8,7 +8,9 @@ import image from "@astrojs/image"
 export default defineConfig({
   integrations: [
     tailwind(),
-    image(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
     sitemap({
       changefreq: "weekly",
       priority: 0.7,
