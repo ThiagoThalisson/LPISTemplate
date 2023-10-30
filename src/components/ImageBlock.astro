@@ -1,0 +1,36 @@
+---
+// So not be confused with Image.astro integrated images.
+
+import { Image } from "@astrojs/image/components"
+const { classVariant } = Astro.props
+
+export interface Props {
+  classVariant?: string
+  imageUrl: string
+  imageWidth: number
+  imageHeight: number
+  imageAlt: string
+  imageFormat: "jpg" | "png" | "webp" | "svg"
+}
+---
+
+<div
+  class:list={{
+    "w-full": classVariant?.includes("fullWidth"),
+  }}
+  ,
+>
+  <Image
+    class:list={{
+      "rounded-lg": classVariant?.includes("lgRounded"),
+      "rounded-full": classVariant?.includes("fullRounded"),
+    }}
+    fit="cover"
+    width={Astro.props.imageWidth}
+    height={Astro.props.imageHeight}
+    src={Astro.props.imageUrl}
+    quality={100}
+    format={Astro.props.imageFormat}
+    alt={Astro.props.imageAlt}
+  />
+</div>
