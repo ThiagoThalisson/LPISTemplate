@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro"
+import Hero from "../components/Hero.astro"
 import "/src/global.css"
 
 export interface Props {
@@ -20,6 +21,12 @@ const { title } = Astro.props
   </head>
   <body class="bg-slate-100">
     <Header />
+    <Hero
+      variant="hero-two"
+      heroStatement="A Very Modular Template"
+      heroTitle="Welcome To LPIS Template"
+      heroDescription="A template that helps you create wonderful landing pages."
+    />
     <main class="mt-32 px-6 md:max-w-5xl m-auto">
       <slot />
     </main>
