@@ -30,7 +30,7 @@ export interface Props {
                 class="px-6 py-3 md:px-8 text-primary-dark group-hover:text-primary-base"
                 href={Astro.props.link}
               >
-                Link
+                {content}
               </a>
             )
           } else {
@@ -39,7 +39,7 @@ export interface Props {
                 class="px-6 py-3 md:px-8 group-hover:text-primary-base"
                 href={Astro.props.link}
               >
-                Link
+                {content}
               </a>
             )
           }
