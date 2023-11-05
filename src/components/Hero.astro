@@ -40,10 +40,27 @@ export interface Props {
       ),
 
       variant?.includes("hero-two") && (
-        <div class="bg-[url('/laptop.jpg')]">
-          <p>{Astro.props.heroStatement}</p>
-          <h1>{Astro.props.heroTitle}</h1>
-          <p>{Astro.props.heroDescription}</p>
+        <div class="flex flex-col items-center relative py-12 px-6 gap-6 md:gap-8">
+          <img
+            class="object-cover absolute inset-0 w-full h-full z-[-10] brightness-50"
+            src="./laptop.jpg"
+            alt=""
+          />
+          <div class="flex flex-col gap-4 md:gap-3">
+            <div class="flex flex-col gap-2">
+              <p class="font-bold !text-accent-light">
+                {Astro.props.heroStatement}
+              </p>
+              <h1 class="!text-dark-title">{Astro.props.heroTitle}</h1>
+            </div>
+            <p class="!text-dark-paragraph">{Astro.props.heroDescription}</p>
+          </div>
+          <Button
+            variant="call-to-action"
+            link="./"
+            content="Link"
+            classVariant="rounded-full"
+          />
         </div>
       ),
     ]
