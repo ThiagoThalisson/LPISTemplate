@@ -34,6 +34,10 @@ module.exports = {
           footerFill: "#F8FAFC",
         },
       },
+      fontFamily: {
+        display: ["Poppins", "Arial", "sans-serif"],
+        body: ["Montserrat", "Arial", "sans-serif"],
+      },
     },
   },
   plugins: [],

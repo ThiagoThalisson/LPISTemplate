@@ -9,6 +9,7 @@ export interface Props {
   classVariant?: string
   heroStatement: string
   heroTitle: string
+  heroTitleSecondary?: string
   heroDescription: string
 }
 ---
@@ -194,20 +195,47 @@ export interface Props {
       ),
       variant?.includes("hero-six") && (
         <div class="flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
-          <div class="w-full flex flex-col items-center gap-6 md:gap-8">
+          <div class="w-full flex flex-col md:flex-row gap-3 md:gap-8">
+            <h1>{Astro.props.heroTitle}</h1>
             <div class="flex flex-col gap-3">
-              <h1 class="text-center">{Astro.props.heroTitle}</h1>
-              <p class="font-bold !text-accent-base text-center">
-                {Astro.props.heroStatement}
-              </p>
-              <p class="text-center">{Astro.props.heroDescription}</p>
+              <p>{Astro.props.heroDescription}</p>
+              <Button
+                classVariant="filledLgRounded"
+                variant="call-to-action"
+                content="Call To Action"
+              />
             </div>
-
-            <Button
-              classVariant="filledLgRounded"
-              variant="call-to-action"
-              content="Call To Action"
+          </div>
+          <ImageBlock
+            imageWidth={1920}
+            imageHeight={1080}
+            imageUrl="./laptop.jpg"
+            imageFormat="jpg"
+            imageAlt="Laptop photo."
+          />
+        </div>
+      ),
+      variant?.includes("hero-seven") && (
+        <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
+          <h1 class="font-light">{Astro.props.heroTitle}</h1>
+          <div class="w-full flex flex-col md:flex-row gap-3 md:gap-8">
+            <ImageBlock
+              classVariant="fullWidth"
+              imageWidth={1920}
+              imageHeight={1080}
+              imageUrl="./laptop.jpg"
+              imageFormat="jpg"
+              imageAlt="Laptop photo."
             />
+            <div class="w-full flex flex-col gap-3 md:gap-6">
+              <h2 class="font-body">{Astro.props.heroTitleSecondary}</h2>
+              <p>{Astro.props.heroDescription}</p>
+              <Button
+                classVariant="filledLgRounded"
+                variant="call-to-action"
+                content="Call To Action"
+              />
+            </div>
           </div>
         </div>
       ),
