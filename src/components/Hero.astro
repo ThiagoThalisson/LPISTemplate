@@ -2,10 +2,11 @@
 import Button from "./Button.astro"
 import ImageBlock from "./ImageBlock.astro"
 
-const { variant } = Astro.props
+const { variant, classVariant } = Astro.props
 
 export interface Props {
   variant: string
+  classVariant?: string
   heroStatement: string
   heroTitle: string
   heroDescription: string
@@ -16,17 +17,56 @@ export interface Props {
   {
     [
       variant?.includes("hero-one") && (
-        <div class="flex flex-col md:flex-row gap-8">
-          <div class="w-full flex flex-col gap-6">
+        <div class="flex flex-col items-center relative py-12 px-6 gap-6 md:gap-8 ">
+          <img
+            class="object-cover absolute inset-0 w-full h-full z-[-10] brightness-50"
+            src="./laptop.jpg"
+            alt=""
+          />
+          <div class="flex flex-col gap-4 md:gap-3">
             <div class="flex flex-col gap-2">
-              <p class="font-bold text-secondary-base">
+              <p class="font-bold !text-accent-light text-center">
+                {Astro.props.heroStatement}
+              </p>
+              <h1 class="!text-dark-title text-center">
+                {Astro.props.heroTitle}
+              </h1>
+            </div>
+            <p class="!text-dark-paragraph text-center">
+              {Astro.props.heroDescription}
+            </p>
+          </div>
+          <Button
+            variant="call-to-action"
+            link="./"
+            content="Link"
+            classVariant="rounded-full"
+          />
+        </div>
+      ),
+      variant?.includes("hero-two") && (
+        <div
+          class="flex items-center gap-4 md:gap-8 px-6 md:py-16 md:max-w-5xl m-auto"
+          class:list={{
+            "flex-col md:flex-row": classVariant?.includes("default"),
+            "flex-col-reverse md:flex-row-reverse":
+              classVariant?.includes("reversed"),
+          }}
+        >
+          <div class="w-full flex flex-col gap-4 md:gap-6 py-6">
+            <div class="flex flex-col gap-2">
+              <p class="font-bold !text-accent-base">
                 {Astro.props.heroStatement}
               </p>
               <h1>{Astro.props.heroTitle}</h1>
+              <p>{Astro.props.heroDescription}</p>
             </div>
-            <p>{Astro.props.heroDescription}</p>
 
-            <Button classVariant="filledLgRounded" variant="call-to-action" />
+            <Button
+              classVariant="filledLgRounded"
+              variant="call-to-action"
+              content="Call To Action"
+            />
           </div>
           <ImageBlock
             classVariant="fullWidth lgRounded"
@@ -38,29 +78,137 @@ export interface Props {
           />
         </div>
       ),
-
-      variant?.includes("hero-two") && (
-        <div class="flex flex-col items-center relative py-12 px-6 gap-6 md:gap-8">
-          <img
-            class="object-cover absolute inset-0 w-full h-full z-[-10] brightness-50"
-            src="./laptop.jpg"
-            alt=""
-          />
-          <div class="flex flex-col gap-4 md:gap-3">
-            <div class="flex flex-col gap-2">
-              <p class="font-bold !text-accent-light">
+      variant?.includes("hero-three") && (
+        <div
+          class="flex flex-col md:flex-row items-center gap-4 md:gap-8"
+          class:list={{
+            "flex-col-reverse md:flex-row-reverse":
+              classVariant?.includes("reversed"),
+          }}
+        >
+          <div class="w-full flex flex-col gap-4 md:gap-8 px-6 md:px-10 lg:px-16 py-8">
+            <div class="flex flex-col gap-2 ">
+              <p class="font-bold !text-accent-base">
                 {Astro.props.heroStatement}
               </p>
-              <h1 class="!text-dark-title">{Astro.props.heroTitle}</h1>
+              <h1>{Astro.props.heroTitle}</h1>
+              <p>{Astro.props.heroDescription}</p>
             </div>
-            <p class="!text-dark-paragraph">{Astro.props.heroDescription}</p>
+
+            <Button
+              classVariant="filledLgRounded"
+              variant="call-to-action"
+              content="Call To Action"
+            />
           </div>
-          <Button
-            variant="call-to-action"
-            link="./"
-            content="Link"
-            classVariant="rounded-full"
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={500}
+            imageHeight={500}
+            imageUrl="./laptop.jpg"
+            imageFormat="jpg"
+            imageAlt="Laptop photo."
           />
+        </div>
+      ),
+      variant?.includes("hero-four") && (
+        <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
+          <div class="w-full flex flex-col items-center gap-6 md:gap-8">
+            <div class="flex flex-col items-center gap-2">
+              <p class="font-bold !text-accent-base">
+                {Astro.props.heroStatement}
+              </p>
+              <h1>{Astro.props.heroTitle}</h1>
+              <p>{Astro.props.heroDescription}</p>
+            </div>
+
+            <Button
+              classVariant="filledLgRounded"
+              variant="call-to-action"
+              content="Call To Action"
+            />
+          </div>
+          <ImageBlock
+            imageWidth={800}
+            imageHeight={350}
+            imageUrl="./laptop.jpg"
+            imageFormat="jpg"
+            imageAlt="Laptop photo."
+          />
+        </div>
+      ),
+      variant?.includes("hero-five") && (
+        <div class="flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
+          <div class="w-full flex-col md:flex-row flex justify-between md:px-16 gap-2">
+            <ImageBlock
+              classVariant="flexStart"
+              imageWidth={128}
+              imageHeight={90}
+              imageUrl="./laptop.jpg"
+              imageFormat="jpg"
+              imageAlt="Laptop photo."
+            />
+            <ImageBlock
+              classVariant="flexEnd"
+              imageWidth={128}
+              imageHeight={90}
+              imageUrl="./laptop.jpg"
+              imageFormat="jpg"
+              imageAlt="Laptop photo."
+            />
+          </div>
+          <div class="w-full flex flex-col items-center gap-6 md:gap-8">
+            <div class="flex flex-col gap-3">
+              <p class="font-bold !text-accent-base text-center">
+                {Astro.props.heroStatement}
+              </p>
+              <h1 class="text-center">{Astro.props.heroTitle}</h1>
+              <p class="text-center">{Astro.props.heroDescription}</p>
+            </div>
+
+            <Button
+              classVariant="filledLgRounded"
+              variant="call-to-action"
+              content="Call To Action"
+            />
+          </div>
+          <div class="w-full flex-col md:flex-row flex justify-between md:px-16 gap-2">
+            <ImageBlock
+              classVariant="flexEnd"
+              imageWidth={128}
+              imageHeight={90}
+              imageUrl="./laptop.jpg"
+              imageFormat="jpg"
+              imageAlt="Laptop photo."
+            />
+            <ImageBlock
+              classVariant="flexStart"
+              imageWidth={128}
+              imageHeight={90}
+              imageUrl="./laptop.jpg"
+              imageFormat="jpg"
+              imageAlt="Laptop photo."
+            />
+          </div>
+        </div>
+      ),
+      variant?.includes("hero-six") && (
+        <div class="flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
+          <div class="w-full flex flex-col items-center gap-6 md:gap-8">
+            <div class="flex flex-col gap-3">
+              <h1 class="text-center">{Astro.props.heroTitle}</h1>
+              <p class="font-bold !text-accent-base text-center">
+                {Astro.props.heroStatement}
+              </p>
+              <p class="text-center">{Astro.props.heroDescription}</p>
+            </div>
+
+            <Button
+              classVariant="filledLgRounded"
+              variant="call-to-action"
+              content="Call To Action"
+            />
+          </div>
         </div>
       ),
     ]

@@ -47,8 +47,12 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
+  font-style: italic;
+
   max-width: 100%;
-  display: block;
+  height: auto;
+
+  vertical-align: middle;
 }
 
 /* Inherit fonts for inputs and buttons */
