@@ -216,9 +216,9 @@ export interface Props {
         </div>
       ),
       variant?.includes("hero-seven") && (
-        <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
+        <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16">
           <h1 class="font-light">{Astro.props.heroTitle}</h1>
-          <div class="w-full flex flex-col md:flex-row gap-3 md:gap-8">
+          <div class="w-full flex flex-col items-center md:flex-row gap-3 md:gap-8">
             <ImageBlock
               classVariant="fullWidth"
               imageWidth={1920}
