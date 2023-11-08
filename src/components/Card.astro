@@ -1,0 +1,41 @@
+---
+import ImageBlock from "./ImageBlock.astro"
+import Button from "./Button.astro"
+
+export interface Props {
+  variant: string
+  cardTitle: string
+  cardContent: string
+}
+
+const { variant } = Astro.props
+---
+
+<div class="flex flex-col md:flex-row">
+  {
+    [
+      variant?.includes("card-one") && (
+        <div class="flex flex-col md:flex-row gap-4">
+          <ImageBlock
+            imageWidth={768}
+            imageHeight={512}
+            imageUrl="./laptop.jpg"
+            imageFormat="jpg"
+            imageAlt="A laptop."
+          />
+          <div class="flex flex-col gap-3">
+            <h1>{Astro.props.cardTitle}</h1>
+            <p>{Astro.props.cardContent}</p>
+            <Button
+              variant="call-to-action"
+              link="./"
+              content="Link"
+              classVariant="rounded-full"
+            />
+          </div>
+        </div>
+      ),
+      variant?.includes("card-two") && <div>Teste2</div>,
+    ]
+  }
+</div>

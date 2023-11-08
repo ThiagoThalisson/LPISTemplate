@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro"
 
 import Hero from "../components/Hero.astro"
+import Card from "../components/Card.astro"
 ---
 
 <Layout
@@ -15,5 +16,11 @@ import Hero from "../components/Hero.astro"
     heroTitleSecondary="This Is The Future"
     heroDescription="A template that helps you create wonderful landing pages."
   />
-  <main class="px-6 md:max-w-5xl m-auto"></main>
+  <main class="px-6 md:max-w-5xl m-auto">
+    <Card
+      variant="card-one"
+      cardTitle="Card Title"
+      cardContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    />
+  </main>
 </Layout>
