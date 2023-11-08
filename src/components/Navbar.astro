@@ -15,12 +15,12 @@ const pages: Page[] = [
     image: "/Icons/house.svg",
   },
   {
-    name: "Sobre Nós",
+    name: "About",
     slug: "/about",
     image: "/Icons/info.svg",
   },
   {
-    name: "Contato",
+    name: "Contact",
     slug: "/contact",
     image: "/Icons/phone.svg",
   },
@@ -36,7 +36,7 @@ export interface Props {
 <nav class="flex justify-center items-center">
   {
     [
-      variant == "mobile" && (
+      variant?.includes("mobile") && (
         <div class="bg-slate-50 flex w-full justify-around fixed bottom-0 md:hidden">
           {pages.map((page) => (
             <div class="flex flex-col items-center">
@@ -56,7 +56,7 @@ export interface Props {
           ))}
         </div>
       ),
-      variant == "desktop" && (
+      variant?.includes("desktop") && (
         <div class="flex items-center max-w-screen-lg gap-3">
           {pages.map((page) => (
             <a
