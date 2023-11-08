@@ -8,7 +8,7 @@ export interface Props {
   description: string
 }
 
-const { title, description } = Astro.props
+const { title } = Astro.props
 ---
 
 <!doctype html>
@@ -18,7 +18,7 @@ const { title, description } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+    <meta name="description" content={Astro.props.description} />
     <title>{title}</title>
     <SEO
       globalTitle="Landing Page and Institucional Site template."
