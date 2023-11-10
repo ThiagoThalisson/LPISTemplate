@@ -4,27 +4,30 @@ import Button from "./Button.astro"
 
 export interface Props {
   variant: string
+  classVariant?: string
   cardTitle: string
-  cardContent: string
+  cardContent?: string
+  cardStatement?: string
 }
 
-const { variant } = Astro.props
+const { variant, classVariant } = Astro.props
 ---
 
 <div class="flex flex-col md:flex-row">
   {
     [
       variant?.includes("card-one") && (
-        <div class="flex flex-col md:flex-row gap-4">
+        <div class="flex flex-col md:flex-row gap-3 md:gap-8">
           <ImageBlock
+            classVariant="fullWidth"
             imageWidth={768}
             imageHeight={512}
             imageUrl="./laptop.jpg"
             imageFormat="jpg"
             imageAlt="A laptop."
           />
-          <div class="flex flex-col gap-3">
-            <h1>{Astro.props.cardTitle}</h1>
+          <div class="w-full flex flex-col gap-3">
+            <h2>{Astro.props.cardTitle}</h2>
             <p>{Astro.props.cardContent}</p>
             <Button
               variant="call-to-action"
@@ -35,7 +38,65 @@ const { variant } = Astro.props
           </div>
         </div>
       ),
-      variant?.includes("card-two") && <div>Teste2</div>,
+      variant?.includes("card-two") && (
+        <div class="flex flex-col gap-3">
+          <h2 class="text-center">{Astro.props.cardTitle}</h2>
+          <div class="flex flex-col gap-3 md:flex-row">
+            <p>{Astro.props.cardContent}</p>
+            <p>{Astro.props.cardContent}</p>
+          </div>
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={768}
+            imageHeight={512}
+            imageUrl="./laptop.jpg"
+            imageFormat="jpg"
+            imageAlt="A laptop."
+          />
+        </div>
+      ),
+      variant?.includes("card-three") && (
+        <div
+          class="flex flex-col md:flex-row gap-4 md:gap-8"
+          class:list={{
+            "flex-col-reverse md:flex-row-reverse":
+              classVariant?.includes("reversed"),
+          }}
+        >
+          <div class="w-full flex flex-col gap-4">
+            <p class="!text-accent-base">{Astro.props.cardStatement}</p>
+            <h2>{Astro.props.cardTitle}</h2>
+            <p>{Astro.props.cardContent}</p>
+          </div>
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={768}
+            imageHeight={512}
+            imageUrl="./laptop.jpg"
+            imageFormat="jpg"
+            imageAlt="A laptop."
+          />
+        </div>
+      ),
+      variant?.includes("card-four") && (
+        <div class="flex flex-col items-center md:items-start gap-4">
+          <h2>{Astro.props.cardTitle}</h2>
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={800}
+            imageUrl="./laptop.jpg"
+            imageFormat="jpg"
+            imageAlt="A laptop."
+          />
+        </div>
+      ),
+      variant?.includes("card-five") && (
+        <div class="flex flex-col gap-4 md:gap-6">
+          <h2>{Astro.props.cardTitle}</h2>
+          <p>{Astro.props.cardContent}</p>
+        </div>
+      ),
     ]
   }
 </div>
