@@ -64,9 +64,24 @@ const { variant, classVariant } = Astro.props
           }}
         >
           <div class="w-full flex flex-col gap-4">
-            <p class="!text-accent-base">{Astro.props.cardStatement}</p>
-            <h2>{Astro.props.cardTitle}</h2>
-            <p>{Astro.props.cardContent}</p>
+            <p
+              class="!text-accent-base"
+              class:list={{
+                "text-right": classVariant?.includes("rightText"),
+              }}
+            >
+              {Astro.props.cardStatement}
+            </p>
+            <h2
+              class:list={{
+                "text-right": classVariant?.includes("rightText"),
+              }}
+            >
+              {Astro.props.cardTitle}
+            </h2>
+            <p class:list={{
+              "text-right:"
+            }}>{Astro.props.cardContent}</p>
           </div>
           <ImageBlock
             classVariant="fullWidth"

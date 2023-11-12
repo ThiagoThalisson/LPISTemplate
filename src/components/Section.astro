@@ -1,0 +1,30 @@
+---
+import Card from "../components/Card.astro"
+export interface Props {
+  variant: string
+}
+
+const { variant } = Astro.props
+---
+
+{
+  [
+    variant?.includes("section-one") && (
+      <div class="flex flex-col gap-6">
+        <Card
+          variant="card-three"
+          classVariant="reversed"
+          cardStatement="This Is Part Of A Content Section"
+          cardTitle="This A Content Section"
+          cardContent="Use the pre-existing card component to make these."
+        />
+        <Card
+          variant="card-three"
+          cardStatement="This Is Part Of A Content Section"
+          cardTitle="It's Easy To Make One"
+          cardContent="And with different patterns this will make your landing page incredible."
+        />
+      </div>
+    ),
+  ]
+}

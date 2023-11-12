@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro"
 
 import Hero from "../components/Hero.astro"
-import Card from "../components/Card.astro"
+import Section from "../components/Section.astro"
 ---
 
 <Layout
@@ -17,10 +17,6 @@ import Card from "../components/Card.astro"
     heroDescription="A template that helps you create wonderful landing pages."
   />
   <main class="px-6 md:max-w-5xl m-auto">
-    <Card
-      variant="card-five"
-      cardTitle="Card Title"
-      cardContent="Lorem ipsum"
-    />
+    <Section variant="section-one" />
   </main>
 </Layout>
