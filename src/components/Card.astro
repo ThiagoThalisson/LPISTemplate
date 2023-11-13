@@ -79,9 +79,13 @@ const { variant, classVariant } = Astro.props
             >
               {Astro.props.cardTitle}
             </h2>
-            <p class:list={{
-              "text-right:"
-            }}>{Astro.props.cardContent}</p>
+            <p
+              class:list={{
+                "text-right": classVariant?.includes("rightText"),
+              }}
+            >
+              {Astro.props.cardContent}
+            </p>
           </div>
           <ImageBlock
             classVariant="fullWidth"
