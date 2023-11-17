@@ -22,18 +22,14 @@ const { variant, classVariant, content, link } = Astro.props
 >
   {
     variant === "call-to-action" ? (
-      classVariant?.includes("noFill") ? (
-        <a
-          class="px-6 py-3 md:px-8 text-primary-dark group-hover:text-primary-base"
-          href={link}
-        >
-          {content}
-        </a>
-      ) : (
-        <a class="px-6 py-3 md:px-8 group-hover:text-primary-base" href={link}>
-          {content}
-        </a>
-      )
+      <a
+        class={`px-6 py-3 md:px-8 ${
+          classVariant?.includes("noFill") ? "text-primary-dark" : ""
+        } group-hover:text-primary-base`}
+        href={link}
+      >
+        {content}
+      </a>
     ) : (
       <p class="px-6 py-3 md:px-8">{content}</p>
     )
