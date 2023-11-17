@@ -1,12 +1,12 @@
 ---
-const { variant, classVariant, content } = Astro.props
-
 export interface Props {
   variant?: string
   classVariant?: string
   content?: string
   link?: string
 }
+
+const { variant, classVariant, content, link } = Astro.props
 ---
 
 <button
@@ -21,31 +21,21 @@ export interface Props {
   ,
 >
   {
-    (() => {
-      switch (variant) {
-        case "call-to-action":
-          if (classVariant?.includes("noFill")) {
-            return (
-              <a
-                class="px-6 py-3 md:px-8 text-primary-dark group-hover:text-primary-base"
-                href={Astro.props.link}
-              >
-                {content}
-              </a>
-            )
-          } else {
-            return (
-              <a
-                class="px-6 py-3 md:px-8 group-hover:text-primary-base"
-                href={Astro.props.link}
-              >
-                {content}
-              </a>
-            )
-          }
-        default:
-          return <p class="px-6 py-3 md:px-8">{content}</p>
-      }
-    })()
+    variant === "call-to-action" ? (
+      classVariant?.includes("noFill") ? (
+        <a
+          class="px-6 py-3 md:px-8 text-primary-dark group-hover:text-primary-base"
+          href={link}
+        >
+          {content}
+        </a>
+      ) : (
+        <a class="px-6 py-3 md:px-8 group-hover:text-primary-base" href={link}>
+          {content}
+        </a>
+      )
+    ) : (
+      <p class="px-6 py-3 md:px-8">{content}</p>
+    )
   }
 </button>
