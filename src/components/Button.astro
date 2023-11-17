@@ -1,8 +1,7 @@
 ---
-export interface Props {
-  variant?: string
-  classVariant?: string
-  content?: string
+import type { Props as BaseProps } from "../BaseProps"
+
+export interface Props extends BaseProps {
   link?: string
 }
 

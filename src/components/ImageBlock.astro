@@ -2,7 +2,6 @@
 // So not be confused with Image.astro integrated images.
 
 import { Image } from "@astrojs/image/components"
-const { classVariant } = Astro.props
 
 export interface Props {
   classVariant?: string
@@ -12,9 +11,12 @@ export interface Props {
   imageAlt: string
   imageFormat: "jpg" | "png" | "webp" | "svg"
 }
+
+const { classVariant, imageUrl } = Astro.props
 ---
 
 <div
+  class="flex justify-center"
   class:list={{
     "w-full": classVariant?.includes("fullWidth"),
     "flex justify-start": classVariant?.includes("flexStart"),
@@ -31,7 +33,7 @@ export interface Props {
     fit="cover"
     width={Astro.props.imageWidth}
     height={Astro.props.imageHeight}
-    src={Astro.props.imageUrl}
+    src={imageUrl}
     quality={100}
     format={Astro.props.imageFormat}
     alt={Astro.props.imageAlt}

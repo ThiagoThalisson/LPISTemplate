@@ -1,17 +1,11 @@
 ---
 import ImageBlock from "./ImageBlock.astro"
 import Button from "./Button.astro"
+import type { Props as BaseProps } from "../BaseProps"
 
-export interface Props {
-  variant: string
-  classVariant?: string
-  cardTitle: string
-  cardContent?: string
-  cardStatement?: string
-  imageUrl: string
-}
+interface Props extends BaseProps {}
 
-const { variant, classVariant } = Astro.props
+const { variant, classVariant, title, content, statement } = Astro.props
 
 type TextRightType = {
   classList: {
@@ -46,8 +40,8 @@ const textRight: TextRightType = {
             imageAlt="A laptop."
           />
           <div class="w-full flex flex-col gap-3">
-            <h2>{Astro.props.cardTitle}</h2>
-            <p>{Astro.props.cardContent}</p>
+            <h2>{title}</h2>
+            <p>{content}</p>
             <Button
               variant="call-to-action"
               link="./"
@@ -59,10 +53,10 @@ const textRight: TextRightType = {
       ),
       variant?.includes("card-two") && (
         <div class="flex flex-col gap-3">
-          <h2 class="text-center">{Astro.props.cardTitle}</h2>
+          <h2 class="text-center">{title}</h2>
           <div class="flex flex-col gap-3 md:flex-row">
-            <p>{Astro.props.cardContent}</p>
-            <p>{Astro.props.cardContent}</p>
+            <p>{content}</p>
+            <p>{content}</p>
           </div>
           <ImageBlock
             classVariant="fullWidth"
@@ -84,16 +78,16 @@ const textRight: TextRightType = {
         >
           <div class="w-full flex flex-col gap-4">
             <p class="!text-accent-base" class:list={textRight.classList}>
-              {Astro.props.cardStatement}
+              {statement}
             </p>
-            <h2 class:list={textRight.classList}>{Astro.props.cardTitle}</h2>
-            <p class:list={textRight.classList}>{Astro.props.cardContent}</p>
+            <h2 class:list={textRight.classList}>{title}</h2>
+            <p class:list={textRight.classList}>{content}</p>
           </div>
           <ImageBlock
             classVariant="fullWidth"
             imageWidth={768}
             imageHeight={512}
-            imageUrl={Astro.props.imageUrl}
+            imageUrl="./laptop.jpg"
             imageFormat="jpg"
             imageAlt="A laptop."
           />
@@ -101,7 +95,7 @@ const textRight: TextRightType = {
       ),
       variant?.includes("card-four") && (
         <div class="flex flex-col items-center md:items-start gap-4">
-          <h2>{Astro.props.cardTitle}</h2>
+          <h2>{title}</h2>
           <ImageBlock
             classVariant="fullWidth"
             imageWidth={1920}
@@ -114,14 +108,36 @@ const textRight: TextRightType = {
       ),
       variant?.includes("card-five") && (
         <div class="flex flex-col gap-4 md:gap-6">
-          <h2>{Astro.props.cardTitle}</h2>
-          <p>{Astro.props.cardContent}</p>
+          <h2>{title}</h2>
+          <p>{content}</p>
         </div>
       ),
       variant?.includes("card-six") && (
-        <div class="flex flex-coll gap-4 md:gap-6">
-          <h2>{Astro.props.cardTitle}</h2>
-          <p>{Astro.props.cardContent}</p>
+        <div class="flex flex-col gap-4 md:gap-6 items-center">
+          <ImageBlock
+            imageWidth={250}
+            imageHeight={250}
+            imageUrl="./laptop.jpg"
+            imageFormat="jpg"
+            imageAlt="A laptop."
+          />
+          <h2 class="text-center">{title}</h2>
+          <p class="text-center">{content}</p>
+        </div>
+      ),
+      variant?.includes("card-seven") && (
+        <div class="flex flex-col md:items-center gap-4">
+          <div class="flex md:flex-col gap-4 md:gap-6 items-center">
+            <ImageBlock
+              imageWidth={56}
+              imageHeight={56}
+              imageUrl="./laptop.jpg"
+              imageFormat="jpg"
+              imageAlt="A laptop."
+            />
+            <h3 class="text-center">{title}</h3>
+          </div>
+          <p class="md:text-center">{content}</p>
         </div>
       ),
     ]

@@ -1,10 +1,10 @@
 ---
 import Card from "../components/Card.astro"
-export interface Props {
-  variant: string
-}
+import type { Props as BaseProps } from "../BaseProps"
 
-const { variant } = Astro.props
+interface Props extends BaseProps {}
+
+const { variant, title, content } = Astro.props
 ---
 
 <section>
@@ -15,16 +15,16 @@ const { variant } = Astro.props
           <Card
             variant="card-three"
             classVariant="reversed"
-            cardStatement="This Is Part Of A Content Section"
-            cardTitle="This A Content Section"
-            cardContent="Use the pre-existing card component to make these."
+            statement="This Is Part Of A Content Section"
+            title="This A Content Section"
+            content="Use the pre-existing card component to make these."
           />
           <Card
             variant="card-three"
             classVariant="rightText"
-            cardStatement="This Is Part Of A Content Section"
-            cardTitle="It's Easy To Make One"
-            cardContent="And with different patterns this will make your landing page incredible."
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
           />
         </div>
       ),
@@ -32,8 +32,8 @@ const { variant } = Astro.props
         <div>
           <Card
             variant="card-two"
-            cardTitle="It's Easy To Make One"
-            cardContent="And with different patterns this will make your landing page incredible."
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
           />
         </div>
       ),
@@ -42,15 +42,15 @@ const { variant } = Astro.props
           <Card
             variant="card-one"
             classVariant="reversed"
-            cardStatement="This Is Part Of A Content Section"
-            cardTitle="It's Easy To Make One"
-            cardContent="And with different patterns this will make your landing page incredible."
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
           />
           <Card
             variant="card-one"
-            cardStatement="This Is Part Of A Content Section"
-            cardTitle="It's Easy To Make One"
-            cardContent="And with different patterns this will make your landing page incredible."
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
           />
         </div>
       ),
@@ -58,24 +58,74 @@ const { variant } = Astro.props
         <div class="flex flex-col gap-4">
           <Card
             variant="card-four"
-            cardStatement="This Is Part Of A Content Section"
-            cardTitle="It's Easy To Make One"
-            cardContent="And with different patterns this will make your landing page incredible."
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
           />
           <div class="flex flex-col md:flex-row">
             <Card
               variant="card-five"
-              cardStatement="This Is Part Of A Content Section"
-              cardTitle="It's Easy To Make One"
-              cardContent="And with different patterns this will make your landing page incredible."
+              statement="This Is Part Of A Content Section"
+              title="It's Easy To Make One"
+              content="And with different patterns this will make your landing page incredible."
             />
             <Card
               variant="card-five"
-              cardStatement="This Is Part Of A Content Section"
-              cardTitle="It's Easy To Make One"
-              cardContent="And with different patterns this will make your landing page incredible."
+              statement="This Is Part Of A Content Section"
+              title="It's Easy To Make One"
+              content="And with different patterns this will make your landing page incredible."
             />
           </div>
+        </div>
+      ),
+      variant?.includes("section-five") && (
+        <div class="flex flex-col md:flex-row py-16 gap-8">
+          <Card
+            variant="card-six"
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
+          />
+          <Card
+            variant="card-six"
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
+          />
+          <Card
+            variant="card-six"
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
+          />
+        </div>
+      ),
+      variant?.includes("section-seven") && (
+        <div class="flex flex-col md:flex-row gap-8">
+          <Card
+            variant="card-seven"
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
+          />
+          <Card
+            variant="card-seven"
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
+          />
+          <Card
+            variant="card-seven"
+            statement="This Is Part Of A Content Section"
+            title="It's Easy To Make One"
+            content="And with different patterns this will make your landing page incredible."
+          />
+        </div>
+      ),
+      variant?.includes("section-eight") && (
+        <div>
+          <h1>{title}</h1>
+          <p>{content}</p>
         </div>
       ),
     ]
