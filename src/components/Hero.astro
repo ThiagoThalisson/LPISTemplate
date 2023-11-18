@@ -1,17 +1,14 @@
 ---
+import type { Props as BaseProps } from "../BaseProps"
+export interface Props extends BaseProps {
+  secondaryTitle: string
+}
+
+const { variant, classVariant, statement, title, secondaryTitle, content } =
+  Astro.props
+
 import Button from "./Button.astro"
 import ImageBlock from "./ImageBlock.astro"
-
-const { variant, classVariant } = Astro.props
-
-export interface Props {
-  variant: string
-  classVariant?: string
-  heroStatement: string
-  heroTitle: string
-  heroTitleSecondary?: string
-  heroDescription: string
-}
 ---
 
 <div class="mt-[72px]">
@@ -27,15 +24,11 @@ export interface Props {
           <div class="flex flex-col gap-4 md:gap-3">
             <div class="flex flex-col gap-2">
               <p class="font-bold !text-accent-light text-center">
-                {Astro.props.heroStatement}
+                {statement}
               </p>
-              <h1 class="!text-dark-title text-center">
-                {Astro.props.heroTitle}
-              </h1>
+              <h1 class="!text-dark-title text-center">{title}</h1>
             </div>
-            <p class="!text-dark-paragraph text-center">
-              {Astro.props.heroDescription}
-            </p>
+            <p class="!text-dark-paragraph text-center">{content}</p>
           </div>
           <Button
             variant="call-to-action"
@@ -56,11 +49,9 @@ export interface Props {
         >
           <div class="w-full flex flex-col gap-4 md:gap-6 py-6">
             <div class="flex flex-col gap-2">
-              <p class="font-bold !text-accent-base">
-                {Astro.props.heroStatement}
-              </p>
-              <h1>{Astro.props.heroTitle}</h1>
-              <p>{Astro.props.heroDescription}</p>
+              <p class="font-bold !text-accent-base">{statement}</p>
+              <h1>{title}</h1>
+              <p>{content}</p>
             </div>
 
             <Button
@@ -89,11 +80,9 @@ export interface Props {
         >
           <div class="w-full flex flex-col gap-4 md:gap-8 px-6 md:px-10 lg:px-16 py-8">
             <div class="flex flex-col gap-2 ">
-              <p class="font-bold !text-accent-base">
-                {Astro.props.heroStatement}
-              </p>
-              <h1>{Astro.props.heroTitle}</h1>
-              <p>{Astro.props.heroDescription}</p>
+              <p class="font-bold !text-accent-base">{statement}</p>
+              <h1>{title}</h1>
+              <p>{content}</p>
             </div>
 
             <Button
@@ -116,11 +105,9 @@ export interface Props {
         <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
             <div class="flex flex-col items-center gap-2">
-              <p class="font-bold !text-accent-base">
-                {Astro.props.heroStatement}
-              </p>
-              <h1>{Astro.props.heroTitle}</h1>
-              <p>{Astro.props.heroDescription}</p>
+              <p class="font-bold !text-accent-base">{statement}</p>
+              <h1>{title}</h1>
+              <p>{content}</p>
             </div>
 
             <Button
@@ -160,11 +147,9 @@ export interface Props {
           </div>
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
             <div class="flex flex-col gap-3">
-              <p class="font-bold !text-accent-base text-center">
-                {Astro.props.heroStatement}
-              </p>
-              <h1 class="text-center">{Astro.props.heroTitle}</h1>
-              <p class="text-center">{Astro.props.heroDescription}</p>
+              <p class="font-bold !text-accent-base text-center">{statement}</p>
+              <h1 class="text-center">{title}</h1>
+              <p class="text-center">{content}</p>
             </div>
 
             <Button
@@ -196,9 +181,9 @@ export interface Props {
       variant?.includes("hero-six") && (
         <div class="flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
           <div class="w-full flex flex-col md:flex-row gap-3 md:gap-8">
-            <h1>{Astro.props.heroTitle}</h1>
+            <h1>{title}</h1>
             <div class="flex flex-col gap-3">
-              <p>{Astro.props.heroDescription}</p>
+              <p>{content}</p>
               <Button
                 classVariant="filledLgRounded"
                 variant="call-to-action"
@@ -217,7 +202,7 @@ export interface Props {
       ),
       variant?.includes("hero-seven") && (
         <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16">
-          <h1 class="font-light">{Astro.props.heroTitle}</h1>
+          <h1 class="font-light">{title}</h1>
           <div class="w-full flex flex-col items-center md:flex-row gap-3 md:gap-8">
             <ImageBlock
               classVariant="fullWidth"
@@ -228,8 +213,8 @@ export interface Props {
               imageAlt="Laptop photo."
             />
             <div class="w-full flex flex-col gap-3 md:gap-6">
-              <h2 class="font-body">{Astro.props.heroTitleSecondary}</h2>
-              <p>{Astro.props.heroDescription}</p>
+              <h2 class="font-body">{secondaryTitle}</h2>
+              <p>{content}</p>
               <Button
                 classVariant="filledLgRounded"
                 variant="call-to-action"

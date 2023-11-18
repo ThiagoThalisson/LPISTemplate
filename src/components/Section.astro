@@ -1,10 +1,9 @@
 ---
-import Card from "../components/Card.astro"
 import type { Props as BaseProps } from "../BaseProps"
-
 interface Props extends BaseProps {}
-
 const { variant, title, content } = Astro.props
+
+import Card from "../components/Card.astro"
 ---
 
 <section>

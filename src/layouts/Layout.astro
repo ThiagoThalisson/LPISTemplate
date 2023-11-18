@@ -1,14 +1,14 @@
 ---
-import Header from "../components/Header.astro"
-import SEO from "./SEO.astro"
 import "/src/global.css"
 
-export interface Props {
-  title: string
+import type { Props as BaseProps } from "../BaseProps"
+export interface Props extends BaseProps {
   description: string
 }
+const { title, description } = Astro.props
 
-const { title } = Astro.props
+import Header from "../components/Header.astro"
+import SEO from "./SEO.astro"
 ---
 
 <!doctype html>
@@ -18,7 +18,7 @@ const { title } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={Astro.props.description} />
+    <meta name="description" content={description} />
     <title>{title}</title>
     <SEO
       globalTitle="Landing Page and Institucional Site template."

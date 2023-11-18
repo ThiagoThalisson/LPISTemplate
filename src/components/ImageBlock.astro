@@ -1,10 +1,9 @@
 ---
 // So not be confused with Image.astro integrated images.
 
-import { Image } from "@astrojs/image/components"
+import type { Props as BaseProps } from "../BaseProps"
 
-export interface Props {
-  classVariant?: string
+interface Props extends BaseProps {
   imageUrl: string
   imageWidth: number
   imageHeight: number
@@ -12,7 +11,16 @@ export interface Props {
   imageFormat: "jpg" | "png" | "webp" | "svg"
 }
 
-const { classVariant, imageUrl } = Astro.props
+const {
+  classVariant,
+  imageUrl,
+  imageWidth,
+  imageHeight,
+  imageAlt,
+  imageFormat,
+} = Astro.props
+
+import { Image } from "@astrojs/image/components"
 ---
 
 <div
@@ -31,11 +39,11 @@ const { classVariant, imageUrl } = Astro.props
       "w-full": classVariant?.includes("fullWidth"),
     }}
     fit="cover"
-    width={Astro.props.imageWidth}
-    height={Astro.props.imageHeight}
+    width={imageWidth}
+    height={imageHeight}
     src={imageUrl}
     quality={100}
-    format={Astro.props.imageFormat}
-    alt={Astro.props.imageAlt}
+    format={imageFormat}
+    alt={imageAlt}
   />
 </div>
