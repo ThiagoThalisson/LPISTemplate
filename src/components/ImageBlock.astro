@@ -32,18 +32,22 @@ import { Image } from "@astrojs/image/components"
   }}
   ,
 >
-  <Image
-    class:list={{
-      "rounded-lg": classVariant?.includes("lgRounded"),
-      "rounded-full": classVariant?.includes("fullRounded"),
-      "w-full": classVariant?.includes("fullWidth"),
-    }}
-    fit="cover"
-    width={imageWidth}
-    height={imageHeight}
-    src={imageUrl}
-    quality={100}
-    format={imageFormat}
-    alt={imageAlt}
-  />
+  {
+    (
+      <Image
+        class:list={{
+          "rounded-lg": classVariant?.includes("lgRounded"),
+          "rounded-full": classVariant?.includes("fullRounded"),
+          "w-full": classVariant?.includes("fullWidth"),
+        }}
+        fit="cover"
+        width={imageWidth}
+        height={imageHeight}
+        src={imageUrl as string}
+        quality={100}
+        format={imageFormat}
+        alt={imageAlt}
+      />
+    )
+  }
 </div>

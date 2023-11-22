@@ -4,6 +4,7 @@ export interface Props extends BaseProps {
   secondaryTitle: string
   imageUrl: string
   imageAlt: string
+  key?: string
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   content,
   imageUrl,
   imageAlt,
+  key,
 } = Astro.props
 
 import Button from "./Button.astro"
@@ -218,8 +220,8 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="fullWidth"
               imageWidth={1920}
               imageHeight={1080}
-              imageUrl={imageUrl}
               imageFormat="jpg"
+              imageUrl={imageUrl as string}
               imageAlt={imageAlt}
             />
             <div class="w-full flex flex-col gap-3 md:gap-6">

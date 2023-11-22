@@ -1,9 +1,15 @@
 ---
 import type { Props as BaseProps } from "../BaseProps"
-interface Props extends BaseProps {}
-const { variant, title, content } = Astro.props
+interface Props extends BaseProps {
+  imageUrl: string
+  imageAlt: string
+}
+const { variant, classVariant, title, content, imageUrl, imageAlt } =
+  Astro.props
 
 import Card from "../components/Card.astro"
+
+import ImageBlock from "./ImageBlock.astro"
 ---
 
 <section>
@@ -15,19 +21,10 @@ import Card from "../components/Card.astro"
             variant="card-three"
             classVariant="reversed"
             statement="This Is Part Of A Content Section"
-            title="This A Content Section"
-            content="Use the pre-existing card component to make these."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
-          />
-          <Card
-            variant="card-three"
-            classVariant="rightText"
-            statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
         </div>
       ),
@@ -35,10 +32,10 @@ import Card from "../components/Card.astro"
         <div>
           <Card
             variant="card-two"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
         </div>
       ),
@@ -48,18 +45,18 @@ import Card from "../components/Card.astro"
             variant="card-one"
             classVariant="reversed"
             statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
           <Card
             variant="card-one"
             statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
         </div>
       ),
@@ -68,27 +65,27 @@ import Card from "../components/Card.astro"
           <Card
             variant="card-four"
             statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
           <div class="flex flex-col md:flex-row">
             <Card
               variant="card-five"
               statement="This Is Part Of A Content Section"
-              title="It's Easy To Make One"
-              content="And with different patterns this will make your landing page incredible."
-              imageUrl="./laptop.jpg"
-              imageAlt="Someone using a laptop"
+              title={title}
+              content={content}
+              imageUrl={imageUrl as string}
+              imageAlt={imageAlt}
             />
             <Card
               variant="card-five"
               statement="This Is Part Of A Content Section"
-              title="It's Easy To Make One"
-              content="And with different patterns this will make your landing page incredible."
-              imageUrl="./laptop.jpg"
-              imageAlt="Someone using a laptop"
+              title={title}
+              content={content}
+              imageUrl={imageUrl}
+              imageAlt={imageAlt}
             />
           </div>
         </div>
@@ -98,61 +95,134 @@ import Card from "../components/Card.astro"
           <Card
             variant="card-six"
             statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
           <Card
             variant="card-six"
             statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
           <Card
             variant="card-six"
             statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
         </div>
       ),
-      variant?.includes("section-seven") && (
+      variant?.includes("section-six") && (
         <div class="flex flex-col md:flex-row gap-8">
           <Card
             variant="card-seven"
             statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
           <Card
             variant="card-seven"
             statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
           <Card
             variant="card-seven"
             statement="This Is Part Of A Content Section"
-            title="It's Easy To Make One"
-            content="And with different patterns this will make your landing page incredible."
-            imageUrl="./laptop.jpg"
-            imageAlt="Someone using a laptop"
+            title={title}
+            content={content}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
           />
         </div>
       ),
+      variant?.includes("section-seven") && (
+        <div
+          class="flex flex-col gap-6 md:gap-8 py-12"
+          class:list={{
+            "flex flex-col-reverse": classVariant?.includes("reversed"),
+          }}
+        >
+          <div>
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={400}
+              imageHeight={400}
+              imageUrl={imageUrl}
+              imageFormat="jpg"
+              imageAlt={imageAlt}
+            />
+          </div>
+          <div class="flex flex-col gap-3">
+            <h2 class="md:text-center">{title}</h2>
+            <p class="md:text-center">{content}</p>
+          </div>
+        </div>
+      ),
       variant?.includes("section-eight") && (
-        <div>
-          <h1>{title}</h1>
-          <p>{content}</p>
+        <div class="flex flex-col md:flex-row gap-1.5 md:gap-6">
+          <div class="flex flex-col gap-3">
+            <h2>{title}</h2>
+            <p>{content}</p>
+          </div>
+          <div class="flex gap-6 overflow-x-scroll py-3 snap-x snap-mandatory">
+            <div class="flex-none w-9/12 snap-center">
+              <ImageBlock
+                classVariant="fullWidth lgRounded"
+                imageWidth={253}
+                imageHeight={150}
+                imageUrl="./laptop.jpg"
+                imageFormat="jpg"
+                imageAlt="Someone"
+              />
+            </div>
+            <div class="flex-none w-9/12 snap-center">
+              <ImageBlock
+                classVariant="fullWidth lgRounded"
+                imageWidth={253}
+                imageHeight={150}
+                imageUrl="./laptop.jpg"
+                imageFormat="jpg"
+                imageAlt="Someone"
+              />
+            </div>
+            <div class="flex-none w-9/12 snap-center">
+              <ImageBlock
+                classVariant="fullWidth lgRounded"
+                imageWidth={253}
+                imageHeight={150}
+                imageUrl="./laptop.jpg"
+                imageFormat="jpg"
+                imageAlt="Someone"
+              />
+            </div>
+          </div>
+        </div>
+      ),
+      variant?.includes("section-nine") && (
+        <div class="flex flex-col gap-6 py-8">
+          <div>
+            <h2>{title}</h2>
+            <p>{content}</p>
+          </div>
+          <ImageBlock
+            classVariant="fullWidth lgRounded"
+            imageWidth={253}
+            imageHeight={150}
+            imageUrl="./laptop.jpg"
+            imageFormat="jpg"
+            imageAlt="Someone"
+          />
         </div>
       ),
     ]
