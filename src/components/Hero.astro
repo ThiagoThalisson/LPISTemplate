@@ -2,10 +2,20 @@
 import type { Props as BaseProps } from "../BaseProps"
 export interface Props extends BaseProps {
   secondaryTitle: string
+  imageUrl: string
+  imageAlt: string
 }
 
-const { variant, classVariant, statement, title, secondaryTitle, content } =
-  Astro.props
+const {
+  variant,
+  classVariant,
+  statement,
+  title,
+  secondaryTitle,
+  content,
+  imageUrl,
+  imageAlt,
+} = Astro.props
 
 import Button from "./Button.astro"
 import ImageBlock from "./ImageBlock.astro"
@@ -64,9 +74,9 @@ import ImageBlock from "./ImageBlock.astro"
             classVariant="fullWidth lgRounded"
             imageWidth={500}
             imageHeight={500}
-            imageUrl="./laptop.jpg"
+            imageUrl={imageUrl}
             imageFormat="jpg"
-            imageAlt="Laptop photo."
+            imageAlt={imageAlt}
           />
         </div>
       ),
@@ -119,9 +129,9 @@ import ImageBlock from "./ImageBlock.astro"
           <ImageBlock
             imageWidth={800}
             imageHeight={350}
-            imageUrl="./laptop.jpg"
+            imageUrl={imageUrl}
             imageFormat="jpg"
-            imageAlt="Laptop photo."
+            imageAlt={imageAlt}
           />
         </div>
       ),
@@ -132,17 +142,17 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="flexStart"
               imageWidth={128}
               imageHeight={90}
-              imageUrl="./laptop.jpg"
+              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt="Laptop photo."
+              imageAlt={imageAlt}
             />
             <ImageBlock
               classVariant="flexEnd"
               imageWidth={128}
               imageHeight={90}
-              imageUrl="./laptop.jpg"
+              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt="Laptop photo."
+              imageAlt={imageAlt}
             />
           </div>
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
@@ -163,17 +173,17 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="flexEnd"
               imageWidth={128}
               imageHeight={90}
-              imageUrl="./laptop.jpg"
+              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt="Laptop photo."
+              imageAlt={imageAlt}
             />
             <ImageBlock
               classVariant="flexStart"
               imageWidth={128}
               imageHeight={90}
-              imageUrl="./laptop.jpg"
+              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt="Laptop photo."
+              imageAlt={imageAlt}
             />
           </div>
         </div>
@@ -194,9 +204,9 @@ import ImageBlock from "./ImageBlock.astro"
           <ImageBlock
             imageWidth={1920}
             imageHeight={1080}
-            imageUrl="./laptop.jpg"
+            imageUrl={imageUrl}
             imageFormat="jpg"
-            imageAlt="Laptop photo."
+            imageAlt={imageAlt}
           />
         </div>
       ),
@@ -208,9 +218,9 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="fullWidth"
               imageWidth={1920}
               imageHeight={1080}
-              imageUrl="./laptop.jpg"
+              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt="Laptop photo."
+              imageAlt={imageAlt}
             />
             <div class="w-full flex flex-col gap-3 md:gap-6">
               <h2 class="font-body">{secondaryTitle}</h2>
