@@ -3,10 +3,28 @@ import ImageBlock from "./ImageBlock.astro"
 import Button from "./Button.astro"
 import type { Props as BaseProps } from "../BaseProps"
 
-interface Props extends BaseProps {
-  imageUrl: string
-  imageAlt: string
-}
+// interface Props extends BaseProps {
+//   imageUrl?: string
+//   imageAlt?: string
+// }
+type Props = BaseProps & CardProps
+type CardProps =
+  | {
+      variant:
+        | "card-one"
+        | "card-two"
+        | "card-three"
+        | "card-four"
+        | "card-six"
+        | "card-seven"
+      imageUrl: string
+      imageAlt: string
+    }
+  | {
+      variant: "card-five"
+      imageUrl?: string
+      imageAlt?: string
+    }
 
 const { variant, classVariant, title, content, statement, imageUrl, imageAlt } =
   Astro.props
@@ -39,9 +57,9 @@ const textRight: TextRightType = {
             classVariant="fullWidth"
             imageWidth={768}
             imageHeight={512}
-            imageUrl={imageUrl}
+            imageUrl={imageUrl!}
             imageFormat="jpg"
-            imageAlt={imageAlt}
+            imageAlt={imageAlt!}
           />
           <div class="w-full flex flex-col gap-3">
             <h2>{title}</h2>
@@ -78,6 +96,7 @@ const textRight: TextRightType = {
           class:list={{
             "flex-col-reverse md:flex-row-reverse":
               classVariant?.includes("reversed"),
+            "md:flex-row-reverse": classVariant?.includes("sectionReversed"),
           }}
         >
           <div class="w-full flex flex-col gap-4">
@@ -121,7 +140,7 @@ const textRight: TextRightType = {
           <ImageBlock
             imageWidth={250}
             imageHeight={250}
-            imageUrl="./laptop.jpg"
+            imageUrl={imageUrl!}
             imageFormat="jpg"
             imageAlt="A laptop."
           />

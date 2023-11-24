@@ -27,8 +27,8 @@ import { Image } from "@astrojs/image/components"
   class="flex justify-center"
   class:list={{
     "w-full": classVariant?.includes("fullWidth"),
-    "flex justify-start": classVariant?.includes("flexStart"),
-    "flex justify-end": classVariant?.includes("flexEnd"),
+    "!justify-start": classVariant?.includes("flexStart"),
+    "!justify-end": classVariant?.includes("flexEnd"),
   }}
   ,
 >

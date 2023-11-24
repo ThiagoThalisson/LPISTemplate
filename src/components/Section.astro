@@ -1,11 +1,35 @@
 ---
 import type { Props as BaseProps } from "../BaseProps"
-interface Props extends BaseProps {
-  imageUrl: string
-  imageAlt: string
-}
-const { variant, classVariant, title, content, imageUrl, imageAlt } =
-  Astro.props
+import type { GlobalTypes as SectionTypes } from "../GlobalType"
+
+type Props = BaseProps & SectionProps
+type SectionProps =
+  | {
+      variant:
+        | "section-one"
+        | "section-two"
+        | "section-four"
+        | "section-seven"
+        | "section-nine"
+
+      section: SectionTypes
+    }
+  | {
+      variant:
+        | "section-three"
+        | "section-five"
+        | "section-six"
+        | "section-eight"
+        | "section-nine"
+        | "section-ten"
+        | "section-eleven"
+        | "section-twelve"
+
+      section: SectionTypes[]
+    }
+
+const { variant, classVariant } = Astro.props
+const section = Astro.props.section as any
 
 import Card from "../components/Card.astro"
 
@@ -17,133 +41,54 @@ import ImageBlock from "./ImageBlock.astro"
     [
       variant?.includes("section-one") && (
         <div class="flex flex-col gap-6">
-          <Card
-            variant="card-three"
-            classVariant="reversed"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
+          <Card variant="card-three" classVariant="reversed" {...section} />
         </div>
       ),
       variant?.includes("section-two") && (
         <div>
           <Card
             variant="card-two"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
+            title={section.title}
+            content={section.content}
+            imageUrl={section.imageUrl}
+            imageAlt={section.imageAlt}
           />
         </div>
       ),
       variant?.includes("section-three") && (
         <div class="flex flex-col gap-8">
-          <Card
-            variant="card-one"
-            classVariant="reversed"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
-          <Card
-            variant="card-one"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
+          {Array.isArray(section) &&
+            section.map((props) => (
+              <ImageBlock
+                classVariant="fullWidth"
+                imageWidth={1920}
+                imageHeight={1080}
+                imageFormat="jpg"
+                imageUrl={props.imageUrl}
+                imageAlt={props.imageAlt}
+              />
+            ))}
         </div>
       ),
       variant?.includes("section-four") && (
         <div class="flex flex-col gap-4">
-          <Card
-            variant="card-four"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
+          <Card variant="card-four" {...section} />
           <div class="flex flex-col md:flex-row">
-            <Card
-              variant="card-five"
-              statement="This Is Part Of A Content Section"
-              title={title}
-              content={content}
-              imageUrl={imageUrl as string}
-              imageAlt={imageAlt}
-            />
-            <Card
-              variant="card-five"
-              statement="This Is Part Of A Content Section"
-              title={title}
-              content={content}
-              imageUrl={imageUrl}
-              imageAlt={imageAlt}
-            />
+            <Card variant="card-five" {...section} />
+            <Card variant="card-five" {...section} />
           </div>
         </div>
       ),
       variant?.includes("section-five") && (
         <div class="flex flex-col md:flex-row py-16 gap-8">
-          <Card
-            variant="card-six"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
-          <Card
-            variant="card-six"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
-          <Card
-            variant="card-six"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
+          {Array.isArray(section) &&
+            section.map((props) => <Card variant="card-six" {...props} />)}
         </div>
       ),
       variant?.includes("section-six") && (
         <div class="flex flex-col md:flex-row gap-8">
-          <Card
-            variant="card-seven"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
-          <Card
-            variant="card-seven"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
-          <Card
-            variant="card-seven"
-            statement="This Is Part Of A Content Section"
-            title={title}
-            content={content}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-          />
+          {Array.isArray(section) &&
+            section.map((props) => <Card variant="card-seven" {...props} />)}
         </div>
       ),
       variant?.includes("section-seven") && (
@@ -158,22 +103,21 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="lgRounded"
               imageWidth={400}
               imageHeight={400}
-              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt={imageAlt}
+              {...section}
             />
           </div>
           <div class="flex flex-col gap-3">
-            <h2 class="md:text-center">{title}</h2>
-            <p class="md:text-center">{content}</p>
+            <h2 class="md:text-center">{section.title}</h2>
+            <p class="md:text-center">{section.content}</p>
           </div>
         </div>
       ),
       variant?.includes("section-eight") && (
         <div class="flex flex-col md:flex-row gap-1.5 md:gap-6">
           <div class="flex flex-col gap-3">
-            <h2>{title}</h2>
-            <p>{content}</p>
+            <h2>{section.title}</h2>
+            <p>{section.content}</p>
           </div>
           <div class="flex gap-6 overflow-x-scroll py-3 snap-x snap-mandatory">
             <div class="flex-none w-9/12 snap-center">
@@ -181,9 +125,8 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="fullWidth lgRounded"
                 imageWidth={253}
                 imageHeight={150}
-                imageUrl="./laptop.jpg"
                 imageFormat="jpg"
-                imageAlt="Someone"
+                {...section}
               />
             </div>
             <div class="flex-none w-9/12 snap-center">
@@ -191,9 +134,8 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="fullWidth lgRounded"
                 imageWidth={253}
                 imageHeight={150}
-                imageUrl="./laptop.jpg"
                 imageFormat="jpg"
-                imageAlt="Someone"
+                {...section}
               />
             </div>
             <div class="flex-none w-9/12 snap-center">
@@ -201,28 +143,193 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="fullWidth lgRounded"
                 imageWidth={253}
                 imageHeight={150}
-                imageUrl="./laptop.jpg"
                 imageFormat="jpg"
-                imageAlt="Someone"
+                {...section}
               />
             </div>
           </div>
         </div>
       ),
       variant?.includes("section-nine") && (
-        <div class="flex flex-col gap-6 py-8">
-          <div>
-            <h2>{title}</h2>
-            <p>{content}</p>
+        <div class="flex flex-col md:flex-row gap-6 py-8 md:py-12">
+          <div class="flex flex-col gap-6 w-full">
+            <div class="flex flex-col gap-3">
+              <h2>{section[0].title}</h2>
+              <p>{section[0].content}</p>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex flex-col gap-3 flex-1">
+                <ImageBlock
+                  classVariant="flexStart lgRounded"
+                  imageWidth={72}
+                  imageHeight={72}
+                  imageFormat="jpg"
+                  {...section[1]}
+                />
+                <div class="flex flex-col gap-1">
+                  <h3>{section[1].title}</h3>
+                  <p>{section[1].content}</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 flex-1">
+                <ImageBlock
+                  classVariant="flexStart lgRounded"
+                  imageWidth={72}
+                  imageHeight={72}
+                  imageFormat="jpg"
+                  {...section[2]}
+                />
+                <div class="flex flex-col gap-1">
+                  <h3>{section[2].title}</h3>
+                  <p>{section[2].content}</p>
+                </div>
+              </div>
+            </div>
           </div>
           <ImageBlock
-            classVariant="fullWidth lgRounded"
-            imageWidth={253}
-            imageHeight={150}
-            imageUrl="./laptop.jpg"
+            classVariant="lgRounded"
+            imageWidth={390}
+            imageHeight={600}
             imageFormat="jpg"
-            imageAlt="Someone"
+            {...section[0]}
           />
+        </div>
+      ),
+      variant?.includes("section-ten") && (
+        <div class="flex flex-col md:flex-row gap-6 md:gap-8 py-12 md:py-16">
+          <ImageBlock
+            classVariant="lgRounded"
+            imageWidth={390}
+            imageHeight={600}
+            imageFormat="jpg"
+            {...section[0]}
+          />
+          <div class="flex flex-col gap-6">
+            <h2>{section[0].title}</h2>
+            <div class="flex gap-4 h-full">
+              <div class="flex flex-col gap-3 flex-1">
+                <ImageBlock
+                  classVariant="flexStart lgRounded"
+                  imageWidth={72}
+                  imageHeight={72}
+                  imageFormat="jpg"
+                  {...section[1]}
+                />
+                <div class="flex flex-col gap-1">
+                  <h3>{section[1].title}</h3>
+                  <p>{section[1].content}</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 flex-1">
+                <ImageBlock
+                  classVariant="flexStart lgRounded"
+                  imageWidth={72}
+                  imageHeight={72}
+                  imageFormat="jpg"
+                  {...section[2]}
+                />
+                <div class="flex flex-col gap-1">
+                  <h3>{section[2].title}</h3>
+                  <p>{section[2].content}</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-4 h-full">
+              <div class="flex flex-col gap-3 flex-1">
+                <ImageBlock
+                  classVariant="flexStart lgRounded"
+                  imageWidth={72}
+                  imageHeight={72}
+                  imageFormat="jpg"
+                  {...section[3]}
+                />
+                <div class="flex flex-col gap-1">
+                  <h3>{section[3].title}</h3>
+                  <p>{section[3].content}</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 flex-1">
+                <ImageBlock
+                  classVariant="flexStart lgRounded"
+                  imageWidth={72}
+                  imageHeight={72}
+                  imageFormat="jpg"
+                  {...section[4]}
+                />
+                <div class="flex flex-col gap-1">
+                  <h3>{section[4].title}</h3>
+                  <p>{section[4].content}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      variant?.includes("section-eleven") && (
+        <div class="flex flex-col gap-8">
+          <p>{section[0].statement}</p>
+          <h2>{section[0].title}</h2>
+          <Card variant="card-three" {...section[1]} />
+          <Card
+            variant="card-three"
+            classVariant="sectionReversed"
+            {...section[2]}
+          />
+          <Card variant="card-three" {...section[3]} />
+        </div>
+      ),
+      variant?.includes("section-twelve") && (
+        <div class="flex flex-col gap-6 md:flex-row">
+          <div class="flex flex-col justify-center gap-4 w-full">
+            <h1>{section[0].title}</h1>
+            <p>{section[0].content}</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4 w-full">
+            <div class="bg-light-foregroundFill flex flex-col items-center p-3 gap-2">
+              <ImageBlock
+                classVariant="flexStart fullRounded"
+                imageWidth={56}
+                imageHeight={56}
+                imageFormat="jpg"
+                {...section[1]}
+              />
+              <h3 class="text-center">{section[1].title}</h3>
+              <p class="text-center">{section[1].content}</p>
+            </div>
+            <div class="bg-light-foregroundFill flex flex-col items-center p-3 gap-2">
+              <ImageBlock
+                classVariant="flexStart fullRounded"
+                imageWidth={56}
+                imageHeight={56}
+                imageFormat="jpg"
+                {...section[1]}
+              />
+              <h3 class="text-center">{section[1].title}</h3>
+              <p class="text-center">{section[1].content}</p>
+            </div>
+            <div class="bg-light-foregroundFill flex flex-col items-center p-3 gap-2">
+              <ImageBlock
+                classVariant="flexStart fullRounded"
+                imageWidth={56}
+                imageHeight={56}
+                imageFormat="jpg"
+                {...section[1]}
+              />
+              <h3 class="text-center">{section[1].title}</h3>
+              <p class="text-center">{section[1].content}</p>
+            </div>
+            <div class="bg-light-foregroundFill flex flex-col items-center p-3 gap-2">
+              <ImageBlock
+                classVariant="flexStart fullRounded"
+                imageWidth={56}
+                imageHeight={56}
+                imageFormat="jpg"
+                {...section[1]}
+              />
+              <h3 class="text-center">{section[1].title}</h3>
+              <p class="text-center">{section[1].content}</p>
+            </div>
+          </div>
         </div>
       ),
     ]

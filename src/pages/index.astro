@@ -3,28 +3,38 @@ import Layout from "../layouts/Layout.astro"
 
 import Hero from "../components/Hero.astro"
 import Section from "../components/Section.astro"
+
+const Benefits = [
+  {
+    title: "This Is A Very Good Template.",
+    content: "You'll like it.",
+    imageUrl: "",
+    imageAlt: "",
+  },
+  {
+    statement: "This Is A Statement",
+    title: "This Is A Very Good Template.",
+    content: "You'll like it.",
+    imageUrl: "./laptop.jpg",
+    imageAlt: "Yes",
+  },
+]
+
+const HeroContent = {
+  title: "This is a very good variant-based template.",
+  secondaryTitle: "Example",
+  content: "You'll like it.",
+  imageUrl: "./preview.png",
+  imageAlt: "Yes",
+}
 ---
 
 <Layout
   title="Landing Page and Institucional Site template."
   description="A dynamic Astro SSG template to help freelancers around the world."
 >
-  <Hero
-    variant="hero-seven"
-    statement="A Very Modular Template"
-    title="Welcome To LPIS Template"
-    secondaryTitle="This Is The Future"
-    content="A template that helps you create wonderful landing pages."
-    imageUrl="./laptop.jpg"
-    imageAlt="Someone using a laptop."
-  />
+  <Hero variant="hero-seven" hero={HeroContent} />
   <main class="px-6 md:max-w-5xl m-auto">
-    <Section
-      variant="section-one"
-      title="Longer Title To Display This Better"
-      content="A template that helps you create wonderful landing pages."
-      imageUrl="./laptop.jpg"
-      imageAlt="Someone handling a laptop."
-    />
+    <Section variant="section-twelve" section={Benefits} />
   </main>
 </Layout>

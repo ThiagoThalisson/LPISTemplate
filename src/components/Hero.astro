@@ -1,23 +1,15 @@
 ---
 import type { Props as BaseProps } from "../BaseProps"
-export interface Props extends BaseProps {
-  secondaryTitle: string
-  imageUrl: string
-  imageAlt: string
-  key?: string
+import type { GlobalTypes as HeroTypes } from "../GlobalType"
+
+type Props = BaseProps & HeroProps
+type HeroProps = {
+  hero: HeroTypes
+  secondaryTitle?: string
 }
 
-const {
-  variant,
-  classVariant,
-  statement,
-  title,
-  secondaryTitle,
-  content,
-  imageUrl,
-  imageAlt,
-  key,
-} = Astro.props
+const { variant, classVariant, statement, title, content } = Astro.props
+const hero = Astro.props.hero as any
 
 import Button from "./Button.astro"
 import ImageBlock from "./ImageBlock.astro"
@@ -30,17 +22,17 @@ import ImageBlock from "./ImageBlock.astro"
         <div class="flex flex-col items-center relative py-12 px-6 gap-6 md:gap-8 ">
           <img
             class="object-cover absolute inset-0 w-full h-full z-[-10] brightness-50"
-            src="./laptop.jpg"
-            alt=""
+            src={hero.imageUrl}
+            alt={hero.imageAlt}
           />
           <div class="flex flex-col gap-4 md:gap-3">
             <div class="flex flex-col gap-2">
               <p class="font-bold !text-accent-light text-center">
-                {statement}
+                {hero.statement}
               </p>
-              <h1 class="!text-dark-title text-center">{title}</h1>
+              <h1 class="!text-dark-title text-center">{hero.title}</h1>
             </div>
-            <p class="!text-dark-paragraph text-center">{content}</p>
+            <p class="!text-dark-paragraph text-center">{hero.content}</p>
           </div>
           <Button
             variant="call-to-action"
@@ -61,9 +53,9 @@ import ImageBlock from "./ImageBlock.astro"
         >
           <div class="w-full flex flex-col gap-4 md:gap-6 py-6">
             <div class="flex flex-col gap-2">
-              <p class="font-bold !text-accent-base">{statement}</p>
-              <h1>{title}</h1>
-              <p>{content}</p>
+              <p class="font-bold !text-accent-base">{hero.statement}</p>
+              <h1>{hero.title}</h1>
+              <p>{hero.content}</p>
             </div>
 
             <Button
@@ -76,9 +68,8 @@ import ImageBlock from "./ImageBlock.astro"
             classVariant="fullWidth lgRounded"
             imageWidth={500}
             imageHeight={500}
-            imageUrl={imageUrl}
             imageFormat="jpg"
-            imageAlt={imageAlt}
+            {...hero}
           />
         </div>
       ),
@@ -92,9 +83,9 @@ import ImageBlock from "./ImageBlock.astro"
         >
           <div class="w-full flex flex-col gap-4 md:gap-8 px-6 md:px-10 lg:px-16 py-8">
             <div class="flex flex-col gap-2 ">
-              <p class="font-bold !text-accent-base">{statement}</p>
-              <h1>{title}</h1>
-              <p>{content}</p>
+              <p class="font-bold !text-accent-base">{hero.statement}</p>
+              <h1>{hero.title}</h1>
+              <p>{hero.content}</p>
             </div>
 
             <Button
@@ -107,9 +98,8 @@ import ImageBlock from "./ImageBlock.astro"
             classVariant="fullWidth"
             imageWidth={500}
             imageHeight={500}
-            imageUrl="./laptop.jpg"
             imageFormat="jpg"
-            imageAlt="Laptop photo."
+            {...hero}
           />
         </div>
       ),
@@ -117,9 +107,9 @@ import ImageBlock from "./ImageBlock.astro"
         <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
             <div class="flex flex-col items-center gap-2">
-              <p class="font-bold !text-accent-base">{statement}</p>
-              <h1>{title}</h1>
-              <p>{content}</p>
+              <p class="font-bold !text-accent-base">{hero.statement}</p>
+              <h1>{hero.title}</h1>
+              <p>{hero.content}</p>
             </div>
 
             <Button
@@ -131,9 +121,8 @@ import ImageBlock from "./ImageBlock.astro"
           <ImageBlock
             imageWidth={800}
             imageHeight={350}
-            imageUrl={imageUrl}
             imageFormat="jpg"
-            imageAlt={imageAlt}
+            {...hero}
           />
         </div>
       ),
@@ -144,24 +133,22 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="flexStart"
               imageWidth={128}
               imageHeight={90}
-              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt={imageAlt}
+              {...hero}
             />
             <ImageBlock
               classVariant="flexEnd"
               imageWidth={128}
               imageHeight={90}
-              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt={imageAlt}
+              {...hero}
             />
           </div>
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
             <div class="flex flex-col gap-3">
               <p class="font-bold !text-accent-base text-center">{statement}</p>
-              <h1 class="text-center">{title}</h1>
-              <p class="text-center">{content}</p>
+              <h1 class="text-center">{hero.title}</h1>
+              <p class="text-center">{hero.content}</p>
             </div>
 
             <Button
@@ -175,17 +162,15 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="flexEnd"
               imageWidth={128}
               imageHeight={90}
-              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt={imageAlt}
+              {...hero}
             />
             <ImageBlock
               classVariant="flexStart"
               imageWidth={128}
               imageHeight={90}
-              imageUrl={imageUrl}
               imageFormat="jpg"
-              imageAlt={imageAlt}
+              {...hero}
             />
           </div>
         </div>
@@ -206,27 +191,25 @@ import ImageBlock from "./ImageBlock.astro"
           <ImageBlock
             imageWidth={1920}
             imageHeight={1080}
-            imageUrl={imageUrl}
             imageFormat="jpg"
-            imageAlt={imageAlt}
+            {...hero}
           />
         </div>
       ),
       variant?.includes("hero-seven") && (
         <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16">
-          <h1 class="font-light">{title}</h1>
+          <h1 class="font-light">{hero.title}</h1>
           <div class="w-full flex flex-col items-center md:flex-row gap-3 md:gap-8">
             <ImageBlock
               classVariant="fullWidth"
               imageWidth={1920}
               imageHeight={1080}
               imageFormat="jpg"
-              imageUrl={imageUrl as string}
-              imageAlt={imageAlt}
+              {...hero}
             />
             <div class="w-full flex flex-col gap-3 md:gap-6">
-              <h2 class="font-body">{secondaryTitle}</h2>
-              <p>{content}</p>
+              <h2 class="font-body">{hero.secondaryTitle}</h2>
+              <p>{hero.content}</p>
               <Button
                 classVariant="filledLgRounded"
                 variant="call-to-action"
