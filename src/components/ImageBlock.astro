@@ -1,13 +1,14 @@
 ---
 // So not be confused with Image.astro integrated images.
 
-import type { Props as BaseProps } from "../BaseProps"
+import { Image } from "@astrojs/image/components"
 
-interface Props extends BaseProps {
-  imageUrl: string
+import type { BaseInterface } from "../common/base.type"
+import type { ImageTypes } from "../common/image.type"
+
+interface Props extends BaseInterface, ImageTypes {
   imageWidth: number
   imageHeight: number
-  imageAlt: string
   imageFormat: "jpg" | "png" | "webp" | "svg"
 }
 
@@ -19,8 +20,6 @@ const {
   imageAlt,
   imageFormat,
 } = Astro.props
-
-import { Image } from "@astrojs/image/components"
 ---
 
 <div

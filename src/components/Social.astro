@@ -1,0 +1,21 @@
+---
+import type { BaseInterface } from "../common/base.type"
+export interface Props extends BaseInterface {}
+
+const { variant, classVariant, title, content } = Astro.props
+---
+
+<div>
+  {
+    variant?.includes("social-one") && (
+      <div
+        class:list={{
+          "bg-light-fill": classVariant?.includes("withBackground"),
+        }}
+      >
+        <h1>{title}</h1>
+        <p>{content}</p>
+      </div>
+    )
+  }
+</div>
