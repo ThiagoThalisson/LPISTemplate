@@ -1,7 +1,7 @@
 ---
-import type { Props as BaseProps } from "../BaseProps"
 import { Image } from "astro:assets"
 import Button from "./Button.astro"
+import type { BaseInterface } from "../common/base.type"
 
 type Page = {
   name: string
@@ -29,7 +29,7 @@ const pages: Page[] = [
 
 const { variant } = Astro.props
 
-interface Props extends BaseProps {}
+interface Props extends BaseInterface {}
 ---
 
 <nav class="flex justify-center items-center">

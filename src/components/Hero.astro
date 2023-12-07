@@ -1,10 +1,10 @@
 ---
-import type { Props as BaseProps } from "../BaseProps"
-import type { GlobalTypes as HeroTypes } from "../GlobalType"
+import type { BaseInterface } from "../common/base.type"
+import type { ImageTypes } from "../common/image.type"
 
-type Props = BaseProps & HeroProps
-type HeroProps = {
-  hero: HeroTypes
+type Props = BaseInterface & HeroTypes
+type HeroTypes = {
+  hero: ImageTypes
   secondaryTitle?: string
 }
 

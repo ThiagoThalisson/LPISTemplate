@@ -1,13 +1,13 @@
 ---
 import ImageBlock from "./ImageBlock.astro"
 import Button from "./Button.astro"
-import type { Props as BaseProps } from "../BaseProps"
+import type { BaseInterface } from "../common/base.type"
 
 // interface Props extends BaseProps {
 //   imageUrl?: string
 //   imageAlt?: string
 // }
-type Props = BaseProps & CardProps
+type Props = BaseInterface & CardProps
 type CardProps =
   | {
       variant:

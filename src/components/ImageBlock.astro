@@ -1,10 +1,10 @@
 ---
 // So not be confused with Image.astro integrated images.
 
-import type { Props as BaseProps } from "../BaseProps"
+import type { BaseInterface } from "../common/base.type"
+import type { ImageTypes } from "../common/image.type"
 
-interface Props extends BaseProps {
-  imageUrl: string
+interface Props extends BaseInterface, ImageTypes {
   imageWidth: number
   imageHeight: number
   imageAlt: string

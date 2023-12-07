@@ -1,4 +1,4 @@
-export interface Props {
+export interface BaseInterface {
   variant?: string
   classVariant?: string
   title?: string

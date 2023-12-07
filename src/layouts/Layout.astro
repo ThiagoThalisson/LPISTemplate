@@ -1,8 +1,8 @@
 ---
 import "/src/global.css"
 
-import type { Props as BaseProps } from "../BaseProps"
-export interface Props extends BaseProps {
+import type { BaseInterface } from "../common/base.type"
+export interface Props extends BaseInterface {
   description: string
 }
 const { title, description } = Astro.props

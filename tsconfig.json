@@ -1,6 +1,3 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "types": ["astro:assets"]
-  }
+  "extends": "astro/tsconfigs/strict"
 }
