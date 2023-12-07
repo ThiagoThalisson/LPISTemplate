@@ -1,6 +1,6 @@
 ---
 import type { Props as BaseProps } from "../BaseProps"
-import { Image } from "@astrojs/image/components"
+import { Image } from "astro:assets"
 import Button from "./Button.astro"
 
 type Page = {
@@ -13,17 +13,17 @@ const pages: Page[] = [
   {
     name: "Home",
     slug: "/",
-    image: "/Icons/house.svg",
+    image: "/icons/house.svg",
   },
   {
     name: "About",
     slug: "/about",
-    image: "/Icons/info.svg",
+    image: "/icons/info.svg",
   },
   {
     name: "Contact",
     slug: "/contact",
-    image: "/Icons/phone.svg",
+    image: "/icons/phone.svg",
   },
 ]
 

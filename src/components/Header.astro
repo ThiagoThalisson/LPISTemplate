@@ -1,23 +1,15 @@
 ---
 import Navbar from "./Navbar.astro"
-import { Image } from "@astrojs/image/components"
 ---
 
 <header
   class="fixed w-full flex justify-center bg-slate-50 py-2 transition-transform duration-100 h-[72px] header-scroll z-10"
 >
   <div class="flex justify-between w-full max-w-screen-lg px-6">
-    <a href="./" class="flex items-center dark">
-      <Image
-        width={100}
-        height={100}
-        src="./logoLight.svg"
-        quality={100}
-        format="svg"
-        alt="Logo"
-      />
-    </a>
-
+    <a
+      href="./"
+      class="w-[92px] h-[36] bg-[url('/logoLight.svg')] dark:bg-[url('/logoDark.svg')] bg-no-repeat bg-center"
+    ></a>
     <Navbar variant="desktop" />
   </div>
 </header>

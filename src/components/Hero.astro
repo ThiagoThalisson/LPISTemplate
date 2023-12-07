@@ -68,7 +68,6 @@ import ImageBlock from "./ImageBlock.astro"
             classVariant="fullWidth lgRounded"
             imageWidth={500}
             imageHeight={500}
-            imageFormat="jpg"
             {...hero}
           />
         </div>
@@ -98,7 +97,6 @@ import ImageBlock from "./ImageBlock.astro"
             classVariant="fullWidth"
             imageWidth={500}
             imageHeight={500}
-            imageFormat="jpg"
             {...hero}
           />
         </div>
@@ -118,12 +116,7 @@ import ImageBlock from "./ImageBlock.astro"
               content="Call To Action"
             />
           </div>
-          <ImageBlock
-            imageWidth={800}
-            imageHeight={350}
-            imageFormat="jpg"
-            {...hero}
-          />
+          <ImageBlock imageWidth={800} imageHeight={350} {...hero} />
         </div>
       ),
       variant?.includes("hero-five") && (
@@ -133,14 +126,12 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="flexStart"
               imageWidth={128}
               imageHeight={90}
-              imageFormat="jpg"
               {...hero}
             />
             <ImageBlock
               classVariant="flexEnd"
               imageWidth={128}
               imageHeight={90}
-              imageFormat="jpg"
               {...hero}
             />
           </div>
@@ -162,14 +153,12 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="flexEnd"
               imageWidth={128}
               imageHeight={90}
-              imageFormat="jpg"
               {...hero}
             />
             <ImageBlock
               classVariant="flexStart"
               imageWidth={128}
               imageHeight={90}
-              imageFormat="jpg"
               {...hero}
             />
           </div>
@@ -188,12 +177,7 @@ import ImageBlock from "./ImageBlock.astro"
               />
             </div>
           </div>
-          <ImageBlock
-            imageWidth={1920}
-            imageHeight={1080}
-            imageFormat="jpg"
-            {...hero}
-          />
+          <ImageBlock imageWidth={1920} imageHeight={1080} {...hero} />
         </div>
       ),
       variant?.includes("hero-seven") && (
@@ -204,7 +188,6 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="fullWidth"
               imageWidth={1920}
               imageHeight={1080}
-              imageFormat="jpg"
               {...hero}
             />
             <div class="w-full flex flex-col gap-3 md:gap-6">

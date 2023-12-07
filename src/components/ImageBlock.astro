@@ -8,19 +8,12 @@ interface Props extends BaseProps {
   imageWidth: number
   imageHeight: number
   imageAlt: string
-  imageFormat: "jpg" | "png" | "webp" | "svg"
 }
 
-const {
-  classVariant,
-  imageUrl,
-  imageWidth,
-  imageHeight,
-  imageAlt,
-  imageFormat,
-} = Astro.props
+const { classVariant, imageUrl, imageWidth, imageHeight, imageAlt } =
+  Astro.props
 
-import { Image } from "@astrojs/image/components"
+import { Image } from "astro:assets"
 ---
 
 <div
@@ -30,22 +23,22 @@ import { Image } from "@astrojs/image/components"
     "!justify-start": classVariant?.includes("flexStart"),
     "!justify-end": classVariant?.includes("flexEnd"),
   }}
-  ,
+  class:list={`!w-[${imageWidth}px] !h-[${imageHeight}px]`}
 >
   {
     (
       <Image
         class:list={{
+          [`!w-[${imageWidth}px] !h-[${imageHeight}px]`]:
+            classVariant?.includes("any"),
           "rounded-lg": classVariant?.includes("lgRounded"),
           "rounded-full": classVariant?.includes("fullRounded"),
-          "w-full": classVariant?.includes("fullWidth"),
+          "w-full object-fit": classVariant?.includes("fullWidth"),
         }}
-        fit="cover"
         width={imageWidth}
         height={imageHeight}
         src={imageUrl as string}
         quality={100}
-        format={imageFormat}
         alt={imageAlt}
       />
     )

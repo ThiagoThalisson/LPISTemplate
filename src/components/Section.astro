@@ -63,7 +63,6 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="fullWidth"
                 imageWidth={1920}
                 imageHeight={1080}
-                imageFormat="jpg"
                 imageUrl={props.imageUrl}
                 imageAlt={props.imageAlt}
               />
@@ -103,7 +102,6 @@ import ImageBlock from "./ImageBlock.astro"
               classVariant="lgRounded"
               imageWidth={400}
               imageHeight={400}
-              imageFormat="jpg"
               {...section}
             />
           </div>
@@ -125,7 +123,6 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="fullWidth lgRounded"
                 imageWidth={253}
                 imageHeight={150}
-                imageFormat="jpg"
                 {...section}
               />
             </div>
@@ -134,7 +131,6 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="fullWidth lgRounded"
                 imageWidth={253}
                 imageHeight={150}
-                imageFormat="jpg"
                 {...section}
               />
             </div>
@@ -143,7 +139,6 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="fullWidth lgRounded"
                 imageWidth={253}
                 imageHeight={150}
-                imageFormat="jpg"
                 {...section}
               />
             </div>
@@ -163,7 +158,6 @@ import ImageBlock from "./ImageBlock.astro"
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
                   imageHeight={72}
-                  imageFormat="jpg"
                   {...section[1]}
                 />
                 <div class="flex flex-col gap-1">
@@ -176,7 +170,6 @@ import ImageBlock from "./ImageBlock.astro"
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
                   imageHeight={72}
-                  imageFormat="jpg"
                   {...section[2]}
                 />
                 <div class="flex flex-col gap-1">
@@ -190,7 +183,6 @@ import ImageBlock from "./ImageBlock.astro"
             classVariant="lgRounded"
             imageWidth={390}
             imageHeight={600}
-            imageFormat="jpg"
             {...section[0]}
           />
         </div>
@@ -201,7 +193,6 @@ import ImageBlock from "./ImageBlock.astro"
             classVariant="lgRounded"
             imageWidth={390}
             imageHeight={600}
-            imageFormat="jpg"
             {...section[0]}
           />
           <div class="flex flex-col gap-6">
@@ -212,7 +203,6 @@ import ImageBlock from "./ImageBlock.astro"
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
                   imageHeight={72}
-                  imageFormat="jpg"
                   {...section[1]}
                 />
                 <div class="flex flex-col gap-1">
@@ -225,7 +215,6 @@ import ImageBlock from "./ImageBlock.astro"
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
                   imageHeight={72}
-                  imageFormat="jpg"
                   {...section[2]}
                 />
                 <div class="flex flex-col gap-1">
@@ -240,7 +229,6 @@ import ImageBlock from "./ImageBlock.astro"
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
                   imageHeight={72}
-                  imageFormat="jpg"
                   {...section[3]}
                 />
                 <div class="flex flex-col gap-1">
@@ -253,7 +241,6 @@ import ImageBlock from "./ImageBlock.astro"
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
                   imageHeight={72}
-                  imageFormat="jpg"
                   {...section[4]}
                 />
                 <div class="flex flex-col gap-1">
@@ -290,7 +277,6 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="flexStart fullRounded"
                 imageWidth={56}
                 imageHeight={56}
-                imageFormat="jpg"
                 {...section[1]}
               />
               <h3 class="text-center">{section[1].title}</h3>
@@ -301,7 +287,16 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="flexStart fullRounded"
                 imageWidth={56}
                 imageHeight={56}
-                imageFormat="jpg"
+                {...section[1]}
+              />
+              <h3 class="text-center">{section[1].title}</h3>
+              <p class="text-center">{section[1].content}</p>
+            </div>
+            <div class="bg-light-foregroundFill flex flex-col items-center p-3 gap-2">
+              <ImageBlock
+                classVariant="fullRounded fullWidth"
+                imageWidth={56}
+                imageHeight={56}
                 {...section[1]}
               />
               <h3 class="text-center">{section[1].title}</h3>
@@ -312,18 +307,6 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="flexStart fullRounded"
                 imageWidth={56}
                 imageHeight={56}
-                imageFormat="jpg"
-                {...section[1]}
-              />
-              <h3 class="text-center">{section[1].title}</h3>
-              <p class="text-center">{section[1].content}</p>
-            </div>
-            <div class="bg-light-foregroundFill flex flex-col items-center p-3 gap-2">
-              <ImageBlock
-                classVariant="flexStart fullRounded"
-                imageWidth={56}
-                imageHeight={56}
-                imageFormat="jpg"
                 {...section[1]}
               />
               <h3 class="text-center">{section[1].title}</h3>
