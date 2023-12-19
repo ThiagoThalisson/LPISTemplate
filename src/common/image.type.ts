@@ -1,6 +1,6 @@
 import type { BaseInterface } from "./base.type"
 
 export type ImageTypes = {
-  imageUrl: string
+  imageUrl: any
   imageAlt: string
 } & BaseInterface

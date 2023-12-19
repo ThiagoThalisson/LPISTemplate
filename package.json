@@ -10,15 +10,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.0.0",
-    "@astrojs/tailwind": "^5.0.2",
-    "astro": "^3.6.4",
+    "@astrojs/sitemap": "^3.0.3",
+    "@astrojs/tailwind": "^5.0.3",
+    "astro": "^4.0.6",
+    "dlx": "^0.2.1",
     "prettier-plugin-astro": "^0.12.0",
     "sharp": "^0.32.6",
-    "tailwindcss": "^3.0.24",
-    "yarn": "^1.22.19"
+    "tailwindcss": "^3.0.24"
   },
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "yarn@4.0.2",
   "devDependencies": {
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1"

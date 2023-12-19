@@ -1,6 +1,4 @@
 ---
-// So not be confused with Image.astro integrated images.
-
 import type { BaseInterface } from "../common/base.type"
 import type { ImageTypes } from "../common/image.type"
 
@@ -14,6 +12,7 @@ const { classVariant, imageUrl, imageWidth, imageHeight, imageAlt } =
   Astro.props
 
 import { Image } from "astro:assets"
+let myImage = "../assets/laptop.jpg"
 ---
 
 <div
@@ -37,7 +36,7 @@ import { Image } from "astro:assets"
         }}
         width={imageWidth}
         height={imageHeight}
-        src={imageUrl as string}
+        src={myImage}
         quality={100}
         alt={imageAlt}
       />
