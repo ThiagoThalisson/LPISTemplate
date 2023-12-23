@@ -12,7 +12,7 @@ type SectionProps =
         | "section-seven"
         | "section-nine"
 
-      section: ImageTypes
+      // section: ImageTypes
     }
   | {
       variant:
@@ -29,11 +29,12 @@ type SectionProps =
     }
 
 const { variant, classVariant } = Astro.props
-const section = Astro.props.section as any
+// const section = Astro.props.section as any
 
 import Card from "../components/Card.astro"
 
 import ImageBlock from "./ImageBlock.astro"
+import myImage from "../assets/laptop.jpg"
 ---
 
 <section>
@@ -48,10 +49,10 @@ import ImageBlock from "./ImageBlock.astro"
         <div>
           <Card
             variant="card-two"
-            title={section.title}
-            content={section.content}
-            imageUrl={section.imageUrl}
-            imageAlt={section.imageAlt}
+            title="Example"
+            content="Example content"
+            imageUrl={myImage}
+            imageAlt="Example alt"
           />
         </div>
       ),
@@ -63,7 +64,6 @@ import ImageBlock from "./ImageBlock.astro"
                 classVariant="fullWidth"
                 imageWidth={1920}
                 imageHeight={1080}
-                imageUrl={props.imageUrl}
                 imageAlt={props.imageAlt}
               />
             ))}
