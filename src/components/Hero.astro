@@ -5,14 +5,35 @@ import type { ImageTypes } from "../common/image.type"
 type Props = BaseInterface & HeroTypes
 type HeroTypes = {
   hero: ImageTypes
+  imageAlt: string
   secondaryTitle?: string
 }
 
-const { variant, classVariant, statement, title, content } = Astro.props
+export const HeroContent = {
+  title: "Example",
+  content: "Example Content",
+  imageAlt: "This is my image alt",
+  imageUrl: myImage,
+  classVariant: "lgRounded",
+}
+
+const { variant, classVariant, statement, title, content, imageAlt } =
+  Astro.props
 const hero = Astro.props.hero as any
+
+export const myClassList = {
+  class:list: {
+    "rounded-lg": classVariant?.includes("lgRounded"),
+    "rounded-full": classVariant?.includes("fullRounded"),
+    "w-full object-fit": classVariant?.includes("fullWidth"),
+  },
+}
 
 import Button from "./Button.astro"
 import ImageBlock from "./ImageBlock.astro"
+
+import myImage from "../assets/laptop.jpg"
+import { Image } from "astro:assets"
 ---
 
 <div class="mt-[72px]">
@@ -177,7 +198,15 @@ import ImageBlock from "./ImageBlock.astro"
               />
             </div>
           </div>
-          <ImageBlock imageWidth={1920} imageHeight={1080} {...hero} />
+          <Image
+            {myClassList}
+            classVariant={hero.classVariant}
+            width={250}
+            height={250}
+            src={hero.imageUrl}
+            quality={100}
+            alt={hero.imageAlt}
+          />
         </div>
       ),
       variant?.includes("hero-seven") && (

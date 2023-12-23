@@ -4,37 +4,8 @@ import Layout from "../layouts/Layout.astro"
 import Hero from "../components/Hero.astro"
 import Section from "../components/Section.astro"
 import myImage from "../assets/laptop.jpg"
-
-const Benefits = [
-  {
-    title: "Very Good Template.",
-    content: "You'll like it.",
-    imageUrl: myImage,
-    imageAlt: "",
-  },
-  {
-    statement: "This Is A Statement",
-    title: "Good Template.",
-    content: "You'll like it.",
-    imageUrl: myImage,
-    imageAlt: "Yes",
-  },
-  {
-    statement: "This Is A Statement",
-    title: "Good Template.",
-    content: "You'll lke it.",
-    imageUrl: myImage,
-    imageAlt: "Yes",
-  },
-]
-
-const HeroContent = {
-  title: "This is a very good variant-based template.",
-  secondaryTitle: "Example",
-  content: "You'll like it.",
-  imageUrl: myImage,
-  imageAlt: "Yes",
-}
+import { Image } from "astro:assets"
+import { HeroContent } from "../components/Hero.astro"
 ---
 
 <Layout
@@ -43,6 +14,6 @@ const HeroContent = {
 >
   <Hero variant="hero-six" hero={HeroContent} />
   <main class="px-6 md:max-w-5xl m-auto">
-    <Section variant="section-eleven" section={Benefits} />
+    <Image width="245" height="245" src={myImage} quality="100" alt="Example" />
   </main>
 </Layout>
