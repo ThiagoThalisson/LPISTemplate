@@ -34,7 +34,6 @@ const section = Astro.props.section as any
 import Card from "../components/Card.astro"
 
 import ImageBlock from "./ImageBlock.astro"
-import myImage from "../assets/laptop.jpg"
 ---
 
 <section>
@@ -51,25 +50,17 @@ import myImage from "../assets/laptop.jpg"
         </div>
       ),
       variant?.includes("section-three") && (
-        <div class="flex flex-col gap-8">
-          {Array.isArray(section) &&
-            section.map((props) => (
-              <ImageBlock
-                classVariant="fullWidth"
-                imageWidth={1920}
-                imageHeight={1080}
-                imageAlt={props.imageAlt}
-                imageUrl={props.imageUrl}
-              />
-            ))}
+        <div class="flex flex-col gap-8 items-center py-6">
+          <Card variant="card-one" classVariant="reversed" {...section[0]} />
+          <Card variant="card-one" {...section[1]} />
         </div>
       ),
       variant?.includes("section-four") && (
         <div class="flex flex-col gap-4">
-          <Card variant="card-four" {...section} />
+          <Card variant="card-four" {...section[0]} />
           <div class="flex flex-col md:flex-row">
-            <Card variant="card-five" {...section} />
-            <Card variant="card-five" {...section} />
+            <Card variant="card-five" {...section[1]} />
+            <Card variant="card-five" {...section[2]} />
           </div>
         </div>
       ),
@@ -87,7 +78,7 @@ import myImage from "../assets/laptop.jpg"
       ),
       variant?.includes("section-seven") && (
         <div
-          class="flex flex-col gap-6 md:gap-8 py-12"
+          class="flex flex-col gap-6 md:gap-8 py-12 items-center"
           class:list={{
             "flex flex-col-reverse": classVariant?.includes("reversed"),
           }}
@@ -183,17 +174,17 @@ import myImage from "../assets/laptop.jpg"
         </div>
       ),
       variant?.includes("section-ten") && (
-        <div class="flex flex-col md:flex-row gap-6 md:gap-8 py-12 md:py-16">
+        <div class="flex items-center flex-col md:flex-row gap-6 md:gap-8 py-12 md:py-16">
           <ImageBlock
-            classVariant="lgRounded"
-            imageWidth={390}
-            imageHeight={600}
+            classVariant="flexNone fullWidth followWidth"
+            imageWidth={370}
+            imageHeight={650}
             {...section[0]}
           />
-          <div class="flex flex-col gap-6">
+          <div class="w-full flex flex-col gap-6">
             <h2>{section[0].title}</h2>
             <div class="flex gap-4 h-full">
-              <div class="flex flex-col gap-3 flex-1">
+              <div class="flex flex-col gap-3 items-center md:items-start flex-1">
                 <ImageBlock
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
@@ -201,11 +192,11 @@ import myImage from "../assets/laptop.jpg"
                   {...section[1]}
                 />
                 <div class="flex flex-col gap-1">
-                  <h3>{section[1].title}</h3>
-                  <p>{section[1].content}</p>
+                  <h3 class="text-center md:text-left">{section[1].title}</h3>
+                  <p class="text-center md:text-left">{section[1].content}</p>
                 </div>
               </div>
-              <div class="flex flex-col gap-3 flex-1">
+              <div class="flex flex-col items-center md:items-start gap-3 flex-1">
                 <ImageBlock
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
@@ -213,13 +204,13 @@ import myImage from "../assets/laptop.jpg"
                   {...section[2]}
                 />
                 <div class="flex flex-col gap-1">
-                  <h3>{section[2].title}</h3>
-                  <p>{section[2].content}</p>
+                  <h3 class="text-center md:text-left">{section[2].title}</h3>
+                  <p class="text-center md:text-left">{section[2].content}</p>
                 </div>
               </div>
             </div>
             <div class="flex gap-4 h-full">
-              <div class="flex flex-col gap-3 flex-1">
+              <div class="flex flex-col items-center md:items-start gap-3 flex-1">
                 <ImageBlock
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
@@ -227,11 +218,11 @@ import myImage from "../assets/laptop.jpg"
                   {...section[3]}
                 />
                 <div class="flex flex-col gap-1">
-                  <h3>{section[3].title}</h3>
-                  <p>{section[3].content}</p>
+                  <h3 class="text-center md:text-left">{section[3].title}</h3>
+                  <p class="text-center md:text-left">{section[3].content}</p>
                 </div>
               </div>
-              <div class="flex flex-col gap-3 flex-1">
+              <div class="flex flex-col items-center md:items-start gap-3 flex-1">
                 <ImageBlock
                   classVariant="flexStart lgRounded"
                   imageWidth={72}
@@ -239,8 +230,8 @@ import myImage from "../assets/laptop.jpg"
                   {...section[4]}
                 />
                 <div class="flex flex-col gap-1">
-                  <h3>{section[4].title}</h3>
-                  <p>{section[4].content}</p>
+                  <h3 class="text-center md:text-left">{section[4].title}</h3>
+                  <p class="text-center md:text-left">{section[4].content}</p>
                 </div>
               </div>
             </div>

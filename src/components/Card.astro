@@ -1,51 +1,62 @@
 ---
-import myImage from "../assets/laptop.jpg"
-import { Image } from "astro:assets"
-import Button from "./Button.astro"
 import type { BaseInterface } from "../common/base.type"
 
-// type Props = BaseInterface & CardProps
-// type CardProps =
-//   | {
-//       variant:
-//         | "card-one"
-//         | "card-two"
-//         | "card-three"
-//         | "card-four"
-//         | "card-six"
-//         | "card-seven"
-//       imageUrl: string
-//       imageAlt: string
-//     }
-//   | {
-//       variant: "card-five"
-//       imageUrl?: string
-//       imageAlt?: string
-//     }
+import Button from "./Button.astro"
+import ImageBlock from "./ImageBlock.astro"
 
-const { variant, classVariant, title, content, statement, imageUrl, imageAlt } =
-  Astro.props
+type Props = BaseInterface &
+  (
+    | {
+        variant:
+          | "card-one"
+          | "card-two"
+          | "card-three"
+          | "card-four"
+          | "card-six"
+          | "card-seven"
+
+        imageUrl: ImageMetadata
+        imageAlt: string
+        secondaryContent?: string
+        buttonContent: string
+        buttonPath?: string
+      }
+    | {
+        variant: "card-five"
+
+        secondaryContent?: string
+        imageUrl?: ImageMetadata
+        imageAlt?: string
+        buttonContent: string
+        buttonPath?: string
+      }
+    | {
+        variant: "card-two"
+        secondaryContent: string
+        buttonContent: string
+        buttonPath?: string
+        imageUrl?: ImageMetadata
+        imageAlt?: string
+      }
+  )
+
+const {
+  variant,
+  classVariant,
+  title,
+  content,
+  secondaryContent,
+  statement,
+  imageUrl,
+  imageAlt,
+  buttonContent,
+  buttonPath,
+} = Astro.props
 
 type TextRightType = {
   classList: {
     [className: string]: boolean
   }
-}
-type Props = {
-  variant?: string
-  classVariant?: string
-  statement?: string
-  title: string
-  content: string
-  imageUrl: ImageMetadata
-  imageAlt: string
-}
-
-export const CardContent: Props = {
-  title: "Test",
-  content: "Another content test",
-  imageUrl: myImage,
-  imageAlt: "",
 }
 
 const textRight: TextRightType = {
@@ -66,26 +77,21 @@ const textRight: TextRightType = {
               classVariant?.includes("reversed"),
           }}
         >
-          <Image
-            class:list={{
-              "rounded-lg": classVariant?.includes("lgRounded"),
-              "rounded-full": classVariant?.includes("fullRounded"),
-              "w-full object-fit": classVariant?.includes("fullWidth"),
-            }}
-            width={500}
-            height={500}
-            src={CardContent.imageUrl}
-            quality={100}
-            alt={CardContent.imageAlt}
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={1080}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
           />
           <div class="w-full flex flex-col gap-3">
-            <h2>{CardContent.title}</h2>
-            <p>{CardContent.content}</p>
+            <h2>{title}</h2>
+            <p>{content}</p>
             <Button
               variant="call-to-action"
-              link="./"
-              content="Link"
-              classVariant="rounded-full"
+              link={buttonPath}
+              content={buttonContent}
+              classVariant="filledLgRounded"
             />
           </div>
         </div>
@@ -95,19 +101,14 @@ const textRight: TextRightType = {
           <h2 class="text-center">{title}</h2>
           <div class="flex flex-col gap-3 md:flex-row">
             <p>{content}</p>
-            <p>{content}</p>
+            <p>{secondaryContent}</p>
           </div>
-          <Image
-            class:list={{
-              "rounded-lg": classVariant?.includes("lgRounded"),
-              "rounded-full": classVariant?.includes("fullRounded"),
-              "w-full object-fit": classVariant?.includes("fullWidth"),
-            }}
-            width={768}
-            height={512}
-            src={imageUrl}
-            quality={100}
-            alt={imageAlt}
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={1080}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
           />
         </div>
       ),
@@ -124,59 +125,44 @@ const textRight: TextRightType = {
             <p class="!text-accent-base" class:list={textRight.classList}>
               {statement}
             </p>
-            <h2 class:list={textRight.classList}>{CardContent.title}</h2>
-            <p class:list={textRight.classList}>{CardContent.content}</p>
+            <h2 class:list={textRight.classList}>{title}</h2>
+            <p class:list={textRight.classList}>{content}</p>
           </div>
-          <Image
-            class:list={{
-              "rounded-lg": classVariant?.includes("lgRounded"),
-              "rounded-full": classVariant?.includes("fullRounded"),
-              "w-full object-fit": classVariant?.includes("fullWidth"),
-            }}
-            width={500}
-            height={500}
-            src={CardContent.imageUrl}
-            quality={100}
-            alt={CardContent.imageAlt}
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={1080}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
           />
         </div>
       ),
       variant?.includes("card-four") && (
         <div class="flex flex-col items-center md:items-start gap-4">
           <h2>{title}</h2>
-          <Image
-            class:list={{
-              "rounded-lg": classVariant?.includes("lgRounded"),
-              "rounded-full": classVariant?.includes("fullRounded"),
-              "w-full object-fit": classVariant?.includes("fullWidth"),
-            }}
-            width={500}
-            height={500}
-            src={CardContent.imageUrl}
-            quality={100}
-            alt={CardContent.imageAlt}
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={1080}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
           />
         </div>
       ),
       variant?.includes("card-five") && (
         <div class="flex flex-col gap-4 md:gap-6">
-          <h2>{CardContent.title}</h2>
-          <p>{CardContent.content}</p>
+          <h2>{title}</h2>
+          <p>{content}</p>
         </div>
       ),
       variant?.includes("card-six") && (
         <div class="flex flex-col gap-4 md:gap-6 items-center">
-          <Image
-            class:list={{
-              "rounded-lg": classVariant?.includes("lgRounded"),
-              "rounded-full": classVariant?.includes("fullRounded"),
-              "w-full object-fit": classVariant?.includes("fullWidth"),
-            }}
-            width={500}
-            height={500}
-            src={CardContent.imageUrl}
-            quality={100}
-            alt={CardContent.imageAlt}
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={1080}
+            imageUrl={imageUrl!}
+            imageAlt={imageAlt!}
           />
 
           <h2 class="text-center">{title}</h2>
@@ -186,21 +172,17 @@ const textRight: TextRightType = {
       variant?.includes("card-seven") && (
         <div class="flex flex-col md:items-center gap-4">
           <div class="flex md:flex-col gap-4 md:gap-6 items-center">
-            <Image
-              class:list={{
-                "rounded-lg": classVariant?.includes("lgRounded"),
-                "rounded-full": classVariant?.includes("fullRounded"),
-                "w-full object-fit": classVariant?.includes("fullWidth"),
-              }}
-              width={56}
-              height={56}
-              src={CardContent.imageUrl}
-              quality={100}
-              alt={CardContent.imageAlt}
+            <ImageBlock
+              classVariant="fullWidth"
+              imageWidth={1920}
+              imageHeight={1080}
+              imageUrl={imageUrl!}
+              imageAlt={imageAlt!}
             />
-            <h3 class="text-center">{CardContent.title}</h3>
+
+            <h3 class="text-center">{title}</h3>
           </div>
-          <p class="md:text-center">{CardContent.content}</p>
+          <p class="md:text-center">{content}</p>
         </div>
       ),
     ]

@@ -16,23 +16,24 @@ let myImage = "../assets/laptop.jpg"
 
 <div
   class="flex justify-center"
-  class:list={{
-    "w-full": classVariant?.includes("fullWidth"),
-    "!justify-start": classVariant?.includes("flexStart"),
-    "!justify-end": classVariant?.includes("flexEnd"),
-  }}
+  class:list={[
+    `!w-[${imageWidth}px] !h-[${imageHeight}px]`,
+    classVariant?.includes("fullWidth") && "w-full",
+    classVariant?.includes("flexStart") && "!justify-start",
+    classVariant?.includes("flexEnd") && "!justify-end",
+  ]}
   class:list={`!w-[${imageWidth}px] !h-[${imageHeight}px]`}
 >
   {
     (
       <Image
-        class:list={{
-          [`!w-[${imageWidth}px] !h-[${imageHeight}px]`]:
-            classVariant?.includes("any"),
-          "rounded-lg": classVariant?.includes("lgRounded"),
-          "rounded-full": classVariant?.includes("fullRounded"),
-          "w-full object-fit": classVariant?.includes("fullWidth"),
-        }}
+        class:list={[
+          `!w-[${imageWidth}px] !h-[${imageHeight}px]`,
+          classVariant?.includes("lgRounded") && "rounded-lg",
+          classVariant?.includes("fullRounded") && "rounded-full",
+          classVariant?.includes("fullWidth") && "w-full object-fit",
+          classVariant?.includes("flexNone") && "flex-none",
+        ]}
         width={imageWidth}
         height={imageHeight}
         src={imageUrl}

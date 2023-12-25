@@ -8,12 +8,12 @@ type HeroTypes = {
   secondaryTitle?: string
 }
 
-const { variant, classVariant, statement, title, content } = Astro.props
+const { variant, classVariant } = Astro.props
 const hero = Astro.props.hero as any
 
 import Button from "./Button.astro"
+import ImageBlock from "./ImageBlock.astro"
 
-import myImage from "../assets/laptop.jpg"
 import { Image } from "astro:assets"
 ---
 
@@ -22,17 +22,11 @@ import { Image } from "astro:assets"
     [
       variant?.includes("hero-one") && (
         <div class="flex flex-col items-center relative py-12 px-6 gap-6 md:gap-8 ">
-          <Image
-            class:list={{
-              "rounded-lg": classVariant?.includes("lgRounded"),
-              "rounded-full": classVariant?.includes("fullRounded"),
-              "w-full object-fit": classVariant?.includes("fullWidth"),
-            }}
-            width={500}
-            height={500}
-            src={hero.imageUrl}
-            quality={100}
-            alt={hero.imageAlt}
+          <ImageBlock
+            classVariant="lgRounded"
+            imageWidth={48}
+            imageHeight={48}
+            {...hero}
           />
           <div class="flex flex-col gap-4 md:gap-3">
             <div class="flex flex-col gap-2">
@@ -45,8 +39,8 @@ import { Image } from "astro:assets"
           </div>
           <Button
             variant="call-to-action"
-            link="./"
-            content="Link"
+            link={hero.buttonPath}
+            content={hero.buttonContent}
             classVariant="rounded-full"
           />
         </div>
@@ -66,24 +60,18 @@ import { Image } from "astro:assets"
               <h1>{hero.title}</h1>
               <p>{hero.content}</p>
             </div>
-
             <Button
               classVariant="filledLgRounded"
               variant="call-to-action"
-              content="Call To Action"
+              link={hero.buttonPath}
+              content={hero.buttonContent}
             />
           </div>
-          <Image
-            class:list={{
-              "rounded-lg": classVariant?.includes("lgRounded"),
-              "rounded-full": classVariant?.includes("fullRounded"),
-              "w-full object-fit": classVariant?.includes("fullWidth"),
-            }}
-            width={500}
-            height={500}
-            src={hero.imageUrl}
-            quality={100}
-            alt={hero.imageAlt}
+          <ImageBlock
+            classVariant="lgRounded"
+            imageWidth={500}
+            imageHeight={500}
+            {...hero}
           />
         </div>
       ),
@@ -105,9 +93,16 @@ import { Image } from "astro:assets"
             <Button
               classVariant="filledLgRounded"
               variant="call-to-action"
-              content="Call To Action"
+              link={hero.buttonPath}
+              content={hero.buttonContent}
             />
           </div>
+          <ImageBlock
+            classVariant="fullWidth"
+            imageWidth={1920}
+            imageHeight={1080}
+            {...hero}
+          />
         </div>
       ),
       variant?.includes("hero-four") && (
@@ -115,97 +110,67 @@ import { Image } from "astro:assets"
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
             <div class="flex flex-col items-center gap-2">
               <p class="font-bold !text-accent-base">{hero.statement}</p>
-              <h1>{hero.title}</h1>
-              <p>{hero.content}</p>
+              <h1 class="text-center">{hero.title}</h1>
+              <p class="text-center">{hero.content}</p>
             </div>
-
             <Button
               classVariant="filledLgRounded"
               variant="call-to-action"
-              content="Call To Action"
+              link={hero.buttonPath}
+              content={hero.buttonContent}
             />
           </div>
-          <Image
-            class:list={{
-              "rounded-lg": classVariant?.includes("lgRounded"),
-              "rounded-full": classVariant?.includes("fullRounded"),
-              "w-full object-fit": classVariant?.includes("fullWidth"),
-            }}
-            width={800}
-            height={350}
-            src={hero.imageUrl}
-            quality={100}
-            alt={hero.imageAlt}
+          <ImageBlock
+            classVariant="lgRounded"
+            imageWidth={800}
+            imageHeight={300}
+            {...hero}
           />
         </div>
       ),
       variant?.includes("hero-five") && (
         <div class="flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
           <div class="w-full flex-col md:flex-row flex justify-between md:px-16 gap-2">
-            <Image
-              class:list={{
-                "rounded-lg": classVariant?.includes("lgRounded"),
-                "rounded-full": classVariant?.includes("fullRounded"),
-                "w-full object-fit": classVariant?.includes("fullWidth"),
-              }}
-              width={500}
-              height={500}
-              src={hero.imageUrl}
-              quality={100}
-              alt={hero.imageAlt}
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={285}
+              imageHeight={200}
+              {...hero[1]}
             />
-            <Image
-              class:list={{
-                "rounded-lg": classVariant?.includes("lgRounded"),
-                "rounded-full": classVariant?.includes("fullRounded"),
-                "w-full object-fit": classVariant?.includes("fullWidth"),
-              }}
-              width={500}
-              height={500}
-              src={hero.imageUrl}
-              quality={100}
-              alt={hero.imageAlt}
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={285}
+              imageHeight={200}
+              {...hero[1]}
             />
           </div>
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
             <div class="flex flex-col gap-3">
               <p class="font-bold !text-accent-base text-center">
-                {hero.statement}
+                {hero.statement[0]}
               </p>
-              <h1 class="text-center">{hero.title}</h1>
-              <p class="text-center">{hero.content}</p>
+              <h1 class="text-center">{hero.title[0]}</h1>
+              <p class="text-center">{hero.content[0]}</p>
             </div>
-
             <Button
               classVariant="filledLgRounded"
               variant="call-to-action"
-              content="Call To Action"
+              link={hero.buttonPath[0]}
+              content={hero.buttonContent[0]}
             />
           </div>
           <div class="w-full flex-col md:flex-row flex justify-between md:px-16 gap-2">
-            <Image
-              class:list={{
-                "rounded-lg": classVariant?.includes("lgRounded"),
-                "rounded-full": classVariant?.includes("fullRounded"),
-                "w-full object-fit": classVariant?.includes("fullWidth"),
-              }}
-              width={500}
-              height={500}
-              src={hero.imageUrl}
-              quality={100}
-              alt={hero.imageAlt}
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={285}
+              imageHeight={200}
+              {...hero[2]}
             />
-            <Image
-              class:list={{
-                "rounded-lg": classVariant?.includes("lgRounded"),
-                "rounded-full": classVariant?.includes("fullRounded"),
-                "w-full object-fit": classVariant?.includes("fullWidth"),
-              }}
-              width={500}
-              height={500}
-              src={hero.imageUrl}
-              quality={100}
-              alt={hero.imageAlt}
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={285}
+              imageHeight={200}
+              {...hero[2]}
             />
           </div>
         </div>
@@ -223,17 +188,11 @@ import { Image } from "astro:assets"
               />
             </div>
           </div>
-          <Image
-            class:list={{
-              "rounded-lg": classVariant?.includes("lgRounded"),
-              "rounded-full": classVariant?.includes("fullRounded"),
-              "w-full object-fit": classVariant?.includes("fullWidth"),
-            }}
-            width={500}
-            height={500}
-            src={hero.imageUrl}
-            quality={100}
-            alt={hero.imageAlt}
+          <ImageBlock
+            classVariant="lgRounded"
+            imageWidth={500}
+            imageHeight={500}
+            {...hero}
           />
         </div>
       ),
@@ -253,17 +212,11 @@ import { Image } from "astro:assets"
               quality={100}
               alt={hero.imageAlt}
             />
-            <Image
-              class:list={{
-                "rounded-lg": classVariant?.includes("lgRounded"),
-                "rounded-full": classVariant?.includes("fullRounded"),
-                "w-full object-fit": classVariant?.includes("fullWidth"),
-              }}
-              width={500}
-              height={500}
-              src={hero.imageUrl}
-              quality={100}
-              alt={hero.imageAlt}
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={500}
+              imageHeight={500}
+              {...hero}
             />
             <div class="w-full flex flex-col gap-3 md:gap-6">
               <h2 class="font-body">{hero.secondaryTitle}</h2>
