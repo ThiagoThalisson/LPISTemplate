@@ -5,7 +5,6 @@ import type { ImageTypes } from "../common/image.type"
 interface Props extends BaseInterface, ImageTypes {
   imageWidth: number
   imageHeight: number
-  imageAlt: string
 }
 
 const { classVariant, imageUrl, imageWidth, imageHeight, imageAlt } =
@@ -36,7 +35,7 @@ let myImage = "../assets/laptop.jpg"
         }}
         width={imageWidth}
         height={imageHeight}
-        src={myImage}
+        src={imageUrl}
         quality={100}
         alt={imageAlt}
       />

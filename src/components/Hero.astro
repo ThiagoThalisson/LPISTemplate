@@ -1,23 +1,15 @@
 ---
-type Props = {
-  variant?: string
-  classVariant?: string
-  statement?: string
-  title: string
-  content: string
-  imageUrl: ImageMetadata
-  imageAlt: string
+import type { ImageTypes } from "../common/image.type"
+import type { BaseInterface } from "../common/base.type"
+
+type Props = BaseInterface & HeroTypes
+type HeroTypes = {
+  hero: ImageTypes
   secondaryTitle?: string
 }
 
-export const HeroContent: Props = {
-  title: "Example",
-  content: "Example Content",
-  imageAlt: "This is my image alt",
-  imageUrl: myImage,
-}
-
-const { variant, classVariant, statement } = Astro.props
+const { variant, classVariant, statement, title, content } = Astro.props
+const hero = Astro.props.hero as any
 
 import Button from "./Button.astro"
 
@@ -38,20 +30,18 @@ import { Image } from "astro:assets"
             }}
             width={500}
             height={500}
-            src={HeroContent.imageUrl}
+            src={hero.imageUrl}
             quality={100}
-            alt={HeroContent.imageAlt}
+            alt={hero.imageAlt}
           />
           <div class="flex flex-col gap-4 md:gap-3">
             <div class="flex flex-col gap-2">
               <p class="font-bold !text-accent-light text-center">
-                {HeroContent.statement}
+                {hero.statement}
               </p>
-              <h1 class="!text-dark-title text-center">{HeroContent.title}</h1>
+              <h1 class="!text-dark-title text-center">{hero.title}</h1>
             </div>
-            <p class="!text-dark-paragraph text-center">
-              {HeroContent.content}
-            </p>
+            <p class="!text-dark-paragraph text-center">{hero.content}</p>
           </div>
           <Button
             variant="call-to-action"
@@ -72,9 +62,9 @@ import { Image } from "astro:assets"
         >
           <div class="w-full flex flex-col gap-4 md:gap-6 py-6">
             <div class="flex flex-col gap-2">
-              <p class="font-bold !text-accent-base">{HeroContent.statement}</p>
-              <h1>{HeroContent.title}</h1>
-              <p>{HeroContent.content}</p>
+              <p class="font-bold !text-accent-base">{hero.statement}</p>
+              <h1>{hero.title}</h1>
+              <p>{hero.content}</p>
             </div>
 
             <Button
@@ -91,9 +81,9 @@ import { Image } from "astro:assets"
             }}
             width={500}
             height={500}
-            src={HeroContent.imageUrl}
+            src={hero.imageUrl}
             quality={100}
-            alt={HeroContent.imageAlt}
+            alt={hero.imageAlt}
           />
         </div>
       ),
@@ -107,9 +97,9 @@ import { Image } from "astro:assets"
         >
           <div class="w-full flex flex-col gap-4 md:gap-8 px-6 md:px-10 lg:px-16 py-8">
             <div class="flex flex-col gap-2 ">
-              <p class="font-bold !text-accent-base">{HeroContent.statement}</p>
-              <h1>{HeroContent.title}</h1>
-              <p>{HeroContent.content}</p>
+              <p class="font-bold !text-accent-base">{hero.statement}</p>
+              <h1>{hero.title}</h1>
+              <p>{hero.content}</p>
             </div>
 
             <Button
@@ -124,9 +114,9 @@ import { Image } from "astro:assets"
         <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
             <div class="flex flex-col items-center gap-2">
-              <p class="font-bold !text-accent-base">{HeroContent.statement}</p>
-              <h1>{HeroContent.title}</h1>
-              <p>{HeroContent.content}</p>
+              <p class="font-bold !text-accent-base">{hero.statement}</p>
+              <h1>{hero.title}</h1>
+              <p>{hero.content}</p>
             </div>
 
             <Button
@@ -143,9 +133,9 @@ import { Image } from "astro:assets"
             }}
             width={800}
             height={350}
-            src={HeroContent.imageUrl}
+            src={hero.imageUrl}
             quality={100}
-            alt={HeroContent.imageAlt}
+            alt={hero.imageAlt}
           />
         </div>
       ),
@@ -160,9 +150,9 @@ import { Image } from "astro:assets"
               }}
               width={500}
               height={500}
-              src={HeroContent.imageUrl}
+              src={hero.imageUrl}
               quality={100}
-              alt={HeroContent.imageAlt}
+              alt={hero.imageAlt}
             />
             <Image
               class:list={{
@@ -172,16 +162,18 @@ import { Image } from "astro:assets"
               }}
               width={500}
               height={500}
-              src={HeroContent.imageUrl}
+              src={hero.imageUrl}
               quality={100}
-              alt={HeroContent.imageAlt}
+              alt={hero.imageAlt}
             />
           </div>
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
             <div class="flex flex-col gap-3">
-              <p class="font-bold !text-accent-base text-center">{statement}</p>
-              <h1 class="text-center">{HeroContent.title}</h1>
-              <p class="text-center">{HeroContent.content}</p>
+              <p class="font-bold !text-accent-base text-center">
+                {hero.statement}
+              </p>
+              <h1 class="text-center">{hero.title}</h1>
+              <p class="text-center">{hero.content}</p>
             </div>
 
             <Button
@@ -199,9 +191,9 @@ import { Image } from "astro:assets"
               }}
               width={500}
               height={500}
-              src={HeroContent.imageUrl}
+              src={hero.imageUrl}
               quality={100}
-              alt={HeroContent.imageAlt}
+              alt={hero.imageAlt}
             />
             <Image
               class:list={{
@@ -211,9 +203,9 @@ import { Image } from "astro:assets"
               }}
               width={500}
               height={500}
-              src={HeroContent.imageUrl}
+              src={hero.imageUrl}
               quality={100}
-              alt={HeroContent.imageAlt}
+              alt={hero.imageAlt}
             />
           </div>
         </div>
@@ -221,9 +213,9 @@ import { Image } from "astro:assets"
       variant?.includes("hero-six") && (
         <div class="flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
           <div class="w-full flex flex-col md:flex-row gap-3 md:gap-8">
-            <h1>{HeroContent.title}</h1>
+            <h1>{hero.title}</h1>
             <div class="flex flex-col gap-3">
-              <p>{HeroContent.content}</p>
+              <p>{hero.content}</p>
               <Button
                 classVariant="filledLgRounded"
                 variant="call-to-action"
@@ -239,15 +231,15 @@ import { Image } from "astro:assets"
             }}
             width={500}
             height={500}
-            src={HeroContent.imageUrl}
+            src={hero.imageUrl}
             quality={100}
-            alt={HeroContent.imageAlt}
+            alt={hero.imageAlt}
           />
         </div>
       ),
       variant?.includes("hero-seven") && (
         <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16">
-          <h1 class="font-light">{HeroContent.title}</h1>
+          <h1 class="font-light">{hero.title}</h1>
           <div class="w-full flex flex-col items-center md:flex-row gap-3 md:gap-8">
             <Image
               class:list={{
@@ -257,9 +249,9 @@ import { Image } from "astro:assets"
               }}
               width={500}
               height={500}
-              src={HeroContent.imageUrl}
+              src={hero.imageUrl}
               quality={100}
-              alt={HeroContent.imageAlt}
+              alt={hero.imageAlt}
             />
             <Image
               class:list={{
@@ -269,13 +261,13 @@ import { Image } from "astro:assets"
               }}
               width={500}
               height={500}
-              src={HeroContent.imageUrl}
+              src={hero.imageUrl}
               quality={100}
-              alt={HeroContent.imageAlt}
+              alt={hero.imageAlt}
             />
             <div class="w-full flex flex-col gap-3 md:gap-6">
-              <h2 class="font-body">{HeroContent.secondaryTitle}</h2>
-              <p>{HeroContent.content}</p>
+              <h2 class="font-body">{hero.secondaryTitle}</h2>
+              <p>{hero.content}</p>
               <Button
                 classVariant="filledLgRounded"
                 variant="call-to-action"

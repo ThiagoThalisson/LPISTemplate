@@ -6,17 +6,29 @@ import Card from "../components/Card.astro"
 import Section from "../components/Section.astro"
 import myImage from "../assets/laptop.jpg"
 import { Image } from "astro:assets"
-import { HeroContent } from "../components/Hero.astro"
 import { CardContent } from "../components/Card.astro"
+
+const SectionContent = {
+  title: "Example Title",
+  content: "Example Content",
+  imageUrl: myImage,
+  imageAlt: "My Alt",
+}
+
+const HeroContent = {
+  title: "Example",
+  content: "Example Content",
+  imageAlt: "This is my image alt",
+  imageUrl: myImage,
+}
 ---
 
 <Layout
   title="Landing Page and Institucional Site template."
   description="A dynamic Astro SSG template to help freelancers around the world."
 >
-  <Hero variant="hero-six" classVariant="lgRounded" {...HeroContent} />
+  <Hero variant="hero-six" classVariant="lgRounded" hero={HeroContent} />
   <main class="px-6 md:max-w-5xl m-auto">
-    <!-- <Card variant="card-two" {...CardContent} /> -->
-    <Section variant="section-two" />
+    <Section variant="section-two" section={SectionContent} />
   </main>
 </Layout>
