@@ -1,4 +1,4 @@
-import type { BaseInterface } from "./base.type"
+import type { BaseInterface } from "./base.interface"
 
 export type ImageTypes = {
   imageUrl: ImageMetadata
