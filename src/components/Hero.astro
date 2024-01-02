@@ -13,8 +13,6 @@ const hero = Astro.props.hero as any
 
 import Button from "./Button.astro"
 import ImageBlock from "./ImageBlock.astro"
-
-import { Image } from "astro:assets"
 ---
 
 <div class="mt-[72px]">
@@ -200,17 +198,11 @@ import { Image } from "astro:assets"
         <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16">
           <h1 class="font-light">{hero.title}</h1>
           <div class="w-full flex flex-col items-center md:flex-row gap-3 md:gap-8">
-            <Image
-              class:list={{
-                "rounded-lg": classVariant?.includes("lgRounded"),
-                "rounded-full": classVariant?.includes("fullRounded"),
-                "w-full object-fit": classVariant?.includes("fullWidth"),
-              }}
-              width={500}
-              height={500}
-              src={hero.imageUrl}
-              quality={100}
-              alt={hero.imageAlt}
+            <ImageBlock
+              classVariant="lgRounded"
+              imageWidth={500}
+              imageHeight={500}
+              {...hero}
             />
             <ImageBlock
               classVariant="lgRounded"
