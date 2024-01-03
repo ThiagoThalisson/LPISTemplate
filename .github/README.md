@@ -1,24 +1,24 @@
 <div align="center">
 
-   # [🧬 `LPIS Template`]() <!-- omit in toc --> 
+# [🧬 `LPIS Template`]() <!-- omit in toc -->
 
 </div>
 
 🧬 A template for rapidly developing astounishing landing pages and institucional sites.
 
-*Read in other languages: [English](README.md) or [Português](README.br.md).*
+<!-- _Read in other languages: [English](README.md) or [Português](README.br.md)._ -->
 
 <div align="center">
 
-   | [Notion](https://www.notion.so/)    | 
-   | ----------------------------------- |
+| [Notion](https://atomicfeast.notion.site/LPIS-Template-EN-US-c22eef0a9fdf4b66bb84105f5b9e25c1?pvs=4) |
+| ---------------------------------------------------------------------------------------------------- |
 
 </div>
 
 <div align="center">
 
-   ![Project Cover](assets/ProjectCoverTemplate.png)
-   ![Logo, Colors And Typography](assets/LogoColorsAndTypography.png)
+![Logo, Colors And Typography](assets/LogoColorsAndTypography.png)
+![Project Cover](assets/ProjectCover.png)
 
 </div>
 
@@ -29,12 +29,15 @@
 - [👨‍💻 `Technologies And Packages`](#-technologies-and-packages)
 
 ### 🏷️ `Features`
-- Pre-made generic components with easy styling with no JS;
-- Pre-made sections to more easily structure pages only by changing their showing order;
-- No JS and JS only loading when in the users initial viewport if needed.
+
+- Pre-made heros, sections, social proofs to more easily structure pages only by changing their showing order;
+- Styling with variables on TailWind and setting up fonts globally, reset included. Modify some files to quickly change visual identity.
+- Variant system using properties that can later be utilized in pages through objects.
+- Image optimization made with Astro.
 
 ### 📜 `Purpose`
-This a literature blog that will use Notion as an intermediate to the making of new posts.
+
+Ease all hurdles that comes with creating a new website everytime and increase substancially developments speed rates when creating a landing page our institucional site.
 
 ### 👨‍💻 `Technologies And Packages`
 
@@ -46,6 +49,6 @@ This a literature blog that will use Notion as an intermediate to the making of 
 
 <br>
 
-- [Yarn]()
+- [Yarn](https://yarnpkg.com/getting-started)
 
 [⬆ Back To Top](#-lpis-template)
