@@ -17,7 +17,7 @@
 
 <div align="center">
 
-![Logo, Colors And Typography](assets/LogoColorsAndTypography.png)
+![Logo, Colors And Typography](assets/Definitions.png)
 ![Project Cover](assets/ProjectCover.png)
 
 </div>
