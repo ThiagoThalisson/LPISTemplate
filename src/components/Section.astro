@@ -36,27 +36,31 @@ import Card from "../components/Card.astro"
 import ImageBlock from "./ImageBlock.astro"
 ---
 
-<section>
+<section
+  class:list={{
+    "bg-black": classVariant?.includes("BlackBG"),
+  }}
+>
   {
     [
       variant?.includes("section-one") && (
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-6 px-6 md:max-w-5xl m-auto">
           <Card variant="card-three" classVariant="reversed" {...section} />
         </div>
       ),
       variant?.includes("section-two") && (
-        <div>
+        <div class="md:max-w-5xl m-auto px-6">
           <Card variant="card-two" {...section} />
         </div>
       ),
       variant?.includes("section-three") && (
-        <div class="flex flex-col gap-8 items-center py-6">
+        <div class="flex flex-col gap-8 items-center px-6 py-6">
           <Card variant="card-one" classVariant="reversed" {...section[0]} />
           <Card variant="card-one" {...section[1]} />
         </div>
       ),
       variant?.includes("section-four") && (
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 px-6">
           <Card variant="card-four" {...section[0]} />
           <div class="flex flex-col md:flex-row">
             <Card variant="card-five" {...section[1]} />
@@ -65,7 +69,7 @@ import ImageBlock from "./ImageBlock.astro"
         </div>
       ),
       variant?.includes("section-five") && (
-        <div class="flex flex-col md:flex-row py-16 gap-8">
+        <div class="flex flex-col md:flex-row  px-6 py-16 gap-8">
           {Array.isArray(section) &&
             section.map((props) => <Card variant="card-six" {...props} />)}
         </div>
@@ -78,7 +82,7 @@ import ImageBlock from "./ImageBlock.astro"
       ),
       variant?.includes("section-seven") && (
         <div
-          class="flex flex-col gap-6 md:gap-8 py-12 items-center"
+          class="md:max-w-5xl m-auto flex flex-col gap-6 md:gap-8 px-6 py-12 items-center"
           class:list={{
             "flex flex-col-reverse": classVariant?.includes("reversed"),
           }}
@@ -98,12 +102,12 @@ import ImageBlock from "./ImageBlock.astro"
         </div>
       ),
       variant?.includes("section-eight") && (
-        <div class="flex flex-col md:flex-row gap-1.5 md:gap-6">
+        <div class="flex flex-col md:flex-row px-6 gap-1.5 md:gap-6">
           <div class="flex flex-col gap-3">
             <h2>{section.title}</h2>
             <p>{section.content}</p>
           </div>
-          <div class="flex gap-6 overflow-x-scroll py-3 snap-x snap-mandatory">
+          <div class="flex gap-6 overflow-x-scroll px-6 py-3 snap-x snap-mandatory">
             <div class="flex-none w-9/12 snap-center">
               <ImageBlock
                 classVariant="fullWidth lgRounded"
@@ -112,7 +116,7 @@ import ImageBlock from "./ImageBlock.astro"
                 {...section}
               />
             </div>
-            <div class="flex-none w-9/12 snap-center">
+            <div class="flex-none w-9/12  snap-center">
               <ImageBlock
                 classVariant="fullWidth lgRounded"
                 imageWidth={253}
@@ -132,7 +136,7 @@ import ImageBlock from "./ImageBlock.astro"
         </div>
       ),
       variant?.includes("section-nine") && (
-        <div class="flex flex-col md:flex-row gap-6 py-8 md:py-12">
+        <div class="flex flex-col md:flex-row gap-6 px-6 py-8 md:py-12">
           <div class="flex flex-col gap-6 w-full">
             <div class="flex flex-col gap-3">
               <h2>{section[0].title}</h2>
@@ -174,7 +178,7 @@ import ImageBlock from "./ImageBlock.astro"
         </div>
       ),
       variant?.includes("section-ten") && (
-        <div class="flex items-center flex-col md:flex-row gap-6 md:gap-8 py-12 md:py-16">
+        <div class="flex items-center flex-col md:flex-row gap-6 md:gap-8 px-6 py-12 md:py-16">
           <ImageBlock
             classVariant="flexNone fullWidth followWidth"
             imageWidth={370}
@@ -239,7 +243,7 @@ import ImageBlock from "./ImageBlock.astro"
         </div>
       ),
       variant?.includes("section-eleven") && (
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-8 px-6">
           <p>{section[0].statement}</p>
           <h2>{section[0].title}</h2>
           <Card variant="card-three" {...section[1]} />
@@ -252,7 +256,7 @@ import ImageBlock from "./ImageBlock.astro"
         </div>
       ),
       variant?.includes("section-twelve") && (
-        <div class="flex flex-col gap-6 md:flex-row">
+        <div class="flex flex-col gap-6 md:flex-row px-6">
           <div class="flex flex-col justify-center gap-4 w-full">
             <h1>{section[0].title}</h1>
             <p>{section[0].content}</p>
