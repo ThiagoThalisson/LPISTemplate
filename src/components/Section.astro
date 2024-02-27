@@ -38,7 +38,7 @@ import ImageBlock from "./ImageBlock.astro"
 
 <section
     class:list={{
-	       "bg-black !text-dark-title": classVariant?.includes("BlackBG"),
+	       "bg-dark-fill text-dark-title": classVariant?.includes("sectionHighlight"),
 	       }}
 >
     {
@@ -180,9 +180,9 @@ import ImageBlock from "./ImageBlock.astro"
     variant?.includes("section-ten") && (
     <div class="md:max-w-5xl m-auto flex items-center flex-col md:flex-row gap-6 md:gap-8 px-6 py-6 md:py-16">
         <ImageBlock
-            classVariant="flexNone fullWidth followWidth"
-            imageWidth={370}
-            imageHeight={650}
+            classVariant="flexNone fullWidth"
+            imageWidth={270}
+            imageHeight={250}
             {...section[0]}
         />
         <div class="w-full flex flex-col gap-6">

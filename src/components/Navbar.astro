@@ -36,7 +36,7 @@ interface Props extends BaseInterface {}
     {
     [
     variant?.includes("mobile") && (
-    <div class="bg-slate-50 flex w-full justify-around fixed bottom-0 md:hidden px-6 py-4 rounded-t-2xl">
+    <div class="bg-slate-50 flex w-full justify-around fixed bottom-0 md:hidden px-6 py-4 rounded-t-2xl z-20">
         {pages.map((page) => (
         <div class="flex flex-col items-center">
             <a class="flex flex-col items-center" data-nav href={page.slug} class:list={""}>

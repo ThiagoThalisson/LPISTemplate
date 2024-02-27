@@ -3,7 +3,7 @@ import "/src/global.css"
 
 import type { BaseInterface } from "../common/base.interface"
 export interface Props extends BaseInterface {
-  description: string
+    description: string
 }
 const { title, description } = Astro.props
 
@@ -13,20 +13,21 @@ import SEO from "./SEO.astro"
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
-    <SEO
-      globalTitle="Landing Page and Institucional Site template."
-      globalDescription="A dynamic Astro SSG template to help freelancers around the world."
-    />
-  </head>
-  <body class="bg-light-fill">
-    <Header />
-    <slot />
-  </body>
+    <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="generator" content={Astro.generator} />
+	<meta name="description" content={description} />
+	<title>{title}</title>
+	<SEO
+	    globalTitle="Landing Page and Institucional Site template."
+	    globalDescription="A dynamic Astro SSG template to help freelancers around the world."
+	    site="https://lpis-template.vercel.app/"
+	/>
+    </head>
+    <body class="bg-light-fill">
+	<Header />
+	<slot />
+    </body>
 </html>

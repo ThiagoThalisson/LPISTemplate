@@ -1,18 +1,65 @@
 ---
 import Layout from "../layouts/Layout.astro"
+
+import Hero from "../components/Hero.astro"
+import Section from "../components/Section.astro"
+
 import Button from "../components/Button.astro"
+
+import Mission from "../assets/About/Mission.svg"
+import Vision from "../assets/About/Vision.svg"
+import Setup from "../assets/About/Setup.svg"
+import Documentation from "../assets/About/Documentation.png"
+
+const FirstHero = {
+    title:
+    "Breeded By Desperation To Result In A Solution",
+    content:
+    "Having to create defaults over and over shouldn’t be something in your creation process.",
+    imageUrl: Setup,
+    imageAlt: "Someone progressing on a step-by-step wizard.",
+    buttonPath: "https://atomicfeast.notion.site/LPIS-Template-EN-US-c22eef0a9fdf4b66bb84105f5b9e25c1?pvs=4",
+    buttonContent: "More On Docs",
+}
+
+const SecondSection = {
+    title:
+    "Our Vision",
+    content:
+    "Create a template that’s enjoyable to develop in, having a complete ecosystem with documentation, a design system and examples of code.",
+    imageUrl: Vision,
+    imageAlt: "A woman drawing art.",
+}
+
+const ThirdSection = {
+    title:
+    "The Mission",
+    content:
+    "Be an easy-to-work-with template with a modern stack perfect for web development.",
+    imageUrl: Mission,
+    imageAlt: "Someone placing geometrical elements in a page.",
+}
+
+const LastHero = {
+    statement: "Give Us A Star On Github",
+    title:
+    "Come By To See It All",
+    content:
+    "On Github, you’ll find more general documentation both in Notion and Figma as well as access to this page and the source code.",
+    imageUrl: Documentation,
+    imageAlt: "Someone engolfed in documentation.",
+    buttonPath: "https://github.com/ThiagoThalisson/LPISTemplate",
+    buttonContent: "Get To Know It All",
+}
+
 ---
 
+
 <Layout title="Welcome To LPIS Template" description="LPIS template about page">
-  <h1>Sobre Nós</h1>
-  <p>
-    É claro que a mobilidade dos capitais internacionais promove a alavancagem
-    do investimento em reciclagem técnica. Evidentemente, a execução dos pontos
-    do programa facilita a criação das diretrizes de desenvolvimento para o
-    futuro. Do mesmo modo, o julgamento imparcial das eventualidades agrega
-    valor ao estabelecimento do sistema de participação geral. Não obstante, o
-    desafiador cenário globalizado maximiza as possibilidades por conta de todos
-    os recursos funcionais envolvidos.
-  </p>
-  <Button></Button>
+    <Hero variant="hero-six" classVariant="lgRounded" hero={FirstHero} />
+    <main class="flex flex-col mb-20 md:mb-0">
+	<Section classVariant="reversed" variant="section-seven" section={SecondSection} />
+	<Section variant="section-seven" section={ThirdSection} />
+	<Hero variant="hero-one" classVariant="lgRounded" hero={LastHero} />
+    </main>
 </Layout>

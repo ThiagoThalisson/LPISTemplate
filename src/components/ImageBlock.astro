@@ -20,6 +20,7 @@ import { Image } from "astro:assets"
 	   classVariant?.includes("fullWidth") && "w-full",
 	   classVariant?.includes("flexStart") && "!justify-start",
 	   classVariant?.includes("flexEnd") && "!justify-end",
+	   classVariant?.includes("lowBrightness") && "brightness-50",
 	   classVariant?.includes("spanAbsolute") && "absolute w-full h-full inset-0 z-[-1]",
 	   ]}
     class:list={`!w-[${imageWidth}px] !h-[${imageHeight}px]`}

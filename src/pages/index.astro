@@ -2,27 +2,27 @@
 import Layout from "../layouts/Layout.astro"
 
 import Hero from "../components/Hero.astro"
-import HeroImage from "../assets/HeroImage.svg"
+import HeroImage from "../assets/Home/HeroImage.svg"
 
 import Section from "../components/Section.astro"
 
 // First Section Assets
-import FirstSectionImage from "../assets/FirstSection/SectionImage.svg"
-import IconOne from "../assets/FirstSection/SectionIcon-One.svg"
-import IconTwo from "../assets/FirstSection/SectionIcon-Two.svg"
-import IconThree from "../assets/FirstSection/SectionIcon-Three.svg"
-import IconFour from "../assets/FirstSection/SectionIcon-Four.svg"
+import FirstSectionImage from "../assets/Home/FirstSection/SectionImage.svg"
+import IconOne from "../assets/Home/FirstSection/SectionIcon-One.svg"
+import IconTwo from "../assets/Home/FirstSection/SectionIcon-Two.svg"
+import IconThree from "../assets/Home/FirstSection/SectionIcon-Three.svg"
+import IconFour from "../assets/Home/FirstSection/SectionIcon-Four.svg"
 // Second Section Assets
-import SecImageOne from "../assets/SecondSection/Image-One.svg"
-import SecImageTwo from "../assets/SecondSection/Image-Two.svg"
+import SecImageOne from "../assets/Home/SecondSection/Image-One.svg"
+import SecImageTwo from "../assets/Home/SecondSection/Image-Two.svg"
 
 import Social from "../components/Social.astro"
-import SocialPerson from "../assets/SocialSection/Person.svg"
+import SocialPerson from "../assets/Home/SocialSection/Person.svg"
 
 // ThirdSection
-import ThirdSectionImage from "../assets/ThirdSection/SectionImage.svg"
+import ThirdSectionImage from "../assets/Home/ThirdSection/SectionImage.svg"
 
-import LastHero from "../assets/LastHero.svg"
+import LastHero from "../assets/Home/LastHero.svg"
 
 const FirstHero = {
   statement: "A Easy-To-Use Landing Page And Institutional Site Template",
@@ -141,13 +141,13 @@ const SecondHero = {
   <Hero variant="hero-three" classVariant="lgRounded" hero={FirstHero} />
   <main class="flex flex-col">
     <Section variant="section-ten" section={FirstSection} />
-    <Section classVariant="BlackBG" variant="section-three" section={SecondSection} />
+    <Section classVariant="sectionHighlight" variant="section-three" section={SecondSection} />
     <Social
       variant="social-three"
       classVariant="withBackground"
       social={SocialContent}
     />
-    <Section variant="section-seven" section={ThirdSection} />
+    <Section classVariant="sectionHighlight" variant="section-seven" section={ThirdSection} />
     <Hero variant="hero-four" classVariant="lgRounded" hero={SecondHero} />
   </main>
 </Layout>
