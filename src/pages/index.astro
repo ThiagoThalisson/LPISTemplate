@@ -37,40 +37,40 @@ const FirstHero = {
 }
 
 const FirstSection = [
-  {
-    title: "What Is Great About This Project You Ask",
-    imageUrl: FirstSectionImage,
-    imageAlt: "A very big cellphone with empty fields.",
-  },
-  {
-    title: "No Arbitrary Styles",
-    content:
-      "Built based on a set of design patterns and rules to make every single page component styling consistent and enjoyable in terms of user experience. Better yet, it’s based on TailwindCSS!",
-    imageUrl: IconOne,
-    imageAlt: "A paintbrush icon.",
-  },
-  {
-    title: "Follows Core Web Quality Principles",
-    content:
-      "Has a SEO component, performs well using Astro that eliminates excessive JS, it’s accessible and extremely responsive.",
-    imageUrl: IconTwo,
-    imageAlt: "A checkmark icon that assures quality.",
-  },
-  {
-    title: "Components Based In Variants To Ease Development",
-    content:
-      "A lot of essential web everyday present pre-made components and a Figma-inspired variant system to make it super convenient to populate unique content in them while changing content structure.",
-    imageUrl: IconThree,
-    imageAlt: "A list with a plus sign.",
-  },
-  {
-    title: "Uses The Best Astro Has To Offer",
-    content:
-      "Features view transitions, image optimizations, i18n implementation, islands and more, ensure your end-user has a more rich experience, balancing functionality to style.",
-    imageUrl: IconFour,
-    imageAlt: "A at symbol as a icon.",
-  },
-]
+    {
+	title: "What Is Great About This Project You Ask",
+	imageUrl: FirstSectionImage,
+	imageAlt: "A very big cellphone with empty fields.",
+    },
+    {
+	title: "No Arbitrary Styles",
+	content:
+	"Built based on a set of design patterns and rules to make every single page component styling consistent and enjoyable in terms of user experience. Better yet, it’s based on TailwindCSS!",
+	imageUrl: IconOne,
+	imageAlt: "A paintbrush icon.",
+    },
+    {
+	title: "Follows Core Web Quality Principles",
+	content:
+	"Has a SEO component, performs well using Astro that eliminates excessive JS, it’s accessible and extremely responsive.",
+	imageUrl: IconTwo,
+	imageAlt: "A checkmark icon that assures quality.",
+    },
+    {
+	title: "Components Based In Variants To Ease Development",
+	content:
+	"A lot of essential web everyday present pre-made components and a Figma-inspired variant system to make it super convenient to populate unique content in them while changing content structure.",
+	imageUrl: IconThree,
+	imageAlt: "A list with a plus sign.",
+    },
+    {
+	title: "Uses The Best Astro Has To Offer",
+	content:
+	"Features view transitions, image optimizations, i18n implementation, islands and more, ensure your end-user has a more rich experience, balancing functionality to style.",
+	imageUrl: IconFour,
+	imageAlt: "A at symbol as a icon.",
+    },
+] 
 
 const SecondSection = [
   {
@@ -139,9 +139,9 @@ const SecondHero = {
   description="A dynamic Astro SSG template to help freelancers around the world."
 >
   <Hero variant="hero-three" classVariant="lgRounded" hero={FirstHero} />
-  <main class="flex flex-col gap-6 py-16">
+  <main class="flex flex-col">
     <Section variant="section-ten" section={FirstSection} />
-    <Section variant="section-three" section={SecondSection} />
+    <Section classVariant="BlackBG" variant="section-three" section={SecondSection} />
     <Social
       variant="social-three"
       classVariant="withBackground"

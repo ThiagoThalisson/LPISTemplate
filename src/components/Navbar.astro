@@ -4,27 +4,27 @@ import Button from "./Button.astro"
 import type { BaseInterface } from "../common/base.interface"
 
 type Page = {
-  name: string
-  slug: string
-  image: string
+name: string
+slug: string
+image: string
 }
 
 const pages: Page[] = [
-  {
-    name: "Home",
-    slug: "/",
-    image: "/icons/house.svg",
-  },
-  {
-    name: "About",
-    slug: "/about",
-    image: "/icons/info.svg",
-  },
-  {
-    name: "Contact",
-    slug: "/contact",
-    image: "/icons/phone.svg",
-  },
+{
+name: "Home",
+slug: "/",
+image: "/icons/house.svg",
+},
+{
+name: "About",
+slug: "/about",
+image: "/icons/info.svg",
+},
+{
+name: "Contact",
+slug: "/contact",
+image: "/icons/phone.svg",
+},
 ]
 
 const { variant } = Astro.props
@@ -33,13 +33,15 @@ interface Props extends BaseInterface {}
 ---
 
 <nav class="flex justify-center items-center">
-  {
+    {
     [
-      variant?.includes("mobile") && (
-        <div class="bg-slate-50 flex w-full justify-around fixed bottom-0 md:hidden px-6 py-4 rounded-s-2xl">
-          {pages.map((page) => (
-            <div class="flex flex-col items-center">
-              <Image
+    variant?.includes("mobile") && (
+    <div class="bg-slate-50 flex w-full justify-around fixed bottom-0 md:hidden px-6 py-4 rounded-t-2xl">
+        {pages.map((page) => (
+        <div class="flex flex-col items-center">
+            <a class="flex flex-col items-center" data-nav href={page.slug} class:list={""}>
+	    <Image
+		data-icon
                 width={32}
                 height={32}
                 src={page.image}
@@ -47,54 +49,64 @@ interface Props extends BaseInterface {}
                 format="svg"
                 alt="Ícone da navegação."
                 class="h-8"
-              />
-              <a data-nav href={page.slug} class:list={""}>
+	    />
                 {page.name}
-              </a>
-            </div>
-          ))}
-        </div>
-      ),
-      variant?.includes("desktop") && (
-        <div class="flex items-center max-w-screen-lg gap-3">
-          {pages.map((page) => (
-            <a
-              data-nav
-              href={page.slug}
-              class:list={"hidden md:block px-4 py-2"}
-            >
-              {page.name}
             </a>
-          ))}
-          <Button
+
+        </div>
+        ))}
+    </div>
+    ),
+    variant?.includes("desktop") && (
+    <div class="flex items-center max-w-screen-lg gap-3">
+        {pages.map((page) => (
+        <a
+            data-nav
+            href={page.slug}
+            class:list={"hidden md:block px-4 py-2"}
+        >
+            {page.name}
+        </a>
+        ))}
+        <Button
             classVariant="filledLgRounded"
             variant="call-to-action"
             content="Use It Now"
             link="https://github.com/ThiagoThalisson/LPISTemplate"
-          />
-        </div>
-      ),
+        />
+    </div>
+    ),
     ]
-  }
+    }
 </nav>
 
 <style>
-  .selected-link {
-    @apply !text-primary-base;
-  }
+ .selected-link {
+     @apply !text-primary-base;
+ }
+ 
+ .selected-link [data-icon], 
+ [data-nav]:hover [data-icon] {
+     filter: invert(32%) sepia(24%) saturate(5260%) hue-rotate(227deg) brightness(90%) contrast(94%);
+     @apply !transition;
+ }
+
+
 </style>
 
 <script defer>
-  function main() {
-    const pathname = location.pathname
-    const links = document.querySelectorAll("nav a[data-nav]")
+ function main() {
+     const pathname = location.pathname
+     const links = document.querySelectorAll("nav a[data-nav]")
+     const icon = document.querySelectorAll("nav img[data-icon]")
 
-    links.forEach((link) => {
-      if (link.pathname === pathname) {
-        link.classList.add("selected-link")
-      }
-    })
-  }
+     links.forEach((link) => {
+	 if (link.pathname === pathname)  {
+             link.classList.add("selected-link")
+	 }
+     })
 
-  document.addEventListener("DOMContentLoaded", main)
+ }
+
+ document.addEventListener("DOMContentLoaded", main)
 </script>

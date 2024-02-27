@@ -19,21 +19,21 @@ import ImageBlock from "./ImageBlock.astro"
   {
     [
       variant?.includes("hero-one") && (
-        <div class="flex flex-col items-center relative py-12 px-6 gap-6 md:gap-8 ">
+        <div class="flex flex-col items-center relative py-12 px-6 gap-6 md:gap-8">
           <ImageBlock
-            classVariant="lgRounded"
-            imageWidth={48}
-            imageHeight={48}
+            classVariant="spanAbsolute fullWidth"
+            imageWidth={900}
+            imageHeight={600}
             {...hero}
           />
           <div class="flex flex-col gap-4 md:gap-3">
             <div class="flex flex-col gap-2">
-              <p class="font-bold !text-accent-light text-center">
+              <p class="font-bold text-accent-light text-center">
                 {hero.statement}
               </p>
-              <h1 class="!text-dark-title text-center">{hero.title}</h1>
+              <h1 class="text-dark-title text-center">{hero.title}</h1>
             </div>
-            <p class="!text-dark-paragraph text-center">{hero.content}</p>
+            <p class="text-dark-paragraph text-center">{hero.content}</p>
           </div>
           <Button
             variant="call-to-action"
@@ -104,7 +104,7 @@ import ImageBlock from "./ImageBlock.astro"
         </div>
       ),
       variant?.includes("hero-four") && (
-        <div class="flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
+        <div class="md:max-w-5xl m-auto flex items-center flex-col gap-6 md:gap-8 px-6 py-6 md:py-16">
           <div class="w-full flex flex-col items-center gap-6 md:gap-8">
             <div class="flex flex-col items-center gap-2">
               <p class="font-bold !text-accent-base">{hero.statement}</p>
@@ -120,14 +120,14 @@ import ImageBlock from "./ImageBlock.astro"
           </div>
           <ImageBlock
             classVariant="lgRounded"
-            imageWidth={800}
-            imageHeight={300}
+            imageWidth={600}
+            imageHeight={200}
             {...hero}
           />
         </div>
       ),
       variant?.includes("hero-five") && (
-        <div class="flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16 md:max-w-5xl m-auto">
+        <div class="md:max-w-5xl m-auto flex items-center flex-col gap-4 md:gap-8 px-6 py-6 md:py-16">
           <div class="w-full flex-col md:flex-row flex justify-between md:px-16 gap-2">
             <ImageBlock
               classVariant="lgRounded"

@@ -5,186 +5,186 @@ import Button from "./Button.astro"
 import ImageBlock from "./ImageBlock.astro"
 
 type Props = BaseInterface &
-  (
-    | {
-        variant:
-          | "card-one"
-          | "card-two"
-          | "card-three"
-          | "card-four"
-          | "card-six"
-          | "card-seven"
+(
+| {
+variant:
+| "card-one"
+| "card-two"
+| "card-three"
+| "card-four"
+| "card-six"
+| "card-seven"
 
-        imageUrl: ImageMetadata
-        imageAlt: string
-        secondaryContent?: string
-        buttonContent: string
-        buttonPath?: string
-      }
-    | {
-        variant: "card-five"
+imageUrl: ImageMetadata
+imageAlt: string
+secondaryContent?: string
+buttonContent: string
+buttonPath?: string
+}
+| {
+variant: "card-five"
 
-        secondaryContent?: string
-        imageUrl?: ImageMetadata
-        imageAlt?: string
-        buttonContent: string
-        buttonPath?: string
-      }
-    | {
-        variant: "card-two"
-        secondaryContent: string
-        buttonContent: string
-        buttonPath?: string
-        imageUrl?: ImageMetadata
-        imageAlt?: string
-      }
-  )
+secondaryContent?: string
+imageUrl?: ImageMetadata
+imageAlt?: string
+buttonContent: string
+buttonPath?: string
+}
+| {
+variant: "card-two"
+secondaryContent: string
+buttonContent: string
+buttonPath?: string
+imageUrl?: ImageMetadata
+imageAlt?: string
+}
+)
 
 const {
-  variant,
-  classVariant,
-  title,
-  content,
-  secondaryContent,
-  statement,
-  imageUrl,
-  imageAlt,
-  buttonContent,
-  buttonPath,
+variant,
+classVariant,
+title,
+content,
+secondaryContent,
+statement,
+imageUrl,
+imageAlt,
+buttonContent,
+buttonPath,
 } = Astro.props
 
 type TextRightType = {
-  classList: {
-    [className: string]: boolean
-  }
+classList: {
+[className: string]: boolean
+}
 }
 
 const textRight: TextRightType = {
-  classList: {
-    "text-right md:text-left": classVariant?.includes("rightText") ?? false,
-  },
+classList: {
+"text-right md:text-left": classVariant?.includes("rightText") ?? false,
+},
 }
 ---
 
 <div class="flex flex-col md:flex-row">
-  {
+    {
     [
-      variant?.includes("card-one") && (
-        <div
-          class="flex flex-col md:flex-row gap-3 md:gap-8"
-          class:list={{
-            "flex-col-reverse md:flex-row-reverse":
-              classVariant?.includes("reversed"),
-          }}
+    variant?.includes("card-one") && (
+    <div
+        class="flex flex-col md:flex-row gap-3 md:gap-8"
+        class:list={{
+        "flex-col-reverse md:flex-row-reverse":
+        classVariant?.includes("reversed"),
+        }}
         >
-          <ImageBlock
+        <ImageBlock
             classVariant="fullWidth"
             imageWidth={1920}
             imageHeight={1080}
             imageUrl={imageUrl!}
             imageAlt={imageAlt!}
-          />
-          <div class="w-full flex flex-col gap-3">
-            <h2>{title}</h2>
-            <p>{content}</p>
+        />
+        <div class="w-full flex flex-col gap-3">
+            <h2 class="text-inherit">{title}</h2>
+            <p class="text-inherit">{content}</p>
             <Button
-              variant="call-to-action"
-              link={buttonPath}
-              content={buttonContent}
-              classVariant="filledLgRounded"
+		variant="call-to-action"
+		link={buttonPath}
+		content={buttonContent}
+		classVariant="filledLgRounded"
             />
-          </div>
         </div>
-      ),
-      variant?.includes("card-two") && (
-        <div class="flex flex-col gap-3">
-          <h2 class="text-center">{title}</h2>
-          <div class="flex flex-col gap-3 md:flex-row">
+    </div>
+    ),
+    variant?.includes("card-two") && (
+    <div class="flex flex-col gap-3">
+        <h2 class="text-inherit text-center">{title}</h2>
+        <div class="text-inherit flex flex-col gap-3 md:flex-row">
             <p>{content}</p>
             <p>{secondaryContent}</p>
-          </div>
-          <ImageBlock
+        </div>
+        <ImageBlock
             classVariant="fullWidth"
             imageWidth={1920}
             imageHeight={1080}
             imageUrl={imageUrl!}
             imageAlt={imageAlt!}
-          />
-        </div>
-      ),
-      variant?.includes("card-three") && (
-        <div
-          class="flex flex-col md:flex-row gap-4 md:gap-8"
-          class:list={{
-            "flex-col-reverse md:flex-row-reverse":
-              classVariant?.includes("reversed"),
-            "md:flex-row-reverse": classVariant?.includes("sectionReversed"),
-          }}
-        >
-          <div class="w-full flex flex-col gap-4">
+        />
+    </div>
+    ),
+    variant?.includes("card-three") && (
+    <div
+        class="flex flex-col md:flex-row gap-4 md:gap-8"
+        class:list={{
+               "flex-col-reverse md:flex-row-reverse":
+               classVariant?.includes("reversed"),
+               "md:flex-row-reverse": classVariant?.includes("sectionReversed"),
+               }}
+    >
+        <div class="w-full flex flex-col gap-4">
             <p class="!text-accent-base" class:list={textRight.classList}>
-              {statement}
+		{statement}
             </p>
-            <h2 class:list={textRight.classList}>{title}</h2>
-            <p class:list={textRight.classList}>{content}</p>
-          </div>
-          <ImageBlock
+            <h2 class="text-inherit" class:list={textRight.classList}>{title}</h2>
+            <p class="text-inherit" class:list={textRight.classList}>{content}</p>
+        </div>
+        <ImageBlock
             classVariant="fullWidth"
             imageWidth={1920}
             imageHeight={1080}
             imageUrl={imageUrl!}
             imageAlt={imageAlt!}
-          />
-        </div>
-      ),
-      variant?.includes("card-four") && (
-        <div class="flex flex-col items-center md:items-start gap-4">
-          <h2>{title}</h2>
-          <ImageBlock
+        />
+    </div>
+    ),
+    variant?.includes("card-four") && (
+    <div class="flex flex-col items-center md:items-start gap-4">
+        <h2 class="text-inherit">{title}</h2>
+        <ImageBlock
             classVariant="fullWidth"
             imageWidth={1920}
             imageHeight={1080}
             imageUrl={imageUrl!}
             imageAlt={imageAlt!}
-          />
-        </div>
-      ),
-      variant?.includes("card-five") && (
-        <div class="flex flex-col gap-4 md:gap-6">
-          <h2>{title}</h2>
-          <p>{content}</p>
-        </div>
-      ),
-      variant?.includes("card-six") && (
-        <div class="flex flex-col gap-4 md:gap-6 items-center">
-          <ImageBlock
+        />
+    </div>
+    ),
+    variant?.includes("card-five") && (
+    <div class="flex flex-col gap-4 md:gap-6">
+        <h2 class="text-inherit">{title}</h2>
+        <p class="text-inherit">{content}</p>
+    </div>
+    ),
+    variant?.includes("card-six") && (
+    <div class="flex flex-col gap-4 md:gap-6 items-center">
+        <ImageBlock
             classVariant="fullWidth"
             imageWidth={1920}
             imageHeight={1080}
             imageUrl={imageUrl!}
             imageAlt={imageAlt!}
-          />
+        />
 
-          <h2 class="text-center">{title}</h2>
-          <p class="text-center">{content}</p>
-        </div>
-      ),
-      variant?.includes("card-seven") && (
-        <div class="flex flex-col md:items-center gap-4">
-          <div class="flex md:flex-col gap-4 md:gap-6 items-center">
+        <h2 class="text-center">{title}</h2>
+        <p class="text-center">{content}</p>
+    </div>
+    ),
+    variant?.includes("card-seven") && (
+    <div class="flex flex-col md:items-center gap-4">
+        <div class="flex md:flex-col gap-4 md:gap-6 items-center">
             <ImageBlock
-              classVariant="fullWidth"
-              imageWidth={1920}
-              imageHeight={1080}
-              imageUrl={imageUrl!}
-              imageAlt={imageAlt!}
+		classVariant="fullWidth"
+		imageWidth={1920}
+		imageHeight={1080}
+		imageUrl={imageUrl!}
+		imageAlt={imageAlt!}
             />
 
-            <h3 class="text-center">{title}</h3>
-          </div>
-          <p class="md:text-center">{content}</p>
+            <h3 class="text-inherit text-center">{title}</h3>
         </div>
-      ),
+        <p class="text-inherit md:text-center">{content}</p>
+    </div>
+    ),
     ]
-  }
+    }
 </div>

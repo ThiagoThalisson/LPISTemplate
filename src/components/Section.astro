@@ -5,27 +5,27 @@ import type { ImageTypes } from "../common/image.type"
 type Props = BaseInterface & SectionProps
 type SectionProps =
 | {
-    variant:
-    | "section-one"
-    | "section-two"
-    | "section-four"
-    | "section-seven"
-    | "section-nine"
+variant:
+| "section-one"
+| "section-two"
+| "section-four"
+| "section-seven"
+| "section-nine"
 
-    section: ImageTypes
+section: ImageTypes
 }
 | {
-    variant:
-    | "section-three"
-    | "section-five"
-    | "section-six"
-    | "section-eight"
-    | "section-nine"
-    | "section-ten"
-    | "section-eleven"
-    | "section-twelve"
+variant:
+| "section-three"
+| "section-five"
+| "section-six"
+| "section-eight"
+| "section-nine"
+| "section-ten"
+| "section-eleven"
+| "section-twelve"
 
-    section: ImageTypes[]
+section: ImageTypes[]
 }
 
 const { variant, classVariant } = Astro.props
@@ -36,129 +36,78 @@ import Card from "../components/Card.astro"
 import ImageBlock from "./ImageBlock.astro"
 ---
 
-<<<<<<< HEAD
-<section class="bg-red-300">
+<section
+    class:list={{
+	       "bg-black !text-dark-title": classVariant?.includes("BlackBG"),
+	       }}
+>
     {
     [
     variant?.includes("section-one") && (
-    <div class="md:max-w-5xl m-auto flex flex-col gap-6">
+    <div class="md:max-w-5xl m-auto flex flex-col gap-6 px-6 py-6 md:py-16">
         <Card variant="card-three" classVariant="reversed" {...section} />
     </div>
     ),
     variant?.includes("section-two") && (
-    <div class="md:max-w-5xl m-auto">
+    <div class="md:max-w-5xl m-auto px-6 py-6 md:py-16">
         <Card variant="card-two" {...section} />
     </div>
     ),
     variant?.includes("section-three") && (
-    <div class="md:max-w-5xl m-auto flex flex-col gap-8 items-center py-6">
+    <div class="md:max-w-5xl m-auto flex flex-col gap-8 items-center px-6 py-6 md:py-16">
         <Card variant="card-one" classVariant="reversed" {...section[0]} />
         <Card variant="card-one" {...section[1]} />
     </div>
     ),
     variant?.includes("section-four") && (
-    <div class="md:max-w-5xl m-auto flex flex-col gap-4">
+    <div class="md:max-w-5xl m-auto flex flex-col gap-4 px-6 py-6 md:py-16">
         <Card variant="card-four" {...section[0]} />
         <div class="flex flex-col md:flex-row">
-=======
-<section
-  class:list={{
-    "bg-black": classVariant?.includes("BlackBG"),
-  }}
->
-  {
-    [
-      variant?.includes("section-one") && (
-        <div class="flex flex-col gap-6 px-6 md:max-w-5xl m-auto">
-          <Card variant="card-three" classVariant="reversed" {...section} />
-        </div>
-      ),
-      variant?.includes("section-two") && (
-        <div class="md:max-w-5xl m-auto px-6">
-          <Card variant="card-two" {...section} />
-        </div>
-      ),
-      variant?.includes("section-three") && (
-        <div class="flex flex-col gap-8 items-center px-6 py-6">
-          <Card variant="card-one" classVariant="reversed" {...section[0]} />
-          <Card variant="card-one" {...section[1]} />
-        </div>
-      ),
-      variant?.includes("section-four") && (
-        <div class="flex flex-col gap-4 px-6">
-          <Card variant="card-four" {...section[0]} />
-          <div class="flex flex-col md:flex-row">
->>>>>>> 9c43b8fa754bddacafaac6f6a008bae0cc8fcdcf
             <Card variant="card-five" {...section[1]} />
             <Card variant="card-five" {...section[2]} />
         </div>
-<<<<<<< HEAD
     </div>
     ),
     variant?.includes("section-five") && (
-    <div class="md:max-w-5xl m-auto flex flex-col md:flex-row py-16 gap-8">
+    <div class="md:max-w-5xl m-auto flex flex-col md:flex-row gap-8 px-6 py-6 md:py-16">
         {Array.isArray(section) &&
         section.map((props) => <Card variant="card-six" {...props} />)}
     </div>
     ),
     variant?.includes("section-six") && (
-    <div class="flex flex-col md:flex-row gap-8">
+    <div class="md:max-w-5xl m-auto flex flex-col md:flex-row gap-8 py-6 md:py-16">
         {Array.isArray(section) &&
         section.map((props) => <Card variant="card-seven" {...props} />)}
     </div>
     ),
     variant?.includes("section-seven") && (
     <div
-        class="md:max-w-5xl m-auto flex flex-col gap-6 md:gap-8 py-12 items-center"
+        class="md:max-w-5xl m-auto flex flex-col gap-6 md:gap-8 px-6 py-12 items-center py-6 md:py-16"
         class:list={{
                "flex flex-col-reverse": classVariant?.includes("reversed"),
                }}
     >
         <div>
-=======
-      ),
-      variant?.includes("section-five") && (
-        <div class="flex flex-col md:flex-row  px-6 py-16 gap-8">
-          {Array.isArray(section) &&
-            section.map((props) => <Card variant="card-six" {...props} />)}
-        </div>
-      ),
-      variant?.includes("section-six") && (
-        <div class="flex flex-col md:flex-row gap-8">
-          {Array.isArray(section) &&
-            section.map((props) => <Card variant="card-seven" {...props} />)}
-        </div>
-      ),
-      variant?.includes("section-seven") && (
-        <div
-          class="md:max-w-5xl m-auto flex flex-col gap-6 md:gap-8 px-6 py-12 items-center"
-          class:list={{
-            "flex flex-col-reverse": classVariant?.includes("reversed"),
-          }}
-        >
-          <div>
->>>>>>> 9c43b8fa754bddacafaac6f6a008bae0cc8fcdcf
             <ImageBlock
 		classVariant="lgRounded"
-		imageWidth={400}
-		imageHeight={400}
-		{...section}
+			      imageWidth={400}
+			      imageHeight={400}
+			      {...section}
             />
         </div>
         <div class="flex flex-col gap-3">
-            <h2 class="md:text-center">{section.title}</h2>
-            <p class="md:text-center">{section.content}</p>
+            <h2 class="text-inherit md:text-center">{section.title}</h2>
+            <p class="text-inherit md:text-center">{section.content}</p>
         </div>
-<<<<<<< HEAD
     </div>
     ),
     variant?.includes("section-eight") && (
-    <div class="md:max-w-5xl m-auto flex flex-col md:flex-row gap-1.5 md:gap-6">
+    <div class="md:max-w-5xl m-auto flex flex-col md:flex-row px-6 gap-1.5 md:gap-6 py-6 md:py-16">
         <div class="flex flex-col gap-3">
-            <h2>{section.title}</h2>
-            <p>{section.content}</p>
+            <h2 class="text-inherit">{section.title}</h2>
+            <p class="text-inherit">{section.content}</p>
         </div>
-        <div class="flex gap-6 overflow-x-scroll py-3 snap-x snap-mandatory">
+        <div class="flex gap-6 overflow-x-scroll px-6 py-3 snap-x snap-mandatory">
             <div class="flex-none w-9/12 snap-center">
 		<ImageBlock
                     classVariant="fullWidth lgRounded"
@@ -167,7 +116,7 @@ import ImageBlock from "./ImageBlock.astro"
                     {...section}
 		/>
             </div>
-            <div class="flex-none w-9/12 snap-center">
+            <div class="flex-none w-9/12  snap-center">
 		<ImageBlock
                     classVariant="fullWidth lgRounded"
                     imageWidth={253}
@@ -187,75 +136,35 @@ import ImageBlock from "./ImageBlock.astro"
     </div>
     ),
     variant?.includes("section-nine") && (
-    <div class="md:max-w-5xl m-auto flex flex-col md:flex-row gap-6 py-8 md:py-12">
+    <div class="md:max-w-5xl m-auto flex flex-col md:flex-row gap-6 px-6 py-8 md:py-12 py-6 md:py-16">
         <div class="flex flex-col gap-6 w-full">
-=======
-      ),
-      variant?.includes("section-eight") && (
-        <div class="flex flex-col md:flex-row px-6 gap-1.5 md:gap-6">
-          <div class="flex flex-col gap-3">
-            <h2>{section.title}</h2>
-            <p>{section.content}</p>
-          </div>
-          <div class="flex gap-6 overflow-x-scroll px-6 py-3 snap-x snap-mandatory">
-            <div class="flex-none w-9/12 snap-center">
-              <ImageBlock
-                classVariant="fullWidth lgRounded"
-                imageWidth={253}
-                imageHeight={150}
-                {...section}
-              />
-            </div>
-            <div class="flex-none w-9/12  snap-center">
-              <ImageBlock
-                classVariant="fullWidth lgRounded"
-                imageWidth={253}
-                imageHeight={150}
-                {...section}
-              />
-            </div>
-            <div class="flex-none w-9/12 snap-center">
-              <ImageBlock
-                classVariant="fullWidth lgRounded"
-                imageWidth={253}
-                imageHeight={150}
-                {...section}
-              />
-            </div>
-          </div>
-        </div>
-      ),
-      variant?.includes("section-nine") && (
-        <div class="flex flex-col md:flex-row gap-6 px-6 py-8 md:py-12">
-          <div class="flex flex-col gap-6 w-full">
->>>>>>> 9c43b8fa754bddacafaac6f6a008bae0cc8fcdcf
             <div class="flex flex-col gap-3">
-		<h2>{section[0].title}</h2>
-		<p>{section[0].content}</p>
+		<h2 class="text-inherit">{section[0].title}</h2>
+		<p class="text-inherit">{section[0].content}</p>
             </div>
             <div class="flex gap-4">
 		<div class="flex flex-col gap-3 flex-1">
                     <ImageBlock
 			classVariant="flexStart lgRounded"
-			imageWidth={72}
-			imageHeight={72}
-			{...section[1]}
+				      imageWidth={72}
+				      imageHeight={72}
+				      {...section[1]}
                     />
                     <div class="flex flex-col gap-1">
-			<h3>{section[1].title}</h3>
-			<p>{section[1].content}</p>
+			<h3 class="text-inherit">{section[1].title}</h3>
+			<p class="text-inherit">{section[1].content}</p>
                     </div>
 		</div>
 		<div class="flex flex-col gap-3 flex-1">
                     <ImageBlock
 			classVariant="flexStart lgRounded"
-			imageWidth={72}
-			imageHeight={72}
-			{...section[2]}
+				      imageWidth={72}
+				      imageHeight={72}
+				      {...section[2]}
                     />
                     <div class="flex flex-col gap-1">
-			<h3>{section[2].title}</h3>
-			<p>{section[2].content}</p>
+			<h3 class="text-inherit">{section[2].title}</h3>
+			<p class="text-inherit">{section[2].content}</p>
                     </div>
 		</div>
             </div>
@@ -265,51 +174,42 @@ import ImageBlock from "./ImageBlock.astro"
             imageWidth={390}
             imageHeight={600}
             {...section[0]}
-<<<<<<< HEAD
         />
     </div>
     ),
     variant?.includes("section-ten") && (
-    <div class="md:max-w-5xl m-auto flex items-center flex-col bg-red-300 md:flex-row gap-6 md:gap-8 py-12 md:py-16">
+    <div class="md:max-w-5xl m-auto flex items-center flex-col md:flex-row gap-6 md:gap-8 px-6 py-6 md:py-16">
         <ImageBlock
-=======
-          />
-        </div>
-      ),
-      variant?.includes("section-ten") && (
-        <div class="flex items-center flex-col md:flex-row gap-6 md:gap-8 px-6 py-12 md:py-16">
-          <ImageBlock
->>>>>>> 9c43b8fa754bddacafaac6f6a008bae0cc8fcdcf
             classVariant="flexNone fullWidth followWidth"
             imageWidth={370}
             imageHeight={650}
             {...section[0]}
         />
         <div class="w-full flex flex-col gap-6">
-            <h2>{section[0].title}</h2>
+            <h2 class="text-inherit">{section[0].title}</h2>
             <div class="flex gap-4 h-full">
 		<div class="flex flex-col gap-3 items-center md:items-start flex-1">
                     <ImageBlock
 			classVariant="flexStart lgRounded"
-			imageWidth={72}
-			imageHeight={72}
-			{...section[1]}
+				      imageWidth={72}
+				      imageHeight={72}
+				      {...section[1]}
                     />
                     <div class="flex flex-col gap-1">
-			<h3 class="text-center md:text-left">{section[1].title}</h3>
-			<p class="text-center md:text-left">{section[1].content}</p>
+			<h3 class="text-inherit text-center md:text-left">{section[1].title}</h3>
+			<p class="text-inherit text-center md:text-left">{section[1].content}</p>
                     </div>
 		</div>
 		<div class="flex flex-col items-center md:items-start gap-3 flex-1">
                     <ImageBlock
 			classVariant="flexStart lgRounded"
-			imageWidth={72}
-			imageHeight={72}
-			{...section[2]}
+				      imageWidth={72}
+				      imageHeight={72}
+				      {...section[2]}
                     />
                     <div class="flex flex-col gap-1">
-			<h3 class="text-center md:text-left">{section[2].title}</h3>
-			<p class="text-center md:text-left">{section[2].content}</p>
+			<h3 class="text-inherit text-center md:text-left">{section[2].title}</h3>
+			<p class="text-inherit text-center md:text-left">{section[2].content}</p>
                     </div>
 		</div>
             </div>
@@ -317,36 +217,35 @@ import ImageBlock from "./ImageBlock.astro"
 		<div class="flex flex-col items-center md:items-start gap-3 flex-1">
                     <ImageBlock
 			classVariant="flexStart lgRounded"
-			imageWidth={72}
-			imageHeight={72}
-			{...section[3]}
+				      imageWidth={72}
+				      imageHeight={72}
+				      {...section[3]}
                     />
                     <div class="flex flex-col gap-1">
-			<h3 class="text-center md:text-left">{section[3].title}</h3>
-			<p class="text-center md:text-left">{section[3].content}</p>
+			<h3 class="text-inherit text-center md:text-left">{section[3].title}</h3>
+			<p class="text-inherit text-center md:text-left">{section[3].content}</p>
                     </div>
 		</div>
 		<div class="flex flex-col items-center md:items-start gap-3 flex-1">
                     <ImageBlock
 			classVariant="flexStart lgRounded"
-			imageWidth={72}
-			imageHeight={72}
-			{...section[4]}
+				      imageWidth={72}
+				      imageHeight={72}
+				      {...section[4]}
                     />
                     <div class="flex flex-col gap-1">
-			<h3 class="text-center md:text-left">{section[4].title}</h3>
-			<p class="text-center md:text-left">{section[4].content}</p>
+			<h3 class="text-inherit text-center md:text-left">{section[4].title}</h3>
+			<p class="text-inherit text-center md:text-left">{section[4].content}</p>
                     </div>
 		</div>
             </div>
         </div>
-<<<<<<< HEAD
     </div>
     ),
     variant?.includes("section-eleven") && (
-    <div class="md:max-w-5xl m-auto flex flex-col gap-8">
-        <p>{section[0].statement}</p>
-        <h2>{section[0].title}</h2>
+    <div class="md:max-w-5xl m-auto flex flex-col gap-8 px-6 py-6 md:py-16">
+        <p class="text-inherit">{section[0].statement}</p>
+        <h2 class="text-inherit">{section[0].title}</h2>
         <Card variant="card-three" {...section[1]} />
         <Card
             variant="card-three"
@@ -356,30 +255,12 @@ import ImageBlock from "./ImageBlock.astro"
         <Card variant="card-three" {...section[3]} />
     </div>
     ),
+
     variant?.includes("section-twelve") && (
-    <div class="md:max-w-5xl m-auto flex flex-col gap-6 md:flex-row">
+    <div class="md:max-w-5xl m-auto flex flex-col gap-6 md:flex-row px-6 py-6 md:py-16">
         <div class="flex flex-col justify-center gap-4 w-full">
-=======
-      ),
-      variant?.includes("section-eleven") && (
-        <div class="flex flex-col gap-8 px-6">
-          <p>{section[0].statement}</p>
-          <h2>{section[0].title}</h2>
-          <Card variant="card-three" {...section[1]} />
-          <Card
-            variant="card-three"
-            classVariant="sectionReversed"
-            {...section[2]}
-          />
-          <Card variant="card-three" {...section[3]} />
-        </div>
-      ),
-      variant?.includes("section-twelve") && (
-        <div class="flex flex-col gap-6 md:flex-row px-6">
-          <div class="flex flex-col justify-center gap-4 w-full">
->>>>>>> 9c43b8fa754bddacafaac6f6a008bae0cc8fcdcf
-            <h1>{section[0].title}</h1>
-            <p>{section[0].content}</p>
+            <h1 class="text-inherit">{section[0].title}</h1>
+            <p class="text-inherit">{section[0].content}</p>
         </div>
         <div class="grid grid-cols-2 gap-4 w-full">
             <div class="bg-light-foregroundFill flex flex-col items-center p-3 gap-2">
@@ -389,8 +270,8 @@ import ImageBlock from "./ImageBlock.astro"
                     imageHeight={56}
                     {...section[1]}
 		/>
-		<h3 class="text-center">{section[1].title}</h3>
-		<p class="text-center">{section[1].content}</p>
+		<h3 class="text-inherit text-center">{section[1].title}</h3>
+		<p class="text-inherit text-center">{section[1].content}</p>
             </div>
             <div class="bg-light-foregroundFill flex flex-col items-center p-3 gap-2">
 		<ImageBlock
@@ -399,8 +280,8 @@ import ImageBlock from "./ImageBlock.astro"
                     imageHeight={56}
                     {...section[1]}
 		/>
-		<h3 class="text-center">{section[1].title}</h3>
-		<p class="text-center">{section[1].content}</p>
+		<h3 class="text-inherit text-center">{section[1].title}</h3>
+		<p class="text-inherit text-center">{section[1].content}</p>
             </div>
             <div class="bg-light-foregroundFill flex flex-col items-center p-3 gap-2">
 		<ImageBlock
@@ -419,16 +300,12 @@ import ImageBlock from "./ImageBlock.astro"
                     imageHeight={56}
                     {...section[1]}
 		/>
-		<h3 class="text-center">{section[1].title}</h3>
-		<p class="text-center">{section[1].content}</p>
+		<h3 class="text-inherit text-center">{section[1].title}</h3>
+		<p class="text-inherit text-center">{section[1].content}</p>
             </div>
         </div>
     </div>
     ),
     ]
-<<<<<<< HEAD
     }
-=======
-  }
->>>>>>> 9c43b8fa754bddacafaac6f6a008bae0cc8fcdcf
 </section>
