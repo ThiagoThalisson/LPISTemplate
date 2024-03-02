@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Example from "../assets/Contact/Forms.svg"
+
+import ImageBlock from "../components/ImageBlock.astro"
+---
+
+<Layout title="Contact | LPIS Template" description="LPIS template contact page">
+    <main class="flex flex-col mt-[72px] mb-20 md:mb-0">
+		<section class="md:max-w-5xl m-auto flex flex-col md:flex-row px-6 mt-6 px-6">
+			<div class="flex flex-col gap-6">
+				<h1>Contact Us</h1>
+				<p>Get in touch if you have questions about the project or even want to work together</p>
+				<ImageBlock
+                    classVariant="fullWidth lgRounded"
+                    imageWidth={253}
+                    imageHeight={150}
+					imageUrl={Example}
+					imageAlt="Test."
+				/>
+			</div>
+			<div class="flex items-center justify-center">
+				<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeH-MJvHTXJrwIKh2WmOzc_eeCVG2us8uxWO3FCdLNBRVfQtg/viewform?embedded=true" width="600" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+			</div>
+		</section>
+    </main>
+</Layout>
