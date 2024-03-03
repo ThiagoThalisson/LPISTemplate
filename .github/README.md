@@ -1,6 +1,6 @@
 <div align="center">
 
-# [🧬 `LPIS Template`]() <!-- omit in toc -->
+# [🧬 `LPIS Template`](lpis-template.vercel.app) <!-- omit in toc -->
 
 </div>
 
