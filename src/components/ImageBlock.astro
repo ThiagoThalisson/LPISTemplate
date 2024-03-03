@@ -14,9 +14,8 @@ import { Image } from "astro:assets"
 ---
 
 <div
-    class="flex justify-center"
     class:list={[
-	   `!w-[${imageWidth}px] !h-[${imageHeight}px]`,
+	   `flex items-center justify-center !w-[${imageWidth}px] !h-[${imageHeight}px]`,
 	   classVariant?.includes("fullWidth") && "w-full",
 	   classVariant?.includes("flexStart") && "!justify-start",
 	   classVariant?.includes("flexEnd") && "!justify-end",
