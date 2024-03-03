@@ -66,17 +66,20 @@ classList: {
 }
 ---
 
-<div class="flex flex-col md:flex-row">
+<div class:list={{
+		"w-full": classVariant?.includes("fullWidth"),
+		}}
+     class="flex flex-col md:flex-row">
     {
     [
     variant?.includes("card-one") && (
     <div
         class="flex flex-col md:flex-row gap-3 md:gap-8"
         class:list={{
-        "flex-col-reverse md:flex-row-reverse":
-        classVariant?.includes("reversed"),
-        }}
-        >
+               "flex-col-reverse md:flex-row-reverse":
+               classVariant?.includes("reversed"),
+               }}
+    >
         <ImageBlock
             classVariant="fullWidth"
             imageWidth={1920}
@@ -173,9 +176,8 @@ classList: {
     <div class="flex flex-col md:items-center gap-4">
         <div class="flex md:flex-col gap-4 md:gap-6 items-center">
             <ImageBlock
-		classVariant="fullWidth"
-		imageWidth={1920}
-		imageHeight={1080}
+		imageWidth={56}
+		imageHeight={56}
 		imageUrl={imageUrl!}
 		imageAlt={imageAlt!}
             />

@@ -6,37 +6,108 @@ import Section from "../components/Section.astro"
 
 import Button from "../components/Button.astro"
 
-import Mission from "../assets/About/Mission.svg"
-import Vision from "../assets/About/Vision.svg"
-import Setup from "../assets/About/Setup.svg"
-import Documentation from "../assets/About/Documentation.png"
+import HeroImage from "../assets/About/HeroImage.svg"
+
+import Vision from "../assets/About/FirstSection/Vision.svg"
+import Mission from "../assets/About/FirstSection/Mission.svg"
+
+import Transparency from "../assets/About/SecondSection/Transparency.png"
+import Detail from "../assets/About/SecondSection/Detail.png"
+import Aesthetics from "../assets/About/SecondSection/Aesthetics.png"
+
+import Notebook from "../assets/About/ThirdSection/Notebook.svg"
+
+import Forms from "../assets/About/FourthSection/Forms.svg"
+import SecondHero from "../assets/About/SecondHero.png"
 
 const FirstHero = {
     title:
     "Breeded By Desperation To Result In A Solution",
     content:
     "Having to create defaults over and over shouldn’t be something in your creation process.",
-    imageUrl: Setup,
+    imageUrl: HeroImage,
     imageAlt: "Someone progressing on a step-by-step wizard.",
     buttonPath: "https://atomicfeast.notion.site/LPIS-Template-EN-US-c22eef0a9fdf4b66bb84105f5b9e25c1?pvs=4",
     buttonContent: "More On Docs",
 }
 
-const SecondSection = {
-    title:
-    "Our Vision",
-    content:
-    "Create a template that’s enjoyable to develop in, having a complete ecosystem with documentation, a design system and examples of code.",
-    imageUrl: Vision,
-    imageAlt: "A woman drawing art.",
-}
+const FirstSection = [
+    {
+	statement: "Our Standards",
+	title:
+	"Our Vision",
+	content:
+	"Create a template that’s enjoyable to develop in, having a complete ecosystem with documentation, a design system and examples of code.",
+	imageUrl: Vision,
+	imageAlt: "A woman drawing art.",
+    },
+    {
+	statement: "What We Aim To Achieve",
+	title:
+	"The Mission",
+	content:
+	"Be an easy-to-work-with template with a modern stack perfect for web development.",
+	imageUrl: Mission,
+	imageAlt: "A woman building a interface with geometrical elements.",
+    },
 
-const ThirdSection = {
+] 
+
+const SecondSection = [
+    {
+	title:
+	"Transparency",
+	content:
+	"Every process is documented a transparently available.",
+	imageUrl: Transparency,
+	imageAlt: "A handshake with a heart.",
+    },
+    {
+	title:
+	"Attention To Detail",
+	content:
+	"All procedures are made with a technical mentality, we don’t jump steps.",
+	imageUrl: Detail,
+	imageAlt: "A magnifying glass.",
+    },
+    {
+	title:
+	"Aesthetics",
+	content:
+	"A modern feel to every little component and page.",
+	imageUrl: Aesthetics,
+	imageAlt: "A shining diamond.",
+    },
+] 
+
+const ThirdSection = [
+    {
+	title:
+	"Credits",
+	imageUrl: Notebook,
+	imageAlt: "Two people writing on a overly sized notebook.",
+    },
+    {
+	title:
+	"Illustrations",
+	content:
+	"unDraw - Open source illustration service.",
+    },
+    {
+	title:
+	"Icons",
+	content:
+	`- Flaticon - A lot of icons, including colored ones. 
+	\n - Phosphor - A set of custom and beautiful icons.`,
+    },
+]
+
+const FourthSection = {
     title:
-    "The Mission",
+    "Contact Us",
     content:
-    "Be an easy-to-work-with template with a modern stack perfect for web development.",
-    imageUrl: Mission,
+    "Get in touch if you have questions about the project or even want to work together.",
+    imageUrl: Forms,
     imageAlt: "Someone placing geometrical elements in a page.",
 }
 
@@ -46,7 +117,7 @@ const LastHero = {
     "Come By To See It All",
     content:
     "On Github, you’ll find more general documentation both in Notion and Figma as well as access to this page and the source code.",
-    imageUrl: Documentation,
+    imageUrl: SecondHero,
     imageAlt: "Someone engolfed in documentation.",
     buttonPath: "https://github.com/ThiagoThalisson/LPISTemplate",
     buttonContent: "Get To Know It All",
@@ -54,10 +125,17 @@ const LastHero = {
 ---
 
 <Layout title="About | LPIS" description="LPIS template about page">
-    <Hero variant="hero-six" hero={FirstHero} />
-    <main class="flex flex-col mb-20 md:mb-0">
-	<Section classVariant="reversed" variant="section-seven" section={SecondSection} />
-	<Section variant="section-seven" section={ThirdSection} />
+    <main class="flex flex-col mb-20 md:mb-0 mt-[72px]">
+	<Hero variant="hero-six" hero={FirstHero} />
+	<Section variant="section-one" section={FirstSection} />
+	<Section variant="section-six" section={SecondSection} />
+	<Section variant="section-four" section={ThirdSection} />
+	<div class="md:max-w-5xl m-auto px-6 py-6 md:py-16 flex gap-8 flex flex-col md:flex-row">
+	    <Section variant="section-seven" section={FourthSection} />
+	    <div class="flex w-full justify-center">
+		<iframe class="w-full" src="https://docs.google.com/forms/d/e/1FAIpQLSeH-MJvHTXJrwIKh2WmOzc_eeCVG2us8uxWO3FCdLNBRVfQtg/viewform?embedded=true" width="300" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+	    </div>
+	</div>
 	<Hero variant="hero-one" hero={LastHero} />
     </main>
 </Layout>
