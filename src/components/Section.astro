@@ -5,27 +5,27 @@ import type { ImageTypes } from "../common/image.type"
 type Props = BaseInterface & SectionProps
 type SectionProps =
 | {
-variant:
-| "section-one"
-| "section-two"
-| "section-four"
-| "section-seven"
-| "section-nine"
+    variant:
+    | "section-one"
+    | "section-two"
+    | "section-four"
+    | "section-seven"
+    | "section-nine"
 
-section: ImageTypes
+    section: ImageTypes
 }
 | {
-variant:
-| "section-three"
-| "section-five"
-| "section-six"
-| "section-eight"
-| "section-nine"
-| "section-ten"
-| "section-eleven"
-| "section-twelve"
+    variant:
+    | "section-three"
+    | "section-five"
+    | "section-six"
+    | "section-eight"
+    | "section-nine"
+    | "section-ten"
+    | "section-eleven"
+    | "section-twelve"
 
-section: ImageTypes[]
+    section: ImageTypes[]
 }
 
 const { variant, classVariant } = Astro.props

@@ -6,64 +6,65 @@ import ImageBlock from "./ImageBlock.astro"
 
 type Props = BaseInterface &
 (
-| {
-variant:
-| "card-one"
-| "card-two"
-| "card-three"
-| "card-four"
-| "card-six"
-| "card-seven"
+    | {
+	variant:
+	| "card-one"
+	| "card-two"
+	| "card-three"
+	| "card-four"
+	| "card-six"
+	| "card-seven"
 
-imageUrl: ImageMetadata
-imageAlt: string
-secondaryContent?: string
-buttonContent: string
-buttonPath?: string
-}
-| {
-variant: "card-five"
+	imageUrl: ImageMetadata
+	imageAlt: string
+	secondaryContent?: string
+	buttonContent: string
+	buttonPath?: string
+    }
+    | {
+	variant: "card-five"
 
-secondaryContent?: string
-imageUrl?: ImageMetadata
-imageAlt?: string
-buttonContent: string
-buttonPath?: string
-}
-| {
-variant: "card-two"
-secondaryContent: string
-buttonContent: string
-buttonPath?: string
-imageUrl?: ImageMetadata
-imageAlt?: string
-}
+	secondaryContent?: string
+	imageUrl?: ImageMetadata
+	imageAlt?: string
+	buttonContent: string
+	buttonPath?: string
+    }
+    | {
+	variant: "card-two"
+	secondaryContent: string
+	buttonContent: string
+	buttonPath?: string
+	imageUrl?: ImageMetadata
+	imageAlt?: string
+    }
 )
 
 const {
-variant,
-classVariant,
-title,
-content,
-secondaryContent,
-statement,
-imageUrl,
-imageAlt,
-buttonContent,
-buttonPath,
+    variant,
+    classVariant,
+    title,
+    content,
+    secondaryContent,
+    statement,
+    imageUrl,
+    imageAlt,
+    buttonContent,
+    buttonPath,
 } = Astro.props
 
 type TextRightType = {
-classList: {
-[className: string]: boolean
-}
+    classList: {
+	[className: string]: boolean
+    }
 }
 
 const textRight: TextRightType = {
-classList: {
-"text-right md:text-left": classVariant?.includes("rightText") ?? false,
-},
+    classList: {
+	"text-right md:text-left": classVariant?.includes("rightText") ?? false,
+    },
 }
+
 ---
 
 <div class:list={{

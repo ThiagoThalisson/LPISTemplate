@@ -4,22 +4,22 @@ import Button from "./Button.astro"
 import type { BaseInterface } from "../common/base.interface"
 
 type Page = {
-name: string
-slug: string
-image: string
+    name: string
+    slug: string
+    image: string
 }
 
 const pages: Page[] = [
-{
-name: "Home",
-slug: "/",
-image: "/icons/house.svg",
-},
-{
-name: "About",
-slug: "/about",
-image: "/icons/info.svg",
-},
+    {
+	name: "Home",
+	slug: "/",
+	image: "/icons/house.svg",
+    },
+    {
+	name: "About",
+	slug: "/about",
+	image: "/icons/info.svg",
+    },
 ]
 
 const { variant } = Astro.props
