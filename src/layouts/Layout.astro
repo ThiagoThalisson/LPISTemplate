@@ -9,6 +9,8 @@ const { title, description } = Astro.props
 
 import Header from "../components/Header.astro"
 import SEO from "./SEO.astro"
+
+import { ViewTransitions } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -25,6 +27,8 @@ import SEO from "./SEO.astro"
 	    globalDescription="A dynamic Astro SSG template to help freelancers around the world."
 	    site="https://lpis-template.vercel.app/"
 	/>
+
+	<ViewTransitions />
     </head>
     <body class="bg-light-fill">
 	<Header />
