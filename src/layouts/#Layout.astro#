@@ -75,7 +75,7 @@ import { ViewTransitions } from 'astro:transitions';
 		style="display:none;visibility:hidden">
 	    </iframe>
 	</noscript>
-	<Header transition:persist />
+	<Header />
 	<slot />
 	<Footer />
 	<Consent />

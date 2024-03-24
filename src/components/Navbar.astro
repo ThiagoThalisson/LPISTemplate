@@ -55,8 +55,9 @@ interface Props extends BaseInterface {}
     variant?.includes("desktop") && (
     <div class="flex items-center max-w-screen-lg gap-3">
         {pages.map((page) => (
-        <a
+        <a 
             data-nav
+	    transition:persist
             href={page.slug}
             class:list={"hidden md:block px-4 py-2"}
         >
@@ -89,7 +90,7 @@ interface Props extends BaseInterface {}
 
 </style>
 
-<script defer>
+<script data-astro-rerun is:inline>
  function main() {
      const pathname = location.pathname
      const links = document.querySelectorAll("nav a[data-nav]")
