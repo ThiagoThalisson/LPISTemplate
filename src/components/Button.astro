@@ -9,7 +9,7 @@ const { variant, classVariant, content, link } = Astro.props
 ---
 
 <button
-  class="max-w-max flex text-dark-title bg-primary-base hover:!bg-primary-darkest focus:border-primary-dark focus:border-4 focus:border-solid focus:outline-none transition-colors group"
+  class="max-w-max flex bg-primary-base hover:!bg-primary-darkest focus:border-primary-dark focus:border-4 focus:border-solid focus:outline-none transition-colors group"
   class:list={{
     "rounded-lg": classVariant?.includes("filledLgRounded"),
     "rounded-full": classVariant?.includes("filledFullRounded"),
@@ -31,7 +31,7 @@ const { variant, classVariant, content, link } = Astro.props
         {content}
       </a>
     ) : (
-      <p class="px-6 py-3 md:px-8">{content}</p>
+      <p class="text-dark-title px-6 py-3 md:px-8">{content}</p>
     )
   }
 </button>
