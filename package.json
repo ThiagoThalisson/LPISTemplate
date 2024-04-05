@@ -1,5 +1,5 @@
 {
-  "name": "steadfast-star",
+  "name": "lpis-template",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -22,5 +22,8 @@
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.4.1"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
