@@ -3,7 +3,7 @@ import "/src/global.css"
 
 import type { BaseInterface } from "../common/base.interface"
 export interface Props extends BaseInterface {
-description: string
+  description: string
 }
 const { title, description } = Astro.props
 
@@ -12,36 +12,36 @@ import Footer from "../components/Footer.astro"
 import Consent from "../components/Consent.astro"
 import SEO from "./SEO.astro"
 
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions"
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-	<script>
-	 window.dataLayer = window.dataLayer || []
-	 function gtag() {
-             dataLayer.push(arguments)
-	 }
-	 window.gtag = gtag
+  <head>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      window.gtag = gtag
 
-	 if (localStorage.getItem("consentMode") === null) {
-             gtag("consent", "default", {
-		 ad_storage: "denied",
-		 analytics_storage: "denied",
-		 functionality_storage: "denied",
-		 security_storage: "denied",
-             })
-	 } else {
-             gtag(
-		 "consent",
-		 "default",
-		 JSON.parse(localStorage.getItem("consentMode"))
-             )
-	 }
-	</script>
-	<script>
-	 /* ;(function (w, d, s, l, i) {
+      if (localStorage.getItem("consentMode") === null) {
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          analytics_storage: "denied",
+          functionality_storage: "denied",
+          security_storage: "denied",
+        })
+      } else {
+        gtag(
+          "consent",
+          "default",
+          JSON.parse(localStorage.getItem("consentMode")),
+        )
+      }
+    </script>
+    <script>
+      /* ;(function (w, d, s, l, i) {
             w[l] = w[l] || []
             w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" })
             var f = d.getElementsByTagName(s)[0],
@@ -51,33 +51,32 @@ import { ViewTransitions } from 'astro:transitions';
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
             f.parentNode.insertBefore(j, f)
 	    })(window, document, "script", "dataLayer", "GTM-0000000") */
-	</script>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<meta name="generator" content={Astro.generator} />
-	<meta name="description" content={description} />
-	<title>{title}</title>
-	<SEO
-	    globalTitle="Landing Page and Institucional Site template."
-	    globalDescription="A dynamic Astro SSG template to help freelancers around the world."
-	    site="https://lpis-template.vercel.app/"
-	/>
-
-	<ViewTransitions />
-    </head>
-    <body class="bg-light-fill">
-	<noscript>
-	    <iframe
-		src="https://www.googletagmanager.com/ns.html?id=GTM-0000000"
-		height="0"
-		width="0"
-		style="display:none;visibility:hidden">
-	    </iframe>
-	</noscript>
-	<Header />
-	<slot />
-	<Footer />
-	<Consent />
-    </body>
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <SEO
+      globalTitle="Landing Page and Institucional Site template."
+      globalDescription="A dynamic Astro SSG template to help freelancers around the world."
+      site="https://lpis-template.vercel.app/"
+    />
+  </head>
+  <body class="mb-[80px] lg:mb-0 bg-light-fill">
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-0000000"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      >
+      </iframe>
+    </noscript>
+    <Header />
+    <slot />
+    <Footer />
+    <Consent />
+  </body>
 </html>
