@@ -3186,6 +3186,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lpis-template@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "lpis-template@workspace:."
+  dependencies:
+    "@astrojs/sitemap": "npm:^3.1.1"
+    "@astrojs/tailwind": "npm:^5.1.0"
+    astro: "npm:^4.5.9"
+    dlx: "npm:^0.2.1"
+    prettier: "npm:^3.2.5"
+    prettier-plugin-astro: "npm:^0.13.0"
+    prettier-plugin-tailwindcss: "npm:^0.4.1"
+    sharp: "npm:^0.33.2"
+    tailwindcss: "npm:^3.4.1"
+  languageName: unknown
+  linkType: soft
+
 "lru-cache@npm:^10.0.1, lru-cache@npm:^9.1.1 || ^10.0.0":
   version: 10.2.0
   resolution: "lru-cache@npm:10.2.0"
@@ -5168,22 +5184,6 @@ __metadata:
   checksum: 10c0/3bbf7f8107e49c05b4a46bd739afdd34605cf1f06a038c8b2a33d034bf146344fc0ebc5149df1e6422510dd219971a220f25b1102413ef5128fe267683fbef9d
   languageName: node
   linkType: hard
-
-"steadfast-star@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "steadfast-star@workspace:."
-  dependencies:
-    "@astrojs/sitemap": "npm:^3.1.1"
-    "@astrojs/tailwind": "npm:^5.1.0"
-    astro: "npm:^4.5.9"
-    dlx: "npm:^0.2.1"
-    prettier: "npm:^3.2.5"
-    prettier-plugin-astro: "npm:^0.13.0"
-    prettier-plugin-tailwindcss: "npm:^0.4.1"
-    sharp: "npm:^0.33.2"
-    tailwindcss: "npm:^3.4.1"
-  languageName: unknown
-  linkType: soft
 
 "streamx@npm:^2.13.0, streamx@npm:^2.15.0":
   version: 2.16.1
